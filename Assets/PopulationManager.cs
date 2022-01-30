@@ -27,6 +27,7 @@ public class PopulationManager : MonoBehaviour
         GUI.Label(new Rect(10,25,200,30), $"Generation: {generation}",guiStyle);
         GUI.Label(new Rect(10,50,200,30), string.Format("Time: {0:0.00}",_elapsed),guiStyle);
         GUI.Label(new Rect(10,75,200,30), $"Population: {population.Count}",guiStyle);
+        GUI.Label(new Rect(10,100,200,30), $"Alive: {activeEthans}",guiStyle);
         GUI.EndGroup();
     }
 
@@ -71,8 +72,9 @@ public class PopulationManager : MonoBehaviour
 
     private void BreedNewPopulation()
     {
+        generation++;
         activeEthans = populationSize;
-        List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain>().Distance).ToList();
+        List<GameObject> sortedList = population.OrderBy(o => (o.GetComponent<Brain>().Distance + o.GetComponent<Brain>().timeAlive)).ToList();
         population.Clear();
         for (int i = (int) (sortedList.Count / 2.0f) - 1; i < sortedList.Count -1; i++)
         {

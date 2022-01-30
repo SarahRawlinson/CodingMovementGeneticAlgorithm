@@ -278,7 +278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4137118576515574}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &137216203425105556
 SkinnedMeshRenderer:
@@ -1540,6 +1540,7 @@ GameObject:
   - component: {fileID: 136732107044549898}
   - component: {fileID: 114074067701618710}
   - component: {fileID: 3017592217736774903}
+  - component: {fileID: 8489000542600782796}
   m_Layer: 6
   m_Name: Bot
   m_TagString: Untagged
@@ -1558,6 +1559,7 @@ Transform:
   m_LocalPosition: {x: 0.88, y: -7.00616e-18, z: -65.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5652480552693861740}
   - {fileID: 4720047500798090}
   - {fileID: 4868794245151230}
   - {fileID: 4399011015613606}
@@ -1645,8 +1647,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21a7f726b57cf94f94f83d3908e0d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DNALength: 1
+  _DNALength: 10
   timeAlive: 0
+--- !u!114 &8489000542600782796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565522241125702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328cc0c1a8a462845ac412bc1612165f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibility: 0
+  colour: {r: 0.9150943, g: 0.048920073, b: 0.048920073, a: 1}
+  viewRadius: 7.79
+  tagToLookFor:
+  - Untagged
+  viewAngle: 62
+  eye: {fileID: 5652480552693861740}
 --- !u!1 &1578918934834248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1850,7 @@ Transform:
   m_Children:
   - {fileID: 4450331367148562}
   m_Father: {fileID: 4137118576515574}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646045972833304
 GameObject:
@@ -2694,7 +2715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4137118576515574}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &137831293344865544
 SkinnedMeshRenderer:
@@ -2879,3 +2900,33 @@ Transform:
   m_Father: {fileID: 4382356440941130}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5150290731859303346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5652480552693861740}
+  m_Layer: 6
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5652480552693861740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150290731859303346}
+  m_LocalRotation: {x: 0.17462675, y: -0, z: -0, w: 0.9846347}
+  m_LocalPosition: {x: 0, y: 1.396, z: 0.06600189}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4137118576515574}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 20.114, y: 0, z: 0}

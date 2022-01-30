@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class DNA 
@@ -22,7 +23,7 @@ public class DNA
         genes.Clear();
         for (int i = 0; i < dnaLegnth; i++)
         {
-            genes.Add(Random.Range(0, maxValues));
+            genes.Add(Mathf.RoundToInt(Random.Range(0f, maxValues)));
         }
     }
 
