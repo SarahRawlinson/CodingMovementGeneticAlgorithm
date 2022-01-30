@@ -1,0 +1,1491 @@
+Using pre-set license
+Built from '2020.2/staging' branch; Version is '2020.2.3f1 (8ff31bc5bf5b) revision 9433883'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19044.1466; Version 2009; 64bit' Language: 'en' Physical Memory: 16298 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.2.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+63766
+Successfully changed project path to: C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm
+C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 15.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.3f1 (8ff31bc5bf5b)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 (ID=0x2206)
+    Vendor:   
+    VRAM:     10078 MB
+    Driver:   30.0.14.9729
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56548
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001685 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 16.63 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.755 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000601 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.508 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.8 MB.
+System memory in use after: 57.8 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1585.
+Total: 1.371600 ms (FindLiveObjects: 0.130400 ms CreateObjectMapping: 0.042300 ms MarkObjects: 1.140900 ms  DeleteObjects: 0.057400 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Scenes
+  artifactKey: Guid(b8d69ceaf78c5394484e77881ea778a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(b8d69ceaf78c5394484e77881ea778a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab829b3394f43957a88dd10591c0094a') in 0.003629 seconds
+  Import took 0.005221 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0ba9fd0a808516969c642a6079d4ee5') in 0.006840 seconds
+  Import took 0.008148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.342088 seconds.
+  path: Assets/Standard Assets
+  artifactKey: Guid(9da803ebd6135ba4394fe5fac9a3fd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Standard Assets using Guid(9da803ebd6135ba4394fe5fac9a3fd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66b1ffa1a2c1b829a1413bd4a84e35c7') in 0.002222 seconds
+  Import took 0.003582 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Standard Assets
+  artifactKey: Guid(9da803ebd6135ba4394fe5fac9a3fd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Standard Assets using Guid(9da803ebd6135ba4394fe5fac9a3fd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66b1ffa1a2c1b829a1413bd4a84e35c7') in 0.001513 seconds
+  Import took 0.002435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 449.850640 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '653ce283d384579a24208b2e4d727c2a') in 0.001845 seconds
+  Import took 0.003451 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.289302 seconds.
+  path: Assets/DNA.cs
+  artifactKey: Guid(c50ea1a1a2b6a8148a8f2ce08e4416e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DNA.cs using Guid(c50ea1a1a2b6a8148a8f2ce08e4416e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4ef82d392341a362c6fdbb28dcac86d') in 0.013053 seconds
+  Import took 0.014629 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000620 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.484 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1140 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.7 MB.
+System memory in use after: 57.8 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1588.
+Total: 1.377600 ms (FindLiveObjects: 0.130200 ms CreateObjectMapping: 0.027000 ms MarkObjects: 1.182800 ms  DeleteObjects: 0.036900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 743.370962 seconds.
+  path: Assets/Brain.cs
+  artifactKey: Guid(b21a7f726b57cf94f94f83d3908e0d94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brain.cs using Guid(b21a7f726b57cf94f94f83d3908e0d94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12cb81bad6f7c023015f9d46161f90a0') in 0.003730 seconds
+  Import took 0.005317 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000540 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.491 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1141 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.8 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1591.
+Total: 1.452100 ms (FindLiveObjects: 0.123800 ms CreateObjectMapping: 0.033500 ms MarkObjects: 1.260300 ms  DeleteObjects: 0.033400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000486 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.488 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1141 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.8 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1593.
+Total: 1.330500 ms (FindLiveObjects: 0.118100 ms CreateObjectMapping: 0.028600 ms MarkObjects: 1.143800 ms  DeleteObjects: 0.038700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 473.347275 seconds.
+  path: Assets/Brain.cs
+  artifactKey: Guid(b21a7f726b57cf94f94f83d3908e0d94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brain.cs using Guid(b21a7f726b57cf94f94f83d3908e0d94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '392a01365910590bb06289476b941414') in 0.003177 seconds
+  Import took 0.004457 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.500666 seconds.
+  path: Assets/WalkStraight.unity
+  artifactKey: Guid(d8f9960e8e62a4f9abf0285be00571c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WalkStraight.unity using Guid(d8f9960e8e62a4f9abf0285be00571c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f2e215e21c6a9905d2579fd7aca0974') in 0.006358 seconds
+  Import took 0.007916 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000498 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.477 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1141 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.8 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1595.
+Total: 1.280800 ms (FindLiveObjects: 0.114200 ms CreateObjectMapping: 0.029100 ms MarkObjects: 1.108400 ms  DeleteObjects: 0.028400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1093.796984 seconds.
+  path: Assets/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73ab4fb56f20102020df85f604df4416') in 0.288057 seconds
+  Import took 0.292033 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 74.082174 seconds.
+  path: Assets/PoulationManager.cs
+  artifactKey: Guid(f10f535a1112ffb459c0be644ec94f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PoulationManager.cs using Guid(f10f535a1112ffb459c0be644ec94f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13fd35fa7227ebcff5e2839d1a730e48') in 0.002475 seconds
+  Import took 0.004398 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000471 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.495 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.3 MB.
+System memory in use after: 72.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1607.
+Total: 2.110200 ms (FindLiveObjects: 0.242000 ms CreateObjectMapping: 0.088000 ms MarkObjects: 1.734700 ms  DeleteObjects: 0.044700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.746128 seconds.
+  path: Assets/PopulationManager.cs
+  artifactKey: Guid(f10f535a1112ffb459c0be644ec94f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PopulationManager.cs using Guid(f10f535a1112ffb459c0be644ec94f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2079507dec6014d1fc4ce76dcfaab839') in 0.003982 seconds
+  Import took 0.006088 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000674 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.501 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.3 MB.
+System memory in use after: 72.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1609.
+Total: 1.642300 ms (FindLiveObjects: 0.172700 ms CreateObjectMapping: 0.049400 ms MarkObjects: 1.368600 ms  DeleteObjects: 0.050700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1103.614282 seconds.
+  path: Assets/PopulationManager.cs
+  artifactKey: Guid(f10f535a1112ffb459c0be644ec94f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PopulationManager.cs using Guid(f10f535a1112ffb459c0be644ec94f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0897f90bd85b57a21cae46a7ab67904') in 0.003834 seconds
+  Import took 0.005679 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.096185 seconds.
+  path: Assets/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc85261f01b8f9b5a122e760645fc98f') in 0.098869 seconds
+  Import took 0.102881 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.854121 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3feff5fae10247456117a9ccebeb351d') in 0.003634 seconds
+  Import took 0.005296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001039 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3feff5fae10247456117a9ccebeb351d') in 0.002285 seconds
+  Import took 0.003832 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000598 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.494 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.4 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1612.
+Total: 1.527300 ms (FindLiveObjects: 0.136800 ms CreateObjectMapping: 0.038900 ms MarkObjects: 1.311700 ms  DeleteObjects: 0.039100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000543 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.484 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1614.
+Total: 1.443300 ms (FindLiveObjects: 0.135300 ms CreateObjectMapping: 0.031500 ms MarkObjects: 1.233700 ms  DeleteObjects: 0.041800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000503 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.481 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1616.
+Total: 1.326300 ms (FindLiveObjects: 0.130600 ms CreateObjectMapping: 0.023500 ms MarkObjects: 1.136800 ms  DeleteObjects: 0.034700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000472 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.473 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1618.
+Total: 1.324200 ms (FindLiveObjects: 0.121500 ms CreateObjectMapping: 0.029900 ms MarkObjects: 1.138200 ms  DeleteObjects: 0.033900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000600 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.493 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1620.
+Total: 1.408800 ms (FindLiveObjects: 0.127200 ms CreateObjectMapping: 0.037400 ms MarkObjects: 1.209400 ms  DeleteObjects: 0.034000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 5303.257423 seconds.
+  path: Assets/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f667e7b9465a9f43aa3c432ce19e165b') in 0.088906 seconds
+  Import took 0.092953 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000514 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.477 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1623.
+Total: 1.411000 ms (FindLiveObjects: 0.206900 ms CreateObjectMapping: 0.032800 ms MarkObjects: 1.139000 ms  DeleteObjects: 0.031300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000648 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.482 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1625.
+Total: 1.283300 ms (FindLiveObjects: 0.108800 ms CreateObjectMapping: 0.030700 ms MarkObjects: 1.113900 ms  DeleteObjects: 0.029200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 70.449627 seconds.
+  path: Assets/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1f7babb519694a8505ffa00767bc4cf') in 0.089118 seconds
+  Import took 0.093072 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000558 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.480 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1628.
+Total: 1.303500 ms (FindLiveObjects: 0.097200 ms CreateObjectMapping: 0.027400 ms MarkObjects: 1.145300 ms  DeleteObjects: 0.032800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000501 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.489 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1630.
+Total: 1.304100 ms (FindLiveObjects: 0.139000 ms CreateObjectMapping: 0.029500 ms MarkObjects: 1.096600 ms  DeleteObjects: 0.038300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000630 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.483 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1632.
+Total: 1.493700 ms (FindLiveObjects: 0.156300 ms CreateObjectMapping: 0.045100 ms MarkObjects: 1.254700 ms  DeleteObjects: 0.036800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000518 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.479 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1634.
+Total: 1.288000 ms (FindLiveObjects: 0.117100 ms CreateObjectMapping: 0.030000 ms MarkObjects: 1.103900 ms  DeleteObjects: 0.036200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000658 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.505 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1636.
+Total: 1.640300 ms (FindLiveObjects: 0.187200 ms CreateObjectMapping: 0.027200 ms MarkObjects: 1.385300 ms  DeleteObjects: 0.039900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000728 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.480 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1638.
+Total: 1.598200 ms (FindLiveObjects: 0.154500 ms CreateObjectMapping: 0.042400 ms MarkObjects: 1.352900 ms  DeleteObjects: 0.047400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000498 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.479 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1640.
+Total: 1.438200 ms (FindLiveObjects: 0.140700 ms CreateObjectMapping: 0.037000 ms MarkObjects: 1.220700 ms  DeleteObjects: 0.039000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000659 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.566 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1642.
+Total: 1.550500 ms (FindLiveObjects: 0.192000 ms CreateObjectMapping: 0.049600 ms MarkObjects: 1.254800 ms  DeleteObjects: 0.052800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000491 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.496 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1644.
+Total: 1.342200 ms (FindLiveObjects: 0.130800 ms CreateObjectMapping: 0.031100 ms MarkObjects: 1.146500 ms  DeleteObjects: 0.033100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000652 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+PlayerSettings Validation: Requested build target group (20) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (22) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+PlayerSettings Validation: Requested build target group (17) doesn't exist; #define symbols for scripting won't be added.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.PlayerSettings:SetScriptingDefineSymbolsForGroup (UnityEditor.BuildTargetGroup,string)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:SetEnabled (string,bool,bool) (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:128)
+UnityStandardAssets.CrossPlatformInput.Inspector.CrossPlatformInitialize:.cctor () (at Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Assets/Standard Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs line 128]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.494 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.5 MB.
+System memory in use after: 72.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1646.
+Total: 1.631300 ms (FindLiveObjects: 0.248200 ms CreateObjectMapping: 0.026900 ms MarkObjects: 1.309800 ms  DeleteObjects: 0.045800 ms)
+
