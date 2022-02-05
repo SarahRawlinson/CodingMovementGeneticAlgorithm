@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - dead
+  - Ethan
+  - Floor
+  - MovingObject
   layers:
   - Default
   - TransparentFX

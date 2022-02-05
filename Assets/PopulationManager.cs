@@ -62,10 +62,23 @@ public class PopulationManager : MonoBehaviour
         var position = transform.position;
         var offspring = CreateEthan(position);
         Brain brain = offspring.GetComponent<Brain>();
-        brain._dna.Combine(parent1.GetComponent<Brain>()._dna,parent2.GetComponent<Brain>()._dna);
+        brain._movementDNA.Combine(parent1.GetComponent<Brain>()._movementDNA,parent2.GetComponent<Brain>()._movementDNA);
+        brain._priorityDNA.Combine(parent1.GetComponent<Brain>()._priorityDNA,parent2.GetComponent<Brain>()._priorityDNA);
+        brain._heightDNA.Combine(parent1.GetComponent<Brain>()._heightDNA,parent2.GetComponent<Brain>()._heightDNA);
         if (Random.Range(0f, 1f) < mutationChance)
         {
-            brain._dna.Mutate();
+            switch (Random.Range(0, 3))
+            {
+                case 0:
+                    brain._movementDNA.Mutate();
+                    break;
+                case 1:
+                    brain._priorityDNA.Mutate();
+                    break;
+                case 2:
+                    brain._heightDNA.Mutate();
+                    break;
+            }
         }
         return offspring;
     }

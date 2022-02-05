@@ -9,7 +9,12 @@ public class DNA
     private List<int> genes = new List<int>();
     private int dnaLegnth = 0;
     private int maxValues = 0;
-    
+
+    public List<int> GetGenes()
+    {
+        return genes;
+    }
+
 
     public DNA(int l, int v)
     {

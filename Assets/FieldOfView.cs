@@ -10,11 +10,13 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] Visibility visibility;
     [SerializeField] Color colour;
     [SerializeField] float viewRadius;
-    [SerializeField] List<string> tagToLookFor;
+    // [SerializeField] List<string> tagToLookFor;
+    [SerializeField] private LayerMask _layerMask;
     [Range(0,360)]
     [SerializeField] float viewAngle;
     [SerializeField] Transform eye = null;
     private readonly List<GameObject> _visibleTargets = new List<GameObject>();
+    private readonly List<Vector3> _visibleVector3s = new List<Vector3>();
     public float ViewRadius { get => viewRadius; set => viewRadius = value; }
     public float ViewAngle { get => viewAngle; set => viewAngle = value; }
     public List<GameObject> VisibleTargets { get => _visibleTargets;}
@@ -31,40 +33,53 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    public void LookAtTarget(Transform target)
-    {
-        if (eye == null) return;
-        eye.transform.LookAt(target);
-    }
+    
 
-    public List<GameObject> FindVisibleTargets(ITestForTarget testForTarget)
+    public (List<GameObject>, List<Vector3>) FindVisibleTargets(ITestForTarget testForTarget)
     {
         Transform hasHit = null;
         _visibleTargets.Clear();
+        _visibleVector3s.Clear();
         try
         {
             Collider[] targetsInViewRadius = Physics.OverlapSphere(eye.position, viewRadius);
             for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
-                if (!tagToLookFor.Contains(targetsInViewRadius[i].gameObject.tag)) continue;
+                // if (!tagToLookFor.Contains(targetsInViewRadius[i].gameObject.tag)) continue;
                 Transform target = targetsInViewRadius[i].transform;
                 Vector3 directionToTarget = target.position;
-                if (Vector3.Angle(eye.forward, (directionToTarget - eye.position).normalized) < viewAngle / 2)
+                if (targetsInViewRadius[i].gameObject.CompareTag($"Floor"))
                 {
-                    hasHit = TestRayTransformForTarget(testForTarget, target, directionToTarget, targetsInViewRadius[i]);
+                    RaycastHit hit;
+                    // Does the ray intersect any objects excluding the player layer
+                    if (Physics.Raycast(eye.transform.position, eye.transform.TransformDirection(Vector3.forward),
+                        out hit, viewRadius, _layerMask))
+                    {
+                         // Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                        // Debug.Log("Did Hit");
+                        if (hit.collider.CompareTag($"Floor")) hasHit = TestRayTransformForTarget(testForTarget, target, directionToTarget, targetsInViewRadius[i], hit.point);
+                    }
+                    // else
+                    // {
+                    //     Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+                    // }
+                }
+                else if (Vector3.Angle(eye.forward, (directionToTarget - eye.position).normalized) < viewAngle / 2)
+                {
+                    hasHit = TestRayTransformForTarget(testForTarget, target, directionToTarget, targetsInViewRadius[i], target.transform.position);
                 }
             }
         }
         catch (System.Exception e)
         {
-            Debug.Log($"No Targets - {e.Message} - {e.TargetSite}");
+            // Debug.Log($"No Targets - {e.Message} - {e.TargetSite}");
         }
-        return _visibleTargets;
+        return (_visibleTargets, _visibleVector3s);
     }
 
-    private Transform TestRayTransformForTarget(ITestForTarget testForTarget, Transform target, Vector3 directionToTarget, Collider collider)
+    private Transform TestRayTransformForTarget(ITestForTarget testForTarget, Transform target, Vector3 directionToTarget, Collider collider, Vector3 hitpos)
     {
-        Ray ray = new Ray(eye.position, (directionToTarget - eye.position).normalized * viewRadius);
+        Ray ray = new Ray(eye.position, (hitpos - eye.position).normalized * viewRadius);
         RaycastHit hit;
         Transform hitTransform = null;
         bool hasHit = Physics.Raycast(ray, out hit);
@@ -83,7 +98,9 @@ public class FieldOfView : MonoBehaviour
             hasHit = tple.on;
             if (hasHit)
             {
+                // Debug.DrawLine(eye.transform.position, hit.transform.position);
                 _visibleTargets.Add(tple.obj);
+                _visibleVector3s.Add(hitpos);
             }
         }
         return hitTransform;
