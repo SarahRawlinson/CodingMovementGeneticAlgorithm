@@ -1660,6 +1660,14 @@ MonoBehaviour:
   - Floor
   - MovingObject
   - dead
+  - MoveObjectUpDown
+  - MoveForwardBackwards
+  - StaticObject
+  tagsForDie:
+  - MovingObject
+  - MoveObjectUpDown
+  - MoveForwardBackwards
+  - dead
 --- !u!114 &8489000542600782796
 MonoBehaviour:
   m_ObjectHideFlags: 0

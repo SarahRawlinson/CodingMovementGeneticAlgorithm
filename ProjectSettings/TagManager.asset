@@ -8,6 +8,9 @@ TagManager:
   - Ethan
   - Floor
   - MovingObject
+  - MoveObjectUpDown
+  - MoveForwardBackwards
+  - StaticObject
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,10 @@ public class PopulationManager : MonoBehaviour
     private int generation = 1;
     private GUIStyle guiStyle = new GUIStyle();
     private int activeEthans;
+    [Range(0, 20)]
+    [SerializeField] float gameSpeed;
 
+    
     [Range(0f, 1f)] [SerializeField] private float mutationChance = 0.05f;
 
     void OnGUI()
@@ -103,6 +106,7 @@ public class PopulationManager : MonoBehaviour
 
     private void Update()
     {
+        Time.timeScale = gameSpeed;
         _elapsed += Time.deltaTime;
         if (_elapsed >= trialTime || activeEthans == 0)
         {

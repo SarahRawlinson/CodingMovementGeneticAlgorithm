@@ -21,6 +21,7 @@ public class Brain : MonoBehaviour, ITestForTarget
     private Vector3 endPos;
     [SerializeField] private GameObject[] turnOffOnDeath;
     [SerializeField] private string[] tagsToLookFor;
+    [SerializeField] private string[] tagsForDie;
     public float Distance
     {
         get => GetDistanceTraveled();
@@ -29,7 +30,7 @@ public class Brain : MonoBehaviour, ITestForTarget
     private void OnCollisionEnter(Collision other)
     {
         if (!_alive) return;
-        if (other.gameObject.CompareTag($"dead") || other.gameObject.CompareTag($"MovingObject"))
+        if (tagsForDie.Contains(other.gameObject.tag))
         {
             _alive = false;
             Dead?.Invoke();
@@ -179,7 +180,6 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public (bool, GameObject) TestForTarget(Collider collider, List<GameObject> gameObjects)
     {
-        
         return (tagsToLookFor.Contains(collider.tag), collider.gameObject);
     }
 }
