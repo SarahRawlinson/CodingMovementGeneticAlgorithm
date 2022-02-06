@@ -1205,10 +1205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botPrefab: {fileID: 1565522241125702, guid: 7d36b5f5cbe294f368cce70409a75a03, type: 3}
-  populationSize: 100
-  trialTime: 30
-  gameSpeed: 1.5
-  mutationChance: 0.25
+  populationSize: 50
+  trialTime: 1
+  gameSpeed: 1
+  mutationChance: 0.1
 --- !u!1001 &2067098520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1345,15 +1345,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.29
+      value: 13.05
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.81
+      value: 29.26
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1365,11 +1365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341264364254741860, guid: 9bd3cee88ddb9c0409dba6f0c8184202, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

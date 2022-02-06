@@ -9,10 +9,24 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class Brain : MonoBehaviour, ITestForTarget
 {
+    [Serializable]
+    public class DNAGroups
+    {
+        public DNA _movementDNA;
+        public DNA _heightDNA;
+        public DNA _priorityDNA;
+        
+
+        public DNAGroups(DNA movementDNA, DNA heightDNA, DNA priorityDNA)
+        {
+            _movementDNA = movementDNA;
+            _heightDNA = heightDNA;
+            _priorityDNA = priorityDNA;
+        }
+    }
     public float timeAlive;
-    public DNA _movementDNA;
-    public DNA _heightDNA;
-    public DNA _priorityDNA;
+
+    public DNAGroups _dnaGroups;
     private ThirdPersonCharacter _character;
     private Vector3 _move;
     private bool _alive = true;
@@ -25,6 +39,11 @@ public class Brain : MonoBehaviour, ITestForTarget
     public float Distance
     {
         get => GetDistanceTraveled();
+    }
+
+    public string GetDNAString()
+    {
+        return JsonUtility.ToJson(_dnaGroups);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -55,9 +74,12 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public void Init()
     {
-        _movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7);
-        _heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3);
-        _priorityDNA = new DNA((tagsToLookFor.Length * 2), 100);
+        _dnaGroups = new DNAGroups(new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement"),
+            new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height"),
+            new DNA((tagsToLookFor.Length * 2), 100, "Priority"));
+        // _dnaGroups._movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement");
+        // _dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height");
+        // _dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 2), 100, "Priority");
         startPos = transform.position;
         _character = GetComponent<ThirdPersonCharacter>();
         timeAlive = 0;
@@ -141,7 +163,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         if (seen.Count > 0)
         {
             List<(int index, int value)> dnaPos = new List<(int, int)>();
-            var vals = _priorityDNA.GetGenes();
+            var vals = _dnaGroups._priorityDNA.GetGenes();
             for (var index = 0; index < vals.Count; index++)
             {
                 int val = vals[index];
@@ -159,7 +181,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                     if (tag == visibleObject.tag)
                     {
                         seenObjects.Add(tagsToLookFor[i]);
-                        options.Add((i,_priorityDNA.GetGene(i),pos[index]));
+                        options.Add((i,_dnaGroups._priorityDNA.GetGene(i),pos[index]));
                         // if (i == dnaPos[0].index)
                         // {
                         //     break;
@@ -176,7 +198,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                     
                     int index = tagsToLookFor.Length + i;
                     // Debug.Log($"Added cant see object {tagsToLookFor[i]}");
-                    options.Add((index,_priorityDNA.GetGene(index),lightBulbPosition));
+                    options.Add((index,_dnaGroups._priorityDNA.GetGene(index),lightBulbPosition));
                     // if (i == dnaPos[0].index)
                     // {
                     //     break;
@@ -185,8 +207,8 @@ public class Brain : MonoBehaviour, ITestForTarget
                 // Debug.Log($"can see object {tagsToLookFor[i]}");
             }
             options.Sort((x, y) => y.value.CompareTo(x.value));
-            move = _movementDNA.GetGene(options[0].Item1);
-            height = _heightDNA.GetGene(options[0].Item1);
+            move = _dnaGroups._movementDNA.GetGene(options[0].Item1);
+            height = _dnaGroups._heightDNA.GetGene(options[0].Item1);
             Color selectedColour = Color.magenta;
             if (options[0].Item1 >= tagsToLookFor.Length)
             {
@@ -201,8 +223,8 @@ public class Brain : MonoBehaviour, ITestForTarget
         }
         else
         {
-            move = _movementDNA.GetGene(tagsToLookFor.Length);
-            height = _heightDNA.GetGene(tagsToLookFor.Length);
+            move = _dnaGroups._movementDNA.GetGene((tagsToLookFor.Length * 2));
+            height = _dnaGroups._heightDNA.GetGene((tagsToLookFor.Length * 2));
             Debug.DrawLine(eye, lightBulbPosition, Color.red);
         }
 

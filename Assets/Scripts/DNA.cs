@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class DNA 
+[Serializable]
+public class DNA
 {
-    private List<int> genes = new List<int>();
-    private int dnaLegnth = 0;
-    private int maxValues = 0;
+    public string dnaType;
+    public int dnaLegnth = 0;
+    public int maxValues = 0;
+    public List<int> genes = new List<int>();
+    
 
     public List<int> GetGenes()
     {
@@ -16,11 +19,19 @@ public class DNA
     }
 
 
-    public DNA(int l, int v)
+    public DNA(int l, int v, string name)
     {
+        dnaType = $"{name}";
         dnaLegnth = l;
         maxValues = v;
         SetRandom();
+    }
+    public DNA(int l, int v, string name, List<int> values)
+    {
+        dnaType = $"{name}";
+        dnaLegnth = l;
+        maxValues = v;
+        genes = values;
     }
 
     private void SetRandom()
