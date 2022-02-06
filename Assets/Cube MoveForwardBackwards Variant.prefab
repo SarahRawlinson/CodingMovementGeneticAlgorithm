@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8201832168974162223, guid: 9910733457cf0e6469b9b49950722afa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03c95edf559bff646b8d06e731df189d, type: 2}
     - target: {fileID: 8201832168974162224, guid: 9910733457cf0e6469b9b49950722afa, type: 3}
       propertyPath: m_Name
       value: Cube MoveForwardBackwards Variant
