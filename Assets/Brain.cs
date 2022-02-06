@@ -55,9 +55,9 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public void Init()
     {
-        _movementDNA = new DNA(tagsToLookFor.Length + 1, 7);
-        _heightDNA = new DNA(tagsToLookFor.Length + 1, 3);
-        _priorityDNA = new DNA(tagsToLookFor.Length, 100);
+        _movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7);
+        _heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3);
+        _priorityDNA = new DNA((tagsToLookFor.Length * 2), 100);
         startPos = transform.position;
         _character = GetComponent<ThirdPersonCharacter>();
         timeAlive = 0;
@@ -136,6 +136,8 @@ public class Brain : MonoBehaviour, ITestForTarget
     {
         int move = 0;
         int height = 0;
+        Vector3 lightBulbPosition = FindObjectOfType<LightBulb>().transform.position;
+        List<string> seenObjects = new List<string>();
         if (seen.Count > 0)
         {
             List<(int index, int value)> dnaPos = new List<(int, int)>();
@@ -152,26 +154,56 @@ public class Brain : MonoBehaviour, ITestForTarget
                 GameObject visibleObject = seen[index];
                 for (var i = 0; i < tagsToLookFor.Length; i++)
                 {
+                    
                     string tag = tagsToLookFor[i];
                     if (tag == visibleObject.tag)
                     {
+                        seenObjects.Add(tagsToLookFor[i]);
                         options.Add((i,_priorityDNA.GetGene(i),pos[index]));
-                        if (i == dnaPos[0].index)
-                        {
-                            break;
-                        }
+                        // if (i == dnaPos[0].index)
+                        // {
+                        //     break;
+                        // }
                     }
                 }
             }
-            options.Sort((x, y) => y.Item2.CompareTo(x.Item2));
+
+            
+            for (var i = 0; i < tagsToLookFor.Length; i++)
+            {
+                if (!seenObjects.Contains(tagsToLookFor[i]))
+                {
+                    
+                    int index = tagsToLookFor.Length + i;
+                    // Debug.Log($"Added cant see object {tagsToLookFor[i]}");
+                    options.Add((index,_priorityDNA.GetGene(index),lightBulbPosition));
+                    // if (i == dnaPos[0].index)
+                    // {
+                    //     break;
+                    // }
+                }
+                // Debug.Log($"can see object {tagsToLookFor[i]}");
+            }
+            options.Sort((x, y) => y.value.CompareTo(x.value));
             move = _movementDNA.GetGene(options[0].Item1);
             height = _heightDNA.GetGene(options[0].Item1);
-            Debug.DrawLine(eye, options[0].Item3, Color.magenta);
+            Color selectedColour = Color.magenta;
+            if (options[0].Item1 >= tagsToLookFor.Length)
+            {
+                selectedColour = Color.yellow;
+            }
+            Debug.DrawLine(eye, options[0].Item3, selectedColour);
+            // Debug.Log($"Priority {options[0].index} of value {options[0].value}");
+            // for (int i = 0; i < options.Count; i++)
+            // {
+            //     Debug.Log($"option: {i}, dna: {options[0].index}, value: {options[0].value}");
+            // }
         }
         else
         {
             move = _movementDNA.GetGene(tagsToLookFor.Length);
             height = _heightDNA.GetGene(tagsToLookFor.Length);
+            Debug.DrawLine(eye, lightBulbPosition, Color.red);
         }
 
         moveFromDNAValue(move, height);

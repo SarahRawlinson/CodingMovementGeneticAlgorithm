@@ -28,7 +28,7 @@ public class DNA
         genes.Clear();
         for (int i = 0; i < dnaLegnth; i++)
         {
-            genes.Add(Mathf.RoundToInt(Random.Range(0f, maxValues)));
+            genes.Add(Mathf.RoundToInt(Random.Range(0, maxValues + 1)));
         }
     }
 
@@ -56,7 +56,7 @@ public class DNA
 
     public void Mutate()
     {
-        genes[Random.Range(0, dnaLegnth)] = Random.Range(0, maxValues);
+        genes[Random.Range(0, dnaLegnth)] = Random.Range(0, maxValues + 1);
     }
 
     public int GetGene(int pos)

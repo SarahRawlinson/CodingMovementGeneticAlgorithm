@@ -11,6 +11,7 @@ TagManager:
   - MoveObjectUpDown
   - MoveForwardBackwards
   - StaticObject
+  - LightBulb
   layers:
   - Default
   - TransparentFX
