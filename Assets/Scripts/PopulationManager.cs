@@ -23,6 +23,7 @@ public class PopulationManager : MonoBehaviour
     }
     [SerializeField] private GameObject botPrefab;
     [SerializeField] private int populationSize = 50;
+    [SerializeField] private string fileName = "Pre Run Generation 300";
     private readonly List<GameObject> population = new List<GameObject>();
     private static float _elapsed;
     [SerializeField] private float trialTime = 10;
@@ -55,7 +56,7 @@ public class PopulationManager : MonoBehaviour
 
     private void Start()
     {
-        _textFileHandler = new TextFileHandler($"Load 2");
+        _textFileHandler = new TextFileHandler($"Load 1");
         Brain.Dead += CountDead;
         (bool exists, string fileText) = _textFileHandler.GetFileText();
         if (exists)
