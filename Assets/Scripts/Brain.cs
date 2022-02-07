@@ -249,6 +249,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         }
         else
         {
+            lightBulb.GetComponent<LightBulb>().ChangeColor(Color.black);
             move = _dnaGroups._movementDNA.GetGene((tagsToLookFor.Length * 2));
             height = _dnaGroups._heightDNA.GetGene((tagsToLookFor.Length * 2));
             Debug.DrawLine(eye, lightBulbPosition, Color.red);
