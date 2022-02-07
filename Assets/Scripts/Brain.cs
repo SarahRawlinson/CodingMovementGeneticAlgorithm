@@ -48,6 +48,11 @@ public class Brain : MonoBehaviour, ITestForTarget
     {
         foreach (string tag in tagsToLookFor)
         {
+            if (tag == "Ethan")
+            {
+                coloursOfTaggedItems.Add(new Color(117f, 6f, 255f));
+                continue;
+            }
             try
             {
                 coloursOfTaggedItems.Add(GameObject.FindGameObjectWithTag(tag).GetComponent<MeshRenderer>().material.color);

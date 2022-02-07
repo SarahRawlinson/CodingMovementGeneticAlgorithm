@@ -1689,7 +1689,6 @@ MonoBehaviour:
   - MoveForwardBackwards
   - dead
   lightBulb: {fileID: 943653958356568316}
-  lightBulbChangeColour: {fileID: 2100000, guid: 85376a70faa8e0d4fbbf215d0489158e, type: 2}
 --- !u!114 &8489000542600782796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,7 +2817,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
+  - {fileID: 2100000, guid: 101084b33f34241448f6d58014b71c30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
