@@ -18,6 +18,10 @@ public class DNA
         return genes;
     }
 
+    public DNA()
+    {
+        
+    }
 
     public DNA(int l, int v, string name)
     {

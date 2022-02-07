@@ -55,7 +55,7 @@ public class PopulationManager : MonoBehaviour
 
     private void Start()
     {
-        _textFileHandler = new TextFileHandler($"Load 1");
+        _textFileHandler = new TextFileHandler($"Load 2");
         Brain.Dead += CountDead;
         (bool exists, string fileText) = _textFileHandler.GetFileText();
         if (exists)
@@ -68,14 +68,18 @@ public class PopulationManager : MonoBehaviour
             generation = gen.generation;
             trialTime = gen.trialTime;
             mutationChance = gen.mutationChance;
-            
+            CreateNewPopulation();
             for (var index = 0; index < population.Count; index++)
             {
                 GameObject pop = population[index];
                 pop.GetComponent<Brain>()._dnaGroups = JsonConvert.DeserializeObject<Brain.DNAGroups>(dnaValues[index]);
             }
         }
-        CreateNewPopulation();
+        else
+        {
+            CreateNewPopulation();
+        }
+        
     }
 
     void AddToDictionary(List<GameObject> orderedPopulation)
@@ -166,7 +170,7 @@ public class PopulationManager : MonoBehaviour
     {
         generation++;
         activeEthans = populationSize;
-        List<GameObject> sortedList = population.OrderBy(o => (o.GetComponent<Brain>().Distance + o.GetComponent<Brain>().timeAlive)).ToList();
+        List<GameObject> sortedList = population.OrderBy(o => (o.GetComponent<Brain>().Distance * o.GetComponent<Brain>().timeAlive)).ToList();
         AddToDictionary(sortedList);
         population.Clear();
         for (int i = (int) (sortedList.Count / 2.0f) - 1; i < sortedList.Count -1; i++)

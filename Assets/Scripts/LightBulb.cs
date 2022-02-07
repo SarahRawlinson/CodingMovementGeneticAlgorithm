@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class LightBulb : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private Renderer lightBulbMeshRenderer;
+    // Use this for initialization
+    void Start ()
     {
-        
+        foreach (Material material in lightBulbMeshRenderer.materials)
+        {
+            material.color = Color.black;
+        }
+    }
+
+    public void ChangeColor(Color newColour)
+    {
+        foreach (Material material in lightBulbMeshRenderer.materials)
+        {
+            material.color = newColour;
+        }
     }
 
     // Update is called once per frame

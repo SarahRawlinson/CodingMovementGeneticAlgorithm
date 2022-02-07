@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 using Random = UnityEngine.Random;
@@ -17,12 +18,12 @@ public class Brain : MonoBehaviour, ITestForTarget
         public DNA _priorityDNA;
         
 
-        public DNAGroups(DNA movementDNA, DNA heightDNA, DNA priorityDNA)
-        {
-            _movementDNA = movementDNA;
-            _heightDNA = heightDNA;
-            _priorityDNA = priorityDNA;
-        }
+        // public DNAGroups(DNA movementDNA, DNA heightDNA, DNA priorityDNA)
+        // {
+        //     _movementDNA = movementDNA;
+        //     _heightDNA = heightDNA;
+        //     _priorityDNA = priorityDNA;
+        // }
     }
     public float timeAlive;
 
@@ -35,15 +36,33 @@ public class Brain : MonoBehaviour, ITestForTarget
     private Vector3 endPos;
     [SerializeField] private GameObject[] turnOffOnDeath;
     [SerializeField] private string[] tagsToLookFor;
+    private List<Color> coloursOfTaggedItems = new List<Color>();
     [SerializeField] private string[] tagsForDie;
+    [SerializeField] private GameObject lightBulb;
     public float Distance
     {
         get => GetDistanceTraveled();
     }
 
+    private void Awake()
+    {
+        foreach (string tag in tagsToLookFor)
+        {
+            try
+            {
+                coloursOfTaggedItems.Add(GameObject.FindGameObjectWithTag(tag).GetComponent<MeshRenderer>().material.color);
+            }
+            catch (Exception e)
+            {
+                coloursOfTaggedItems.Add(Color.grey);
+                Console.WriteLine(e);
+            }
+        }
+    }
+
     public string GetDNAString()
     {
-        return JsonUtility.ToJson(_dnaGroups);
+        return JsonConvert.SerializeObject(_dnaGroups);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -74,12 +93,13 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public void Init()
     {
-        _dnaGroups = new DNAGroups(new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement"),
-            new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height"),
-            new DNA((tagsToLookFor.Length * 2), 100, "Priority"));
-        // _dnaGroups._movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement");
-        // _dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height");
-        // _dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 2), 100, "Priority");
+        // _dnaGroups = new DNAGroups(new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement"),
+        //     new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height"),
+        //     new DNA((tagsToLookFor.Length * 2), 100, "Priority"));
+        
+        _dnaGroups._movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement");
+        _dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height");
+        _dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 2), 100, "Priority");
         startPos = transform.position;
         _character = GetComponent<ThirdPersonCharacter>();
         timeAlive = 0;
@@ -158,7 +178,7 @@ public class Brain : MonoBehaviour, ITestForTarget
     {
         int move = 0;
         int height = 0;
-        Vector3 lightBulbPosition = FindObjectOfType<LightBulb>().transform.position;
+        Vector3 lightBulbPosition = lightBulb.transform.position;
         List<string> seenObjects = new List<string>();
         if (seen.Count > 0)
         {
@@ -209,12 +229,18 @@ public class Brain : MonoBehaviour, ITestForTarget
             options.Sort((x, y) => y.value.CompareTo(x.value));
             move = _dnaGroups._movementDNA.GetGene(options[0].Item1);
             height = _dnaGroups._heightDNA.GetGene(options[0].Item1);
-            Color selectedColour = Color.magenta;
-            if (options[0].Item1 >= tagsToLookFor.Length)
+            Color selectedColour = Color.white;
+            if (options[0].index >= tagsToLookFor.Length)
             {
-                selectedColour = Color.yellow;
+                // selectedColour = coloursOfTaggedItems[options[0].index - tagsToLookFor.Length];
+                lightBulb.GetComponent<LightBulb>().ChangeColor(coloursOfTaggedItems[options[0].index - tagsToLookFor.Length]);
             }
-            Debug.DrawLine(eye, options[0].Item3, selectedColour);
+            else
+            {
+                lightBulb.GetComponent<LightBulb>().ChangeColor(Color.black);
+                Debug.DrawLine(eye, options[0].Item3, selectedColour);
+            }
+            
             // Debug.Log($"Priority {options[0].index} of value {options[0].value}");
             // for (int i = 0; i < options.Count; i++)
             // {

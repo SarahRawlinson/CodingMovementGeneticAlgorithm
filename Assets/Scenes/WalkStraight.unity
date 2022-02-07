@@ -1205,8 +1205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botPrefab: {fileID: 1565522241125702, guid: 7d36b5f5cbe294f368cce70409a75a03, type: 3}
-  populationSize: 50
-  trialTime: 1
+  populationSize: 100
+  trialTime: 30
   gameSpeed: 1
   mutationChance: 0.1
 --- !u!1001 &2067098520
