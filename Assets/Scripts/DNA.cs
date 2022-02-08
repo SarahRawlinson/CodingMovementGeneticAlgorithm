@@ -17,6 +17,11 @@ public class DNA
     {
         return genes;
     }
+    static public DNA Clone(DNA copy)
+    {
+        DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
+        return dna;
+    }
 
     public DNA()
     {

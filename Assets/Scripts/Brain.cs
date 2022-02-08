@@ -21,11 +21,11 @@ public class Brain : MonoBehaviour, ITestForTarget
         public DNA _movementDNATurn;
 
         public DNAGroups Clone() => new DNAGroups() {
-            _movementDNAForwardBackward = _movementDNAForwardBackward,
-            _heightDNA = _heightDNA,
-            _priorityDNA = _priorityDNA,
-            _movementDNALeftRight = _movementDNALeftRight,
-            _movementDNATurn = _movementDNATurn
+            _movementDNAForwardBackward = DNA.Clone(_movementDNAForwardBackward),
+            _heightDNA = DNA.Clone(_heightDNA),
+            _priorityDNA = DNA.Clone(_priorityDNA),
+            _movementDNALeftRight = DNA.Clone(_movementDNALeftRight),
+            _movementDNATurn = DNA.Clone(_movementDNATurn)
         };
     }
     public float timeAlive;
