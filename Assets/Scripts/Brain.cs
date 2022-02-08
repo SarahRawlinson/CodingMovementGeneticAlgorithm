@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.ThirdPerson;
 using Random = UnityEngine.Random;
 
@@ -18,16 +19,14 @@ public class Brain : MonoBehaviour, ITestForTarget
         public DNA _priorityDNA;
         
 
-        // public DNAGroups(DNA movementDNA, DNA heightDNA, DNA priorityDNA)
-        // {
-        //     _movementDNA = movementDNA;
-        //     _heightDNA = heightDNA;
-        //     _priorityDNA = priorityDNA;
-        // }
+        public DNAGroups Clone() => new DNAGroups() {
+            _movementDNA = _movementDNA,
+            _heightDNA = _heightDNA,
+            _priorityDNA = _priorityDNA
+        };
     }
     public float timeAlive;
-
-    public DNAGroups _dnaGroups;
+    public DNAGroups dnaGroups;
     private ThirdPersonCharacter _character;
     private Vector3 _move;
     private bool _alive = true;
@@ -36,9 +35,15 @@ public class Brain : MonoBehaviour, ITestForTarget
     private Vector3 endPos;
     [SerializeField] private GameObject[] turnOffOnDeath;
     [SerializeField] private string[] tagsToLookFor;
-    private List<Color> coloursOfTaggedItems = new List<Color>();
+    private List<Color> _coloursOfTaggedItems = new List<Color>();
     [SerializeField] private string[] tagsForDie;
     [SerializeField] private GameObject lightBulb;
+
+    public float GetProgress()
+    {
+        if (_alive) return Vector3.Distance(startPos, transform.position);
+        return 0f;
+    }
     public float Distance
     {
         get => GetDistanceTraveled();
@@ -50,24 +55,27 @@ public class Brain : MonoBehaviour, ITestForTarget
         {
             if (tag == "Ethan")
             {
-                coloursOfTaggedItems.Add(new Color(117f, 6f, 255f));
+                _coloursOfTaggedItems.Add(new Color(117f, 6f, 255f));
                 continue;
             }
             try
             {
-                coloursOfTaggedItems.Add(GameObject.FindGameObjectWithTag(tag).GetComponent<MeshRenderer>().material.color);
+                _coloursOfTaggedItems.Add(GameObject.FindGameObjectWithTag(tag).GetComponent<MeshRenderer>().material.color);
             }
             catch (Exception e)
             {
-                coloursOfTaggedItems.Add(Color.grey);
+                _coloursOfTaggedItems.Add(Color.grey);
                 Console.WriteLine(e);
             }
         }
+        dnaGroups._movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement");
+        dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height");
+        dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 2), 100, "Priority");
     }
 
     public string GetDNAString()
     {
-        return JsonConvert.SerializeObject(_dnaGroups);
+        return JsonConvert.SerializeObject(dnaGroups);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -78,10 +86,15 @@ public class Brain : MonoBehaviour, ITestForTarget
             _alive = false;
             Dead?.Invoke();
             SetEndPosition();
-            foreach (GameObject gObject in turnOffOnDeath)
-            {
-                gObject.SetActive(false);
-            }
+            DeathOnOff(false);
+        }
+    }
+
+    private void DeathOnOff(bool on)
+    {
+        foreach (GameObject gObject in turnOffOnDeath)
+        {
+            gObject.SetActive(on);
         }
     }
 
@@ -101,11 +114,11 @@ public class Brain : MonoBehaviour, ITestForTarget
         // _dnaGroups = new DNAGroups(new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement"),
         //     new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height"),
         //     new DNA((tagsToLookFor.Length * 2), 100, "Priority"));
-        
-        _dnaGroups._movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement");
-        _dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height");
-        _dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 2), 100, "Priority");
+        DeathOnOff(true);
         startPos = transform.position;
+        
+        startPos = transform.position;
+        _move = transform.position;
         _character = GetComponent<ThirdPersonCharacter>();
         timeAlive = 0;
         _alive = true;
@@ -188,7 +201,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         if (seen.Count > 0)
         {
             List<(int index, int value)> dnaPos = new List<(int, int)>();
-            var vals = _dnaGroups._priorityDNA.GetGenes();
+            var vals = dnaGroups._priorityDNA.GetGenes();
             for (var index = 0; index < vals.Count; index++)
             {
                 int val = vals[index];
@@ -203,14 +216,11 @@ public class Brain : MonoBehaviour, ITestForTarget
                 {
                     
                     string tag = tagsToLookFor[i];
-                    if (tag == visibleObject.tag)
+                    if (visibleObject.CompareTag(tag))
                     {
                         seenObjects.Add(tagsToLookFor[i]);
-                        options.Add((i,_dnaGroups._priorityDNA.GetGene(i),pos[index]));
-                        // if (i == dnaPos[0].index)
-                        // {
-                        //     break;
-                        // }
+                        options.Add((i,dnaGroups._priorityDNA.GetGene(i),pos[index]));
+
                     }
                 }
             }
@@ -220,48 +230,37 @@ public class Brain : MonoBehaviour, ITestForTarget
             {
                 if (!seenObjects.Contains(tagsToLookFor[i]))
                 {
-                    
                     int index = tagsToLookFor.Length + i;
-                    // Debug.Log($"Added cant see object {tagsToLookFor[i]}");
-                    options.Add((index,_dnaGroups._priorityDNA.GetGene(index),lightBulbPosition));
-                    // if (i == dnaPos[0].index)
-                    // {
-                    //     break;
-                    // }
+                    options.Add((index,dnaGroups._priorityDNA.GetGene(index),lightBulbPosition));
+
                 }
-                // Debug.Log($"can see object {tagsToLookFor[i]}");
             }
             options.Sort((x, y) => y.value.CompareTo(x.value));
-            move = _dnaGroups._movementDNA.GetGene(options[0].Item1);
-            height = _dnaGroups._heightDNA.GetGene(options[0].Item1);
+            move = dnaGroups._movementDNA.GetGene(options[0].Item1);
+            height = dnaGroups._heightDNA.GetGene(options[0].Item1);
             Color selectedColour = Color.white;
             if (options[0].index >= tagsToLookFor.Length)
             {
-                // selectedColour = coloursOfTaggedItems[options[0].index - tagsToLookFor.Length];
-                lightBulb.GetComponent<LightBulb>().ChangeColor(coloursOfTaggedItems[options[0].index - tagsToLookFor.Length]);
+                lightBulb.GetComponent<LightBulb>().ChangeColor(_coloursOfTaggedItems[options[0].index - tagsToLookFor.Length]);
             }
             else
             {
-                lightBulb.GetComponent<LightBulb>().ChangeColor(Color.black);
+                lightBulb.GetComponent<LightBulb>().ChangeColor(_coloursOfTaggedItems[options[0].index]);
                 Debug.DrawLine(eye, options[0].Item3, selectedColour);
             }
-            
-            // Debug.Log($"Priority {options[0].index} of value {options[0].value}");
-            // for (int i = 0; i < options.Count; i++)
-            // {
-            //     Debug.Log($"option: {i}, dna: {options[0].index}, value: {options[0].value}");
-            // }
+
         }
         else
         {
             lightBulb.GetComponent<LightBulb>().ChangeColor(Color.black);
-            move = _dnaGroups._movementDNA.GetGene((tagsToLookFor.Length * 2));
-            height = _dnaGroups._heightDNA.GetGene((tagsToLookFor.Length * 2));
+            move = dnaGroups._movementDNA.GetGene((tagsToLookFor.Length * 2));
+            height = dnaGroups._heightDNA.GetGene((tagsToLookFor.Length * 2));
             Debug.DrawLine(eye, lightBulbPosition, Color.red);
         }
 
         moveFromDNAValue(move, height);
     }
+    
 
 
     public (bool, GameObject) TestForTarget(Collider collider, List<GameObject> gameObjects)

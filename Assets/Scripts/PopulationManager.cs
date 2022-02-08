@@ -36,6 +36,10 @@ public class PopulationManager : MonoBehaviour
     [Range(0, 20)]
     [SerializeField] float gameSpeed;
 
+    private List<Brain> brains = new List<Brain>();
+
+    public event Action NewRound; 
+
     private TextFileHandler _textFileHandler;
 
     
@@ -56,7 +60,7 @@ public class PopulationManager : MonoBehaviour
 
     private void Start()
     {
-        _textFileHandler = new TextFileHandler($"Load 1");
+        _textFileHandler = new TextFileHandler(fileName);
         Brain.Dead += CountDead;
         (bool exists, string fileText) = _textFileHandler.GetFileText();
         if (exists)
@@ -70,10 +74,10 @@ public class PopulationManager : MonoBehaviour
             trialTime = gen.trialTime;
             mutationChance = gen.mutationChance;
             CreateNewPopulation();
-            for (var index = 0; index < population.Count; index++)
+            for (var index = 0; index < brains.Count; index++)
             {
                 GameObject pop = population[index];
-                pop.GetComponent<Brain>()._dnaGroups = JsonConvert.DeserializeObject<Brain.DNAGroups>(dnaValues[index]);
+                brains[index].dnaGroups = JsonConvert.DeserializeObject<Brain.DNAGroups>(dnaValues[index]);
             }
         }
         else
@@ -83,13 +87,13 @@ public class PopulationManager : MonoBehaviour
         
     }
 
-    void AddToDictionary(List<GameObject> orderedPopulation)
+    void AddToDictionary(List<Brain> orderedPopulation)
     {
         dictionaryData = true;
         List<string> dnaValues = new List<string>();
-        foreach (GameObject pop in orderedPopulation)
+        foreach (Brain pop in orderedPopulation)
         {
-            string s = pop.GetComponent<Brain>().GetDNAString();
+            string s = pop.GetDNAString();
             // Debug.Log(s);
             dnaValues.Add(s);
         }
@@ -102,7 +106,7 @@ public class PopulationManager : MonoBehaviour
         gen.trialTime = trialTime;
         gen.dnaGroupsList = dnaValues;
         _generations.Add(gen);
-        _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_generations));
+        // _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_generations));
         
         
     }
@@ -122,7 +126,7 @@ public class PopulationManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        // if (dictionaryData) _textFileHandler.AddTextToFile(JsonUtility.ToJson(generationDictionary));
+        if (dictionaryData) _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_generations));
     }
 
     private void CountDead()
@@ -132,57 +136,75 @@ public class PopulationManager : MonoBehaviour
 
     private GameObject CreateEthan(Vector3 position)
     {
-        Vector3 startingPosition = new Vector3(position.x + Random.Range(-2, 2), position.y,
-            position.z + Random.Range(-2, 2));
+        var startingPosition = RandomStartPosition(position);
         GameObject b = Instantiate(botPrefab, startingPosition, transform.rotation);
-        
-        b.GetComponent<Brain>().Init();
+        Brain brain = b.GetComponent<Brain>();
+        brain.Init();
+        brains.Add(brain);
         return b;
     }
 
-    GameObject Breed(GameObject parent1, GameObject parent2)
+    private static Vector3 RandomStartPosition(Vector3 position)
     {
-        var position = transform.position;
-        var offspring = CreateEthan(position);
-        Brain brain = offspring.GetComponent<Brain>();
-        brain._dnaGroups._movementDNA.Combine(parent1.GetComponent<Brain>()._dnaGroups._movementDNA,parent2.GetComponent<Brain>()._dnaGroups._movementDNA);
-        brain._dnaGroups._priorityDNA.Combine(parent1.GetComponent<Brain>()._dnaGroups._priorityDNA,parent2.GetComponent<Brain>()._dnaGroups._priorityDNA);
-        brain._dnaGroups._heightDNA.Combine(parent1.GetComponent<Brain>()._dnaGroups._heightDNA,parent2.GetComponent<Brain>()._dnaGroups._heightDNA);
+        Vector3 startingPosition = new Vector3(position.x + Random.Range(-2, 2), position.y,
+            position.z + Random.Range(-2, 2));
+        return startingPosition;
+    }
+
+    Brain.DNAGroups Breed(Brain parent1, Brain parent2)
+    {
+        NewRound?.Invoke();
+        // var position = transform.position;
+        Brain.DNAGroups offspringDnaGroups = parent1.dnaGroups.Clone();
+        // var offspring = CreateEthan(position);
+        // Brain brain = offspring.GetComponent<Brain>();
+        offspringDnaGroups._movementDNA.Combine(parent1.dnaGroups._movementDNA,parent2.dnaGroups._movementDNA);
+        offspringDnaGroups._priorityDNA.Combine(parent1.dnaGroups._priorityDNA,parent2.dnaGroups._priorityDNA);
+        offspringDnaGroups._heightDNA.Combine(parent1.dnaGroups._heightDNA,parent2.dnaGroups._heightDNA);
         if (Random.Range(0f, 1f) < mutationChance)
         {
             switch (Random.Range(0, 3))
             {
                 case 0:
-                    brain._dnaGroups._movementDNA.Mutate();
+                    offspringDnaGroups._movementDNA.Mutate();
                     break;
                 case 1:
-                    brain._dnaGroups._priorityDNA.Mutate();
+                    offspringDnaGroups._priorityDNA.Mutate();
                     break;
                 case 2:
-                    brain._dnaGroups._heightDNA.Mutate();
+                    offspringDnaGroups._heightDNA.Mutate();
                     break;
             }
         }
         // _textFileHandler.AddTextToFile(brain.GetComponent<Brain>().GetDNAString());
-        return offspring;
+        return offspringDnaGroups;
     }
 
     private void BreedNewPopulation()
     {
         generation++;
         activeEthans = populationSize;
-        List<GameObject> sortedList = population.OrderBy(o => (o.GetComponent<Brain>().Distance * o.GetComponent<Brain>().timeAlive)).ToList();
+        // List<Brain> brains = new List<Brain>();
+        // foreach (GameObject brain in population)
+        // {
+        //     brains.Add(brain.GetComponent<Brain>());
+        // }
+        List<Brain> sortedList = brains.OrderBy(o => (o.Distance * o.timeAlive)).ToList();
         AddToDictionary(sortedList);
-        population.Clear();
+        // population.Clear();
+        List<Brain.DNAGroups> Offsping = new List<Brain.DNAGroups>();
         for (int i = (int) (sortedList.Count / 2.0f) - 1; i < sortedList.Count -1; i++)
         {
-            population.Add(Breed(sortedList[i], sortedList[i + 1]));
-            population.Add(Breed(sortedList[i + 1], sortedList[i]));
+            Offsping.Add(Breed(sortedList[i], sortedList[i + 1]));
+            Offsping.Add(Breed(sortedList[i + 1], sortedList[i]));
         }
 
         for (int i = 0; i < sortedList.Count; i++)
         {
-            Destroy(sortedList[i]);
+            brains[i].dnaGroups = Offsping[i];
+            brains[i].transform.position = RandomStartPosition(transform.position);
+            brains[i].Init();
+            // Destroy(sortedList[i]);
         }
     }
 

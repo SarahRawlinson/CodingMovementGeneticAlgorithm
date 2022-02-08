@@ -50,8 +50,37 @@ public class FreeCam : MonoBehaviour
     /// </summary>
     private bool looking = false;
 
+    private float timer = 2f;
+    [SerializeField] private bool followBestBrain = true;
+    private Vector3 bestBotPos;
+    private Vector3 startPosition;
+
+    private void Start()
+    {
+        bestBotPos = transform.position;
+        startPosition = transform.position;
+        FindObjectOfType<PopulationManager>().NewRound += NewRound;
+    }
+
+    void NewRound()
+    {
+        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, startPosition.z);
+        transform.position = newPos;
+    }
+
     void Update()
     {
+        timer += Time.deltaTime;
+        if (followBestBrain)
+        {
+            if (timer >= 1f)
+            {
+                MoveToBestBrain();
+            }
+            float step =  this.movementSpeed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, bestBotPos, step);
+        }
+
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         var movementSpeed = fastMode ? this.fastMovementSpeed : this.movementSpeed;
 
@@ -117,6 +146,17 @@ public class FreeCam : MonoBehaviour
         {
             StopLooking();
         }
+    }
+
+    private void MoveToBestBrain()
+    {
+        timer = 0f;
+        List<Brain> brains = FindObjectsOfType<Brain>().ToList();
+        List<Brain> orderedBrains = brains.OrderBy(o => (o.GetProgress())).ToList();
+        Vector3 pos = orderedBrains[orderedBrains.Count-1].transform.position;
+        // bestBotPos = new Vector3(pos.x + 10, pos.y + 10, pos.z);
+        var position = transform.position;
+        bestBotPos = new Vector3(position.x, position.y, pos.z);
     }
 
     void OnDisable()

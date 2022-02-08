@@ -1707,7 +1707,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  viewAngle: 62
+  viewAngle: 110
   eye: {fileID: 5652480552693861740}
 --- !u!114 &3660552541808096730
 MonoBehaviour:
@@ -1723,11 +1723,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibility: 0
   colour: {r: 0.23612498, g: 0.9137255, b: 0.047058843, a: 1}
-  viewRadius: 2.8
+  viewRadius: 3.13
   _layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  viewAngle: 112
+  viewAngle: 130
   eye: {fileID: 1340671575272264852}
 --- !u!114 &5200664472582696195
 MonoBehaviour:
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  viewAngle: 112
+  viewAngle: 130
   eye: {fileID: 433314930750371852}
 --- !u!1 &1578918934834248
 GameObject:
@@ -3034,13 +3034,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5150290731859303346}
-  m_LocalRotation: {x: 0.5796305, y: -0.40500498, z: 0.5796305, w: 0.40500367}
-  m_LocalPosition: {x: -0.070690304, y: -0.10985922, z: 0}
+  m_LocalRotation: {x: 0.6485383, y: -0.2817771, z: 0.6485386, w: 0.2817757}
+  m_LocalPosition: {x: -0.070690304, y: -0.10985922, z: 0.000000012254585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4092766501429742}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 20.114, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 133.032, y: -90, z: 0}
 --- !u!1 &9095968406272707508
 GameObject:
   m_ObjectHideFlags: 0
