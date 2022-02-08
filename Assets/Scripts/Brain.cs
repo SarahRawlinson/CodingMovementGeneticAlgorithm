@@ -44,7 +44,12 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public float GetProgress()
     {
-        if (_alive) return Vector3.Distance(startPos, transform.position);
+        if (_alive)
+        {
+            Vector3 vector31 = new Vector3(0, 0, startPos.z);
+            Vector3 vector32 = new Vector3(0, 0, transform.position.z);
+            return Vector3.Distance(vector31, vector32);
+        }
         return 0f;
     }
     public float Distance
@@ -111,7 +116,9 @@ public class Brain : MonoBehaviour, ITestForTarget
     public float GetDistanceTraveled()
     {
         if (_alive) SetEndPosition();
-        return Vector3.Distance(startPos, endPos);
+        Vector3 vector31 = new Vector3(0, 0, startPos.z);
+        Vector3 vector32 = new Vector3(0, 0, endPos.z);
+        return Vector3.Distance(vector31, vector32);
     }
 
     public void Init()
