@@ -158,21 +158,29 @@ public class PopulationManager : MonoBehaviour
         Brain.DNAGroups offspringDnaGroups = parent1.dnaGroups.Clone();
         // var offspring = CreateEthan(position);
         // Brain brain = offspring.GetComponent<Brain>();
-        offspringDnaGroups._movementDNA.Combine(parent1.dnaGroups._movementDNA,parent2.dnaGroups._movementDNA);
+        offspringDnaGroups._movementDNAForwardBackward.Combine(parent1.dnaGroups._movementDNAForwardBackward,parent2.dnaGroups._movementDNAForwardBackward);
+        offspringDnaGroups._movementDNALeftRight.Combine(parent1.dnaGroups._movementDNALeftRight,parent2.dnaGroups._movementDNALeftRight);
+        offspringDnaGroups._movementDNATurn.Combine(parent1.dnaGroups._movementDNATurn,parent2.dnaGroups._movementDNATurn);
         offspringDnaGroups._priorityDNA.Combine(parent1.dnaGroups._priorityDNA,parent2.dnaGroups._priorityDNA);
         offspringDnaGroups._heightDNA.Combine(parent1.dnaGroups._heightDNA,parent2.dnaGroups._heightDNA);
         if (Random.Range(0f, 1f) < mutationChance)
         {
-            switch (Random.Range(0, 3))
+            switch (Random.Range(0, 5))
             {
                 case 0:
-                    offspringDnaGroups._movementDNA.Mutate();
+                    offspringDnaGroups._movementDNAForwardBackward.Mutate();
                     break;
                 case 1:
                     offspringDnaGroups._priorityDNA.Mutate();
                     break;
                 case 2:
                     offspringDnaGroups._heightDNA.Mutate();
+                    break;
+                case 3:
+                    offspringDnaGroups._movementDNALeftRight.Mutate();
+                    break;
+                case 4:
+                    offspringDnaGroups._movementDNATurn.Mutate();
                     break;
             }
         }

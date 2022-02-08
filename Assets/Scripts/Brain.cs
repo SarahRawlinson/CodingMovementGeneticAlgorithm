@@ -14,15 +14,18 @@ public class Brain : MonoBehaviour, ITestForTarget
     [Serializable]
     public class DNAGroups
     {
-        public DNA _movementDNA;
+        public DNA _movementDNAForwardBackward;
         public DNA _heightDNA;
         public DNA _priorityDNA;
-        
+        public DNA _movementDNALeftRight;
+        public DNA _movementDNATurn;
 
         public DNAGroups Clone() => new DNAGroups() {
-            _movementDNA = _movementDNA,
+            _movementDNAForwardBackward = _movementDNAForwardBackward,
             _heightDNA = _heightDNA,
-            _priorityDNA = _priorityDNA
+            _priorityDNA = _priorityDNA,
+            _movementDNALeftRight = _movementDNALeftRight,
+            _movementDNATurn = _movementDNATurn
         };
     }
     public float timeAlive;
@@ -68,7 +71,9 @@ public class Brain : MonoBehaviour, ITestForTarget
                 Console.WriteLine(e);
             }
         }
-        dnaGroups._movementDNA = new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement");
+        dnaGroups._movementDNAForwardBackward = new DNA((tagsToLookFor.Length * 2) + 1, 3, "MovementForwardBackward");
+        dnaGroups._movementDNALeftRight = new DNA((tagsToLookFor.Length * 2) + 1, 3, "MovementLeftRight");
+        dnaGroups._movementDNATurn = new DNA((tagsToLookFor.Length * 2) + 1, 3, "MovementForwardBackward");
         dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height");
         dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 2), 100, "Priority");
     }
@@ -124,7 +129,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         _alive = true;
     }
 
-    private void moveFromDNAValue(int movementValue,int heightValue)
+    private void moveFromDNAValue(int movementForwardBackwardValue,int heightValue, int movementLeftRight, int movementTurn)
     {
         float v = 0f;
         float h = 0f;
@@ -132,27 +137,40 @@ public class Brain : MonoBehaviour, ITestForTarget
         bool jump = false;
         float r = 0;
 
-        switch (movementValue)
+        switch (movementForwardBackwardValue)
         {
             case 0: //  -VAL 1 = STOP
+                v = 0;
+                break;
+            case 1: //  -VAL 2 = TURN LEFT
+                v = 1;
+                break;
+            case 2: //  -VAL 3 = TURN RIGHT
+                v = -1;
+                break;
+        }
+        switch (movementLeftRight)
+        {
+            case 0: //  -VAL 1 = STOP
+                h = 0;
+                break;
+            case 1: //  -VAL 2 = TURN LEFT
+                h = 1;
+                break;
+            case 2: //  -VAL 3 = TURN RIGHT
+                h = -1;
+                break;
+        }
+        switch (movementTurn)
+        {
+            case 0: //  -VAL 1 = STOP
+                r = 0;
                 break;
             case 1: //  -VAL 2 = TURN LEFT
                 r = 90;
                 break;
             case 2: //  -VAL 3 = TURN RIGHT
                 r = -90;
-                break;
-            case 3: //  -VAL 4 = MOVE FORWARD
-                v = 1;
-                break;
-            case 4: //  -VAL 5 = MOVE BACKWARD
-                v = -1;
-                break;
-            case 5: //  -VAL 6 = MOVE LEFT
-                h = 1;
-                break;
-            case 6: //  -VAL 7 = MOVE RIGHT
-                h = -1;
                 break;
         }
         
@@ -194,8 +212,10 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     private void MakeDecision(List<GameObject> seen, Vector3 eye, List<Vector3> pos)
     {
-        int move = 0;
+        int moveFB = 0;
         int height = 0;
+        int moveLR = 0;
+        int moveT = 0;
         Vector3 lightBulbPosition = lightBulb.transform.position;
         List<string> seenObjects = new List<string>();
         if (seen.Count > 0)
@@ -236,8 +256,10 @@ public class Brain : MonoBehaviour, ITestForTarget
                 }
             }
             options.Sort((x, y) => y.value.CompareTo(x.value));
-            move = dnaGroups._movementDNA.GetGene(options[0].Item1);
+            moveFB = dnaGroups._movementDNAForwardBackward.GetGene(options[0].Item1);
             height = dnaGroups._heightDNA.GetGene(options[0].Item1);
+            moveLR = dnaGroups._movementDNALeftRight.GetGene(options[0].Item1);
+            moveT = dnaGroups._movementDNATurn.GetGene(options[0].Item1);
             Color selectedColour = Color.white;
             if (options[0].index >= tagsToLookFor.Length)
             {
@@ -253,12 +275,14 @@ public class Brain : MonoBehaviour, ITestForTarget
         else
         {
             lightBulb.GetComponent<LightBulb>().ChangeColor(Color.black);
-            move = dnaGroups._movementDNA.GetGene((tagsToLookFor.Length * 2));
+            moveFB = dnaGroups._movementDNAForwardBackward.GetGene((tagsToLookFor.Length * 2));
             height = dnaGroups._heightDNA.GetGene((tagsToLookFor.Length * 2));
+            moveLR = dnaGroups._movementDNALeftRight.GetGene((tagsToLookFor.Length * 2));
+            moveT = dnaGroups._movementDNATurn.GetGene((tagsToLookFor.Length * 2));
             Debug.DrawLine(eye, lightBulbPosition, Color.red);
         }
 
-        moveFromDNAValue(move, height);
+        moveFromDNAValue(moveFB, height, moveLR, moveT);
     }
     
 
