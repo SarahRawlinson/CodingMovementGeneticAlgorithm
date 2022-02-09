@@ -197,7 +197,9 @@ public class PopulationManager : MonoBehaviour
         // {
         //     brains.Add(brain.GetComponent<Brain>());
         // }
-        List<Brain> sortedList = brains.OrderBy(o => (o.Distance * o.timeAlive)).ToList();
+        List<Brain> sortedList = brains.OrderBy(o => ((o.Distance))).ToList();
+        Debug.Log(sortedList[sortedList.Count-1].Distance);
+        sortedList = brains.OrderBy(o => (((o.Distance / sortedList[sortedList.Count-1].Distance) * 3) + (o.timeAlive / _elapsed))).ToList();
         AddToDictionary(sortedList);
         // population.Clear();
         List<Brain.DNAGroups> Offsping = new List<Brain.DNAGroups>();
@@ -210,6 +212,7 @@ public class PopulationManager : MonoBehaviour
         for (int i = 0; i < sortedList.Count; i++)
         {
             brains[i].dnaGroups = Offsping[i];
+            brains[i].DeathOnOff(true);
             brains[i].transform.position = RandomStartPosition(transform.position);
             brains[i].Init();
             // Destroy(sortedList[i]);

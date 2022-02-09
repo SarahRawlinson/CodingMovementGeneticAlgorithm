@@ -46,9 +46,17 @@ public class Brain : MonoBehaviour, ITestForTarget
     {
         if (_alive)
         {
-            Vector3 vector31 = new Vector3(0, 0, startPos.z);
-            Vector3 vector32 = new Vector3(0, 0, transform.position.z);
-            return Vector3.Distance(vector31, vector32);
+            // Vector3 vector31 = new Vector3(0, 0, startPos.z);
+            // Vector3 vector32 = new Vector3(0, 0, transform.position.z);
+            // return Vector3.Distance(vector31, vector32);
+            float distance = transform.position.z - startPos.z;
+            if (distance > 500)
+            {
+                _alive = false;
+                return 0f;
+            }
+            return distance;
+            
         }
         return 0f;
     }
@@ -63,7 +71,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         {
             if (tag == "Ethan")
             {
-                _coloursOfTaggedItems.Add(new Color(117f, 6f, 255f));
+                _coloursOfTaggedItems.Add(new Color(0.29f, 0.09f, 0.5f));
                 continue;
             }
             try
@@ -100,7 +108,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         }
     }
 
-    private void DeathOnOff(bool on)
+    public void DeathOnOff(bool on)
     {
         foreach (GameObject gObject in turnOffOnDeath)
         {
@@ -116,9 +124,12 @@ public class Brain : MonoBehaviour, ITestForTarget
     public float GetDistanceTraveled()
     {
         if (_alive) SetEndPosition();
-        Vector3 vector31 = new Vector3(0, 0, startPos.z);
-        Vector3 vector32 = new Vector3(0, 0, endPos.z);
-        return Vector3.Distance(vector31, vector32);
+        float distance = endPos.z - startPos.z;
+        if (distance > 500)
+        {
+            return 0f;
+        }
+        return distance;
     }
 
     public void Init()
@@ -126,7 +137,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         // _dnaGroups = new DNAGroups(new DNA((tagsToLookFor.Length * 2) + 1, 7, "Movement"),
         //     new DNA((tagsToLookFor.Length * 2) + 1, 3, "Height"),
         //     new DNA((tagsToLookFor.Length * 2), 100, "Priority"));
-        DeathOnOff(true);
+        
         startPos = transform.position;
         
         startPos = transform.position;
@@ -171,13 +182,13 @@ public class Brain : MonoBehaviour, ITestForTarget
         switch (movementTurn)
         {
             case 0: //  -VAL 1 = STOP
-                r = 0;
+                //r = 0;
                 break;
             case 1: //  -VAL 2 = TURN LEFT
-                r = 90;
+                //r = 90;
                 break;
             case 2: //  -VAL 3 = TURN RIGHT
-                r = -90;
+                //r = -90;
                 break;
         }
         
@@ -217,6 +228,27 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     }
 
+    (bool, GameObject) FindClosestTag(string tag)
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        bool found = false;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            found = true;
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return (found, closest);
+    }
     private void MakeDecision(List<GameObject> seen, Vector3 eye, List<Vector3> pos)
     {
         int moveFB = 0;
@@ -235,7 +267,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                 dnaPos.Add((index, val));
             }
             dnaPos.Sort((x, y) => y.Item2.CompareTo(x.Item2));
-            List<(int index, int value, Vector3 position)> options = new List<(int, int, Vector3)>();
+            List<(int index, float value, Vector3 pos)> options = new List<(int, float, Vector3)>();
             for (int index = 0; index < seen.Count; index++)
             {
                 GameObject visibleObject = seen[index];
@@ -246,27 +278,36 @@ public class Brain : MonoBehaviour, ITestForTarget
                     if (visibleObject.CompareTag(tag))
                     {
                         seenObjects.Add(tagsToLookFor[i]);
-                        options.Add((i,dnaGroups._priorityDNA.GetGene(i),pos[index]));
+                        options.Add((i,dnaGroups._priorityDNA.GetGene(i)/Vector3.Distance(transform.position, visibleObject.transform.position),pos[index]));
 
                     }
                 }
             }
 
-            
+
+
             for (var i = 0; i < tagsToLookFor.Length; i++)
             {
                 if (!seenObjects.Contains(tagsToLookFor[i]))
                 {
                     int index = tagsToLookFor.Length + i;
-                    options.Add((index,dnaGroups._priorityDNA.GetGene(index),lightBulbPosition));
+                    float distance = Mathf.Infinity;
+                    (bool found, GameObject taggedObject) = FindClosestTag(tagsToLookFor[i]);
+                    if (found)
+                    {
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, taggedObject.transform.position,
+                            out hit, Mathf.Infinity)) distance = Vector3.Distance(transform.position, hit.transform.position);
+                    }
+                    options.Add((index,dnaGroups._priorityDNA.GetGene(index)/distance,lightBulbPosition));
 
                 }
             }
             options.Sort((x, y) => y.value.CompareTo(x.value));
-            moveFB = dnaGroups._movementDNAForwardBackward.GetGene(options[0].Item1);
-            height = dnaGroups._heightDNA.GetGene(options[0].Item1);
-            moveLR = dnaGroups._movementDNALeftRight.GetGene(options[0].Item1);
-            moveT = dnaGroups._movementDNATurn.GetGene(options[0].Item1);
+            moveFB = dnaGroups._movementDNAForwardBackward.GetGene(options[0].index);
+            height = dnaGroups._heightDNA.GetGene(options[0].index);
+            moveLR = dnaGroups._movementDNALeftRight.GetGene(options[0].index);
+            moveT = dnaGroups._movementDNATurn.GetGene(options[0].index);
             Color selectedColour = Color.white;
             if (options[0].index >= tagsToLookFor.Length)
             {
@@ -296,6 +337,17 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public (bool, GameObject) TestForTarget(Collider collider, List<GameObject> gameObjects)
     {
+        try
+        {
+            if (collider.attachedRigidbody == GetComponent<Rigidbody>())
+            {
+                return (false, collider.gameObject);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
         return (tagsToLookFor.Contains(collider.tag), collider.gameObject);
     }
 }
