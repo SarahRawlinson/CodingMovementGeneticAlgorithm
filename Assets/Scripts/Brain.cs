@@ -179,13 +179,13 @@ public class Brain : MonoBehaviour, ITestForTarget
         switch (movementTurn)
         {
             case 0: //  -VAL 1 = STOP
-                //r = 0;
+                r = 0;
                 break;
             case 1: //  -VAL 2 = TURN LEFT
-                //r = 90;
+                r = 90;
                 break;
             case 2: //  -VAL 3 = TURN RIGHT
-                //r = -90;
+                r = -90;
                 break;
         }
         
@@ -201,7 +201,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                 break;
         }
         _character.transform.rotation =
-            Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, r, 0), Time.time * 0.1f);
+            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, r, 0), Time.time * 0.1f);
         _move = v * Vector3.forward + h * Vector3.right;
         _character.Move(_move,crouch,jump);
     }
