@@ -37,6 +37,8 @@ public class PopulationManager : MonoBehaviour
     [Range(0, 20)]
     [SerializeField] float gameSpeed;
 
+    [SerializeField] private DeathSphere sphere;
+
     private List<Brain> brains = new List<Brain>();
     private float furthestDistance = 0;
     public event Action NewRound; 
@@ -62,6 +64,7 @@ public class PopulationManager : MonoBehaviour
 
     private void Start()
     {
+        sphere.GetComponent<Renderer>().enabled = false;
         _textFileHandler = new TextFileHandler(fileName);
         Brain.Dead += CountDead;
         (bool exists, string fileText) = _textFileHandler.GetFileText();
@@ -233,8 +236,33 @@ public class PopulationManager : MonoBehaviour
         _elapsed += Time.deltaTime;
         if (_elapsed >= trialTime || activeEthans == 0)
         {
+            sphere.GetComponent<Renderer>().enabled = false;
+            sphere.DrawSphere(.5f);
             BreedNewPopulation();
             _elapsed = 0f;
         }
+        if (_elapsed >= (trialTime / 4))
+        {
+            sphere.GetComponent<Renderer>().enabled = true;
+            float radius = sphere.CaptureRadius + (Time.deltaTime * 0.5f);
+            sphere.DrawSphere(radius);
+            Collider[] colliders = Physics.OverlapSphere(sphere.transform.position, radius);
+            foreach (Collider collider in colliders)
+            {
+                try
+                {
+                    if (collider.attachedRigidbody.TryGetComponent(out Brain brain))
+                    {
+                        brain.SetDeath();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                
+            }
+        }
+        
     }
 }

@@ -62,7 +62,7 @@ public class FieldOfView : MonoBehaviour
                 // if (!tagToLookFor.Contains(targetsInViewRadius[i].gameObject.tag)) continue;
                 Transform target = targetsInViewRadius[i].transform;
                 Vector3 directionToTarget = target.position;
-                if (targetsInViewRadius[i].gameObject.CompareTag($"Floor"))
+                if (targetsInViewRadius[i].gameObject.CompareTag($"Floor") || targetsInViewRadius[i].gameObject.CompareTag($"Edge"))
                 {
                     RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
@@ -72,6 +72,7 @@ public class FieldOfView : MonoBehaviour
                          // Debug.DrawRay(eye.transform.position, eye.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                         // Debug.Log("Did Hit");
                         if (hit.collider.CompareTag($"Floor")) hasHit = TestRayTransformForTarget(testForTarget, target, directionToTarget, targetsInViewRadius[i], hit.point);
+                        else if (hit.collider.CompareTag($"Edge")) hasHit = TestRayTransformForTarget(testForTarget, target, directionToTarget, targetsInViewRadius[i], hit.point);
                     }
                     // else
                     // {

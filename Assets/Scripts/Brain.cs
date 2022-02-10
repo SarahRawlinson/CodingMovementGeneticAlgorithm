@@ -51,6 +51,17 @@ public class Brain : MonoBehaviour, ITestForTarget
     [SerializeField] private string[] tagsForDie;
     [SerializeField] private GameObject lightBulb;
 
+    public void SetDeath()
+    {
+        if (_alive)
+        {
+            _alive = false;
+            Dead?.Invoke();
+            SetEndPosition();
+            DeathOnOff(false);
+        }
+    }
+
     public float GetProgress()
     {
         if (_alive)
