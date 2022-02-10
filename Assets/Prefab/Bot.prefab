@@ -1666,11 +1666,6 @@ MonoBehaviour:
       dnaLegnth: 0
       maxValues: 0
       genes: 
-    _priorityDNA:
-      dnaType: 
-      dnaLegnth: 0
-      maxValues: 0
-      genes: 
     _movementDNALeftRight:
       dnaType: 
       dnaLegnth: 0
@@ -1681,20 +1676,22 @@ MonoBehaviour:
       dnaLegnth: 0
       maxValues: 0
       genes: 
+    _priorityDNA:
+      dnaType: 
+      dnaLegnth: 0
+      maxValues: 0
+      genes: 
   turnOffOnDeath:
   - {fileID: 1979286658531210}
   - {fileID: 1090520052539156}
   - {fileID: 1641610152953522}
   - {fileID: 943653958356568316}
   tagsToLookFor:
-  - Untagged
   - Floor
   - MovingObject
-  - dead
   - MoveObjectUpDown
   - MoveForwardBackwards
   - StaticObject
-  - Ethan
   tagsForDie:
   - MovingObject
   - MoveObjectUpDown
@@ -1718,7 +1715,7 @@ MonoBehaviour:
   viewRadius: 4.4
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   viewAngle: 110
   eye: {fileID: 5652480552693861740}
 --- !u!114 &3660552541808096730
@@ -1738,7 +1735,7 @@ MonoBehaviour:
   viewRadius: 3.13
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   viewAngle: 130
   eye: {fileID: 1340671575272264852}
 --- !u!114 &5200664472582696195
@@ -1758,7 +1755,7 @@ MonoBehaviour:
   viewRadius: 2.8
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   viewAngle: 130
   eye: {fileID: 433314930750371852}
 --- !u!114 &4277138847388239846
@@ -1778,7 +1775,7 @@ MonoBehaviour:
   viewRadius: 3.97
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   viewAngle: 138
   eye: {fileID: 767377167768671664}
 --- !u!1 &1578918934834248

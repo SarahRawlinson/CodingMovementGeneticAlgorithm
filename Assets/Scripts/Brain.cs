@@ -22,6 +22,13 @@ public class Brain : MonoBehaviour, ITestForTarget
 
         public DNA _priorityDNA;
 
+        public DNAGroups CopyGeneGroupStructure() => new DNAGroups() {
+            _movementDNAForwardBackward = DNA.CopyType(_movementDNAForwardBackward),
+            _heightDNA = DNA.CopyType(_heightDNA),
+            _movementDNALeftRight = DNA.CopyType(_movementDNALeftRight),
+            _movementDNATurn = DNA.CopyType(_movementDNATurn),
+            _priorityDNA = DNA.CopyType(_priorityDNA)
+        };
         public DNAGroups Clone() => new DNAGroups() {
             _movementDNAForwardBackward = DNA.Clone(_movementDNAForwardBackward),
             _heightDNA = DNA.Clone(_heightDNA),
@@ -201,7 +208,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                 break;
         }
         _character.transform.rotation =
-            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, r, 0), Time.time * 0.1f);
+            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, r, 0), Time.time * 0.01f);
         _move = v * Vector3.forward + h * Vector3.right;
         _character.Move(_move,crouch,jump);
     }

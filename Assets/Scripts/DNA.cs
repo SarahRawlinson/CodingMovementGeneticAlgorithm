@@ -17,9 +17,19 @@ public class DNA
     {
         return genes;
     }
+    static public DNA CopyType(DNA copy)
+    {
+        DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
+        return dna;
+    }
+    
     static public DNA Clone(DNA copy)
     {
         DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
+        foreach (int gene in copy.genes)
+        {
+            dna.genes.Add(gene);
+        }
         return dna;
     }
 

@@ -19,6 +19,7 @@ public class PopulationManager : MonoBehaviour
         public float elapsed;
         public int servers;
         public float mutationChance;
+        public float furthestDistance;
 
     }
     [SerializeField] private GameObject botPrefab;
@@ -37,7 +38,7 @@ public class PopulationManager : MonoBehaviour
     [SerializeField] float gameSpeed;
 
     private List<Brain> brains = new List<Brain>();
-
+    private float furthestDistance = 0;
     public event Action NewRound; 
 
     private TextFileHandler _textFileHandler;
@@ -49,12 +50,13 @@ public class PopulationManager : MonoBehaviour
     {
         guiStyle.fontSize = 25;
         guiStyle.normal.textColor = Color.white;
-        GUI.BeginGroup(new Rect(10,10,250,150));
+        GUI.BeginGroup(new Rect(10,10,325,150));
         GUI.Box(new Rect(0,0,140,140),$"Stats", guiStyle);
-        GUI.Label(new Rect(10,25,200,30), $"Generation: {generation}",guiStyle);
-        GUI.Label(new Rect(10,50,200,30), string.Format("Time: {0:0.00}",_elapsed),guiStyle);
-        GUI.Label(new Rect(10,75,200,30), $"Population: {population.Count}",guiStyle);
-        GUI.Label(new Rect(10,100,200,30), $"Alive: {activeEthans}",guiStyle);
+        GUI.Label(new Rect(10,25,300,30), $"Generation: {generation}",guiStyle);
+        GUI.Label(new Rect(10,50,300,30), string.Format("Time: {0:0.00}",_elapsed),guiStyle);
+        GUI.Label(new Rect(10,75,300,30), $"Population: {population.Count}",guiStyle);
+        GUI.Label(new Rect(10,100,300,30), $"Alive: {activeEthans}",guiStyle);
+        GUI.Label(new Rect(10,125,300,30), $"Last Best Distance: {furthestDistance}",guiStyle);
         GUI.EndGroup();
     }
 
@@ -73,6 +75,7 @@ public class PopulationManager : MonoBehaviour
             generation = gen.generation;
             trialTime = gen.trialTime;
             mutationChance = gen.mutationChance;
+            furthestDistance = gen.furthestDistance;
             CreateNewPopulation();
             for (var index = 0; index < brains.Count; index++)
             {
@@ -105,6 +108,7 @@ public class PopulationManager : MonoBehaviour
         gen.populationSize = populationSize;
         gen.trialTime = trialTime;
         gen.dnaGroupsList = dnaValues;
+        gen.furthestDistance = furthestDistance;
         _generations.Add(gen);
         // _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_generations));
         
@@ -155,7 +159,7 @@ public class PopulationManager : MonoBehaviour
     {
         NewRound?.Invoke();
         // var position = transform.position;
-        Brain.DNAGroups offspringDnaGroups = parent1.dnaGroups.Clone();
+        Brain.DNAGroups offspringDnaGroups = parent1.dnaGroups.CopyGeneGroupStructure();
         // var offspring = CreateEthan(position);
         // Brain brain = offspring.GetComponent<Brain>();
         offspringDnaGroups._movementDNAForwardBackward.Combine(parent1.dnaGroups._movementDNAForwardBackward,parent2.dnaGroups._movementDNAForwardBackward);
@@ -199,10 +203,12 @@ public class PopulationManager : MonoBehaviour
         // }
         List<Brain> sortedList = brains.OrderBy(o => ((o.Distance))).ToList();
         Debug.Log(sortedList[sortedList.Count-1].Distance);
-        sortedList = brains.OrderBy(o => (((o.Distance / sortedList[sortedList.Count-1].Distance) * 3) + (o.timeAlive / _elapsed))).ToList();
+        furthestDistance = sortedList[sortedList.Count - 1].Distance;
+        sortedList = brains.OrderBy(o => (((o.Distance)) + (o.timeAlive / _elapsed))).ToList();
         AddToDictionary(sortedList);
         // population.Clear();
         List<Brain.DNAGroups> Offsping = new List<Brain.DNAGroups>();
+        Brain.DNAGroups topGeneGroups = sortedList[0].dnaGroups.Clone();
         for (int i = (int) (sortedList.Count / 2.0f) - 1; i < sortedList.Count -1; i++)
         {
             Offsping.Add(Breed(sortedList[i], sortedList[i + 1]));
@@ -217,6 +223,8 @@ public class PopulationManager : MonoBehaviour
             brains[i].Init();
             // Destroy(sortedList[i]);
         }
+
+        brains[Random.Range(0, brains.Count)].dnaGroups = topGeneGroups;
     }
 
     private void Update()

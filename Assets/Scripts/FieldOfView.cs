@@ -24,6 +24,7 @@ public class FieldOfView : MonoBehaviour
     public Visibility VisibilityType { get => visibility; set => visibility = value; }
     public Color Colour { get => colour; }
 
+
     public IEnumerator FindTargetsWithDelay(float delay, ITestForTarget testForTarget)
     {
         while (true)
@@ -55,7 +56,7 @@ public class FieldOfView : MonoBehaviour
         _visibleVector3s.Clear();
         try
         {
-            Collider[] targetsInViewRadius = Physics.OverlapSphere(eye.position, viewRadius);
+            Collider[] targetsInViewRadius = Physics.OverlapSphere(eye.position, viewRadius, _layerMask);
             for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
                 // if (!tagToLookFor.Contains(targetsInViewRadius[i].gameObject.tag)) continue;
@@ -95,7 +96,7 @@ public class FieldOfView : MonoBehaviour
         Ray ray = new Ray(eye.position, (hitpos - eye.position).normalized * viewRadius);
         RaycastHit hit;
         Transform hitTransform = null;
-        bool hasHit = Physics.Raycast(ray, out hit);
+        bool hasHit = Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask);
         if (hasHit)
         {
             if (hit.collider != collider)
