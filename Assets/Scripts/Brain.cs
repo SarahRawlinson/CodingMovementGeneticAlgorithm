@@ -207,10 +207,12 @@ public class Brain : MonoBehaviour, ITestForTarget
                 jump = true;
                 break;
         }
-        _character.transform.rotation =
-            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, r, 0), Time.time * 0.01f);
+        
         _move = v * Vector3.forward + h * Vector3.right;
+        Vector3 rotation = new Vector3(0, r * .5f * Time.deltaTime, 0);
+        _character.transform.Rotate(rotation);
         _character.Move(_move,crouch,jump);
+
     }
 
 

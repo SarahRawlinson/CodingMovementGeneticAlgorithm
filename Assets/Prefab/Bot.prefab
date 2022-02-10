@@ -1692,6 +1692,7 @@ MonoBehaviour:
   - MoveObjectUpDown
   - MoveForwardBackwards
   - StaticObject
+  - Edge
   tagsForDie:
   - MovingObject
   - MoveObjectUpDown
@@ -1715,7 +1716,7 @@ MonoBehaviour:
   viewRadius: 4.4
   _layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   viewAngle: 110
   eye: {fileID: 5652480552693861740}
 --- !u!114 &3660552541808096730
@@ -1735,7 +1736,7 @@ MonoBehaviour:
   viewRadius: 3.13
   _layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   viewAngle: 130
   eye: {fileID: 1340671575272264852}
 --- !u!114 &5200664472582696195
@@ -1755,7 +1756,7 @@ MonoBehaviour:
   viewRadius: 2.8
   _layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   viewAngle: 130
   eye: {fileID: 433314930750371852}
 --- !u!114 &4277138847388239846
@@ -1775,7 +1776,7 @@ MonoBehaviour:
   viewRadius: 3.97
   _layerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   viewAngle: 138
   eye: {fileID: 767377167768671664}
 --- !u!1 &1578918934834248
