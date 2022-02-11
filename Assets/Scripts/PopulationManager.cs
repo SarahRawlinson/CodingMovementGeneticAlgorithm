@@ -36,7 +36,9 @@ public class PopulationManager : MonoBehaviour
     private bool dictionaryData = false;
     [Range(0, 20)]
     [SerializeField] float gameSpeed;
-
+    [SerializeField] private float deathSphereSpeed = 1f;
+    [SerializeField] private float deathSphereStartTime = 30f;   
+    [SerializeField] private float deathSphereStartSize = .5f; 
     [SerializeField] private DeathSphere sphere;
 
     private List<Brain> brains = new List<Brain>();
@@ -65,6 +67,7 @@ public class PopulationManager : MonoBehaviour
     private void Start()
     {
         sphere.GetComponent<Renderer>().enabled = false;
+        sphere.DrawSphere(deathSphereStartSize);
         _textFileHandler = new TextFileHandler(fileName);
         Brain.Dead += CountDead;
         (bool exists, string fileText) = _textFileHandler.GetFileText();
@@ -237,14 +240,14 @@ public class PopulationManager : MonoBehaviour
         if (_elapsed >= trialTime || activeEthans == 0)
         {
             sphere.GetComponent<Renderer>().enabled = false;
-            sphere.DrawSphere(.5f);
+            sphere.DrawSphere(deathSphereStartSize);
             BreedNewPopulation();
             _elapsed = 0f;
         }
-        if (_elapsed >= (trialTime / 4))
+        if (_elapsed >= deathSphereStartTime)
         {
             sphere.GetComponent<Renderer>().enabled = true;
-            float radius = sphere.CaptureRadius + (Time.deltaTime * 0.5f);
+            float radius = sphere.CaptureRadius + (Time.deltaTime * deathSphereSpeed);
             sphere.DrawSphere(radius);
             Collider[] colliders = Physics.OverlapSphere(sphere.transform.position, radius);
             foreach (Collider collider in colliders)
