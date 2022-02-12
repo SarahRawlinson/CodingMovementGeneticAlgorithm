@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightBulb : MonoBehaviour
+public class RenderColourChanger : MonoBehaviour
 {
 
-    [SerializeField] private Renderer lightBulbMeshRenderer;
+    [SerializeField] private Renderer MeshRenderer;
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
-        foreach (Material material in lightBulbMeshRenderer.materials)
+        foreach (Material material in MeshRenderer.materials)
         {
             material.color = Color.black;
         }
@@ -17,7 +17,7 @@ public class LightBulb : MonoBehaviour
 
     public void ChangeColor(Color newColour)
     {
-        foreach (Material material in lightBulbMeshRenderer.materials)
+        foreach (Material material in MeshRenderer.materials)
         {
             material.color = newColour;
         }

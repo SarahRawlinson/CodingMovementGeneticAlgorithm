@@ -59,7 +59,7 @@ public class FreeCam : MonoBehaviour
     {
         bestBotPos = transform.position;
         startPosition = transform.position;
-        FindObjectOfType<PopulationManager>().NewRound += NewRound;
+        PopulationManager.NewRound += NewRound;
     }
 
     void NewRound()

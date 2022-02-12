@@ -17,20 +17,20 @@ public class DNA
     {
         return genes;
     }
-    static public DNA CopyType(DNA copy)
+    static public DNA CopyType(DNA copy, bool clone)
     {
         DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
+        if (clone) dna.Clone(copy);
         return dna;
     }
     
-    static public DNA Clone(DNA copy)
+    public void Clone(DNA copy)
     {
-        DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
-        foreach (int gene in copy.genes)
+        // DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
+        for (var index = 0; index < copy.genes.Count; index++)
         {
-            dna.genes.Add(gene);
+            genes[index] = copy.genes[index];
         }
-        return dna;
     }
 
     public DNA()
