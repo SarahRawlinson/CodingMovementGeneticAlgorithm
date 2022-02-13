@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class EndPoint : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
     private Collider _collider;
     private void Start()
@@ -15,12 +15,18 @@ public class EndPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Debug.Log($"collided with {other.name}");
         if (other.TryGetComponent(out Rigidbody body))
         {
             if (body.TryGetComponent(out Brain brain))
             {
-                brain.AddHitBonus(1);
-                _collider.enabled = false;
+                if (brain.GetIsAlive())
+                {
+                    brain.AddHitBonus(1);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    // Debug.Log("Check Point Reached");
+                    _collider.enabled = false;
+                }
             }
         }
         
@@ -28,6 +34,7 @@ public class EndPoint : MonoBehaviour
 
     private void Reset()
     {
+        GetComponent<MeshRenderer>().enabled = true;
         _collider.enabled = true;
     }
 }

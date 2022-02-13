@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class DebugToTextDisplay : MonoBehaviour
 {
-    public int maxLines = 8;
+    public int maxLines = 15;
     private Queue<string> queue = new Queue<string>();
     private string currentText = "";
     private GUIStyle guiStyle = new GUIStyle();
+    private bool printDebug = true;
 
     // private void Update()
     // {
@@ -27,11 +28,12 @@ public class DebugToTextDisplay : MonoBehaviour
     }
     void OnGUI()
     {
+        if (!printDebug) return;
         guiStyle.fontSize = 25;
         guiStyle.normal.textColor = Color.white;
-        GUI.BeginGroup(new Rect(10,1500,800,500));
-        GUI.Box(new Rect(0,0,800,500),$"Debug", guiStyle);
-        GUI.Label(new Rect(10,25,300,30), currentText,guiStyle);
+        GUI.BeginGroup(new Rect(10,1000,2000,500));
+        GUI.Box(new Rect(0,0,2000,1500),$"Debug", guiStyle);
+        GUI.Label(new Rect(10,25,2000,30), currentText,guiStyle);
 
         GUI.EndGroup();
     }

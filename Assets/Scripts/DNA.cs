@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class DNA
 {
-    public string dnaType;
+    public Brain.DNAType dnaType;
     public int dnaLegnth = 0;
     public int maxValues = 0;
     public List<int> genes = new List<int>();
@@ -38,16 +38,16 @@ public class DNA
         
     }
 
-    public DNA(int l, int v, string name)
+    public DNA(int l, int v, Brain.DNAType type)
     {
-        dnaType = $"{name}";
+        dnaType = type;
         dnaLegnth = l;
         maxValues = v;
         SetRandom();
     }
-    public DNA(int l, int v, string name, List<int> values)
+    public DNA(int l, int v, Brain.DNAType type, List<int> values)
     {
-        dnaType = $"{name}";
+        dnaType = type;
         dnaLegnth = l;
         maxValues = v;
         genes = values;
@@ -58,14 +58,17 @@ public class DNA
         genes.Clear();
         for (int i = 0; i < dnaLegnth; i++)
         {
-            genes.Add(Mathf.RoundToInt(Random.Range(0, maxValues + 1)));
+            int val = Random.Range(0, maxValues);
+            genes.Add(Mathf.RoundToInt(val));
+            if (val > (maxValues - 1)) Debug.Log("Error Value more than max");
         }
     }
 
-    public void SetFloat(int pos, int value)
-    {
-        genes[pos] = value;
-    }
+    // public void SetFloat(int pos, int value)
+    // {
+    //     if (value > (maxValues - 1)) Debug.Log("Error Value more than max");
+    //     genes[pos] = value;
+    // }
 
     public void Combine(DNA dna1, DNA dna2)
     {
@@ -84,9 +87,14 @@ public class DNA
         }
     }
 
-    public void Mutate()
+    public (int index, int oldValue, int newValue) Mutate()
     {
-        genes[Random.Range(0, dnaLegnth)] = Random.Range(0, maxValues + 1);
+        int geneIndex = Random.Range(0, dnaLegnth);
+        int newValue = Random.Range(0, maxValues);
+        int originalValue = genes[geneIndex];
+        genes[geneIndex] = newValue;
+        // Debug.Log($"DNA Gene Mutate : Old Val: {originalValue}, New Val: {newValue} : Max Val: {maxValues - 1}");
+        return (geneIndex, originalValue, newValue);
     }
 
     public int GetGene(int pos)

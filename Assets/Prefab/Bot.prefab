@@ -1620,8 +1620,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.58
+  m_Radius: 0.14
+  m_Height: 1.53
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!114 &114074067701618710
@@ -1659,32 +1659,32 @@ MonoBehaviour:
   timeAlive: 0
   dnaGroups:
     _movementDNAForwardBackward:
-      dnaType: 
+      dnaType: 0
       dnaLegnth: 0
       maxValues: 0
       genes: 
     _heightDNA:
-      dnaType: 
+      dnaType: 0
       dnaLegnth: 0
       maxValues: 0
       genes: 
     _movementDNALeftRight:
-      dnaType: 
+      dnaType: 0
       dnaLegnth: 0
       maxValues: 0
       genes: 
     _movementDNATurn:
-      dnaType: 
+      dnaType: 0
       dnaLegnth: 0
       maxValues: 0
       genes: 
     _colourDNA:
-      dnaType: 
+      dnaType: 0
       dnaLegnth: 0
       maxValues: 0
       genes: 
     _priorityDNA:
-      dnaType: 
+      dnaType: 0
       dnaLegnth: 0
       maxValues: 0
       genes: 
@@ -1695,15 +1695,15 @@ MonoBehaviour:
   - {fileID: 943653958356568316}
   tagsToLookFor:
   - Floor
-  - MovingObject
-  - MoveObjectUpDown
-  - MoveForwardBackwards
+  - MovingObjectUpDown
+  - MovingObjectLeftRight
+  - MovingObjectForwardBackwards
   - StaticObject
   - Edge
   tagsForDie:
-  - MovingObject
-  - MoveObjectUpDown
-  - MoveForwardBackwards
+  - MovingObjectUpDown
+  - MovingObjectLeftRight
+  - MovingObjectForwardBackwards
   - dead
   lightBulb: {fileID: 943653958356568316}
   ethanColour: {fileID: 928956270603485909}

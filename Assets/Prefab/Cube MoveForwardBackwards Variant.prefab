@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8201832168974162224, guid: 9910733457cf0e6469b9b49950722afa, type: 3}
       propertyPath: m_TagString
-      value: MoveForwardBackwards
+      value: MovingObjectForwardBackwards
       objectReference: {fileID: 0}
     - target: {fileID: 8201832168974162225, guid: 9910733457cf0e6469b9b49950722afa, type: 3}
       propertyPath: maxY

@@ -19,77 +19,164 @@ public class PopulationManager : MonoBehaviour
         public float elapsed;
         public int survivors;
         public float mutationChance;
-        public float furthestDistance;
-        public string bestFitnessScore;
+        public float BestDistance;
+        public float bestFitnessScore;
         public float bestPossibleScore;
         public Vector3 winningDeathPos;
         public int cloneIndex;
-        public float AvgFitnessScore;
-        public float AvgLastPossibleScore;
+        public float avgFitnessScore;
+        public float avgPossibleScore;
         public float AvgAliveTime;
-        public float AvgDistance;
+        public float avgDistance;
     }
-    [SerializeField] private GameObject botPrefab;
+    
+    // Settings
+    
     [SerializeField] private int populationSize = 50;
-    [SerializeField] private string fileName = "Pre Run Generation 300";
-    private readonly List<GameObject> population = new List<GameObject>();
-    private static float _elapsed;
-    [SerializeField] private float trialTime = 10;
-    private int generation = 1;
-    private GUIStyle guiStyle = new GUIStyle();
-    private int activeEthans;
-    // private List<string> generationList = new List<string>();
-    private List<Generation> _generations = new List<Generation>();
-    private bool dictionaryData = false;
-    [Range(0, 20)]
+    [Range(0, 5)]
     [SerializeField] float gameSpeed;
     [SerializeField] private float deathSphereSpeed = 1f;
     [SerializeField] private float deathSphereStartTime = 30f;   
     [SerializeField] private float deathSphereStartSize = .5f; 
+    [SerializeField] private float trialTime = 10;
+    [Range(0f, 1f)] [SerializeField] private float mutationChance = 0.05f;
+    [SerializeField] private bool PrintScore = true;
+    [SerializeField] private float fitnessMultiplyBonus = 1;
+    [SerializeField] private float fitnessMultiplyDistance = 1;
+    [SerializeField] private float fitnessMultiplyTime = 1;
+    [SerializeField] private bool ShowStats = true;
+
+    // Now
+
+    private int generation = 1;
+    private float distance = 0;
+    private static float _elapsed;
+    private int activeEthans;
+    private int cloneIndex;
+
+    // Last
+    
+    private float lastBestFitnessScorePrint = 0f;
+    private float lastAvgFitnessScore = 0f;
+    private float lastBestDistance;
+    private float lastAvgDistance = 0f;
+    private float lastBestPosibleScore;
+    private float lastAvgPossibleScore = 0f;
+    private float lastElapstTime;
+    private float lastAvgAliveTime = 0f;
+    private float lastSurvivors = 0f;
+    private float lastPopulationSize = 1f;
+    private Vector3 winningDeathPos;
+
+    // Top
+    private float topFitnessScore = 0;
+    private float topAvgFitnessScore = 0;
+    private float topDistance = 0;
+    private float topAvgDistance;
+    private float topPossibleScore = 0;
+    private float topAvgPossibleScore = 0;
+    private float topTimeAlive = 0;
+    private float topAvgTimeAlive = 0;
+    private float topSurvivors = 0;
+    private float topAvgSurvivors = 0;
+    private float topSurvivorsPopulationSize = 1f;
+    
+    // Event
+    public static event Action NewRound;
+
+    // References
+    [SerializeField] private GameObject botPrefab;
+    [SerializeField] private string fileName = "Pre Run Generation 300";
     [SerializeField] private DeathSphere sphere;
     [SerializeField] private GameObject star;
-    private string scorePrint = "No Best";
-    [SerializeField] private bool PrintScore = true;
-    private float bestPosibleScore;
-    private Vector3 winningDeathPos;
-    private List<Brain> brains = new List<Brain>();
-    private float furthestDistance = 0;
-    private int cloneIndex;
-    private float lastElapstTime;
-    private float bestDistance;
-    private float timer;
-    private float AvgLastScore = 0f;
-    private float AvgLastPossibleScore = 0f;
-    private float AvgLastAliveTime = 0f;
-    private float AvgLastDistance = 0f;
-    public static event Action NewRound; 
-
-    private TextFileHandler _textFileHandler;
-
     
-    [Range(0f, 1f)] [SerializeField] private float mutationChance = 0.05f;
+    private readonly List<GameObject> population = new List<GameObject>();
+    private GUIStyle guiStyle = new GUIStyle();
+    private List<Generation> _generations = new List<Generation>();
+    private bool dictionaryData = false;
+    private List<Brain> brains = new List<Brain>();
+    private TextFileHandler _textFileHandler;
+    private float timer;
 
     void OnGUI()
     {
+        if (!ShowStats) return;
+        // guiStyle = new GUIStyle(GUI.skin.box);
         guiStyle.fontSize = 25;
         guiStyle.normal.textColor = Color.white;
-        GUI.BeginGroup(new Rect(10,10,800,500));
-        GUI.Box(new Rect(0,0,800,500),$"Stats", guiStyle);
+        // guiStyle.normal.background = Texture2D.CreateExternalTexture(1500, 1500, TextureFormat.Alpha8, false, true, IntPtr.Zero);
+        GUI.BeginGroup(new Rect(10,10,1500,1500));
+        GUI.Box(new Rect(0,0,1500,100),$"Settings", guiStyle);
         GUI.Label(new Rect(10,25,300,30), $"Generation: {generation}",guiStyle);
         GUI.Label(new Rect(10,50,300,30), $"Population: {population.Count}",guiStyle);
         GUI.Label(new Rect(10,75,300,30), $"Mutation: {Mathf.RoundToInt(mutationChance * 100)}%",guiStyle);
-        GUI.Label(new Rect(10,100,300,30), $"Time: {_elapsed:0.00}" + " / " 
-                                                                   + $"Time: {trialTime:0.00}",guiStyle);
-        GUI.Label(new Rect(10,125,800,30), $"Furthest Distance {bestDistance} / 155",guiStyle);
+        // GUI.Label(new Rect(10,100,300,30), $"Time: {_elapsed:0.00}" + " / " 
+                                                                   // + $"Time: {trialTime:0.00}",guiStyle);
+        // GUI.Label(new Rect(10,125,800,30), $"Furthest Distance {lastBestDistance} / 155",guiStyle);
+        GUI.Box(new Rect(0,125,1500,700),$"Stats", guiStyle);
+        GUI.contentColor = new Color(0.81f, 1f, 0.71f);
         
-        GUI.Label(new Rect(10, 150, 300, 30),
-            $"Alive: {activeEthans} / {Mathf.RoundToInt(((float)activeEthans / populationSize) * 100)}%", guiStyle);
-        GUI.Label(new Rect(10,175,800,30), $"Last Best Distance: {Mathf.RoundToInt(furthestDistance)} / 155 / Avg: {AvgLastDistance}",guiStyle);
-        GUI.Label(new Rect(10,200,800,30), $"Last Survival Time: {lastElapstTime:0.00} / {trialTime:0.00} / Avg: {AvgLastAliveTime:0.00}",guiStyle);
-        GUI.Label(new Rect(10,225,800,30), $"{scorePrint} / Avg: {AvgLastScore}%",guiStyle);
-        GUI.Label(new Rect(10,250,800,30), $"Last Possible Score: {Mathf.RoundToInt(bestPosibleScore * 100)}% / 100% / Avg: {AvgLastPossibleScore}%",guiStyle);
+        GUI.Label(new Rect(10,150,1500,30), $"Survivors: Now: {activeEthans}/" +
+                                            $"{Mathf.RoundToInt(((float)activeEthans / populationSize) * 100)}% /" +
+                                            $" Last : {lastSurvivors}/" +
+                                            $"{Mathf.RoundToInt(((float)lastSurvivors / lastPopulationSize) * 100)}% /" +
+                                            $" Top: {topSurvivors}/" +
+                                            $"{Mathf.RoundToInt(((float)topSurvivors / topSurvivorsPopulationSize) * 100)}%", guiStyle);
+        GUI.contentColor = new Color(0.6f, 0.63f, 1f);
+        GUI.Label(new Rect(10,200,1500,30), $"Distance: Now: {Mathf.RoundToInt(lastBestDistance)}/155" +
+                                            $" Last: {Mathf.RoundToInt(distance)} /" +
+                                            $" LastAvg: {Mathf.RoundToInt(lastAvgDistance)}" +
+                                            $" Top: {Mathf.RoundToInt(topDistance)} /" +
+                                            $" TopAvg: {Mathf.RoundToInt(topAvgDistance)}",guiStyle);
+        GUI.contentColor = new Color(1f, 0.99f, 0.67f);
+        GUI.Label(new Rect(10,250,1500,30), $"Survival Time: Now: {_elapsed:0.00}/{trialTime:0.00} /" +
+                                            $" Last: {lastElapstTime:0.00} /" +
+                                            $" LastAvg: {lastAvgAliveTime:0.00}" +
+                                            $" Top: {topTimeAlive:0.00} /" +
+                                            $" TopAvg: {topAvgTimeAlive:0.00}",guiStyle);
+        GUI.contentColor = new Color(0.7f, 0.51f, 0.61f);
+        GUI.Label(new Rect(10,300,1500,30), $"Fitness Score: Now: N/A /" +
+                                            $" Last: {lastBestFitnessScorePrint}% /" +
+                                            $" LastAvg: {lastAvgFitnessScore}% /" +
+                                            $" Top: {topFitnessScore}% /" +
+                                            $" TopAvg: {topAvgFitnessScore}%",guiStyle);
+        GUI.contentColor = new Color(0.99f, 0.8f, 0.48f);
+        GUI.Label(new Rect(10,350,1500,30), $"Possible Score: Now: N/A /" +
+                                            $" Last: {Mathf.RoundToInt(lastBestPosibleScore * 100)}% /" +
+                                            $" LastAvg: {Mathf.RoundToInt(lastAvgPossibleScore * 100)}%"+
+                                            $" Top: {Mathf.RoundToInt(topPossibleScore * 100)}% /" +
+                                            $" TopAvg: {Mathf.RoundToInt(topAvgPossibleScore * 100)}%",guiStyle);
         
         GUI.EndGroup();
+    }
+
+    void SetBest(List<Generation> generations)
+    {
+        foreach (Generation generation in generations)
+        {
+            CheckForBest(generation);
+        }
+    }
+
+    private void CheckForBest(Generation generation)
+    {
+
+    // private float topTimeAlive = 0;
+    // private float topAvgTimeAlive = 0;
+        if (generation.bestFitnessScore > topFitnessScore) topFitnessScore = generation.bestFitnessScore;
+        if (generation.avgFitnessScore > topAvgFitnessScore) topAvgFitnessScore = generation.avgFitnessScore;
+        if (generation.BestDistance > topDistance) topDistance = generation.BestDistance;
+        if (generation.avgDistance > topAvgDistance) topAvgDistance = generation.avgDistance;
+        if (generation.bestPossibleScore > topPossibleScore) topPossibleScore = generation.bestPossibleScore;
+        if (generation.avgPossibleScore > topAvgPossibleScore) topAvgPossibleScore = generation.avgPossibleScore;
+        if (generation.elapsed > topTimeAlive) topTimeAlive = generation.elapsed;
+        if (generation.AvgAliveTime > topAvgTimeAlive) topAvgTimeAlive = generation.AvgAliveTime;
+        if (generation.survivors >= topSurvivors)
+        {
+            topSurvivors = generation.survivors;
+            topSurvivorsPopulationSize = generation.populationSize;
+        }
+        if ((generation.survivors / generation.populationSize) >= topAvgSurvivors) topAvgSurvivors = (generation.survivors / generation.populationSize);
     }
 
     private void Start()
@@ -109,19 +196,21 @@ public class PopulationManager : MonoBehaviour
             generation = gen.generation;
             trialTime = gen.trialTime;
             mutationChance = gen.mutationChance;
-            furthestDistance = gen.furthestDistance;
+            distance = gen.BestDistance;
             populationSize = gen.populationSize;
-            scorePrint = gen.bestFitnessScore;
-            bestPosibleScore = gen.bestPossibleScore;
+            lastBestFitnessScorePrint = gen.bestFitnessScore;
+            lastBestPosibleScore = gen.bestPossibleScore;
             winningDeathPos = gen.winningDeathPos;
-            Vector3 starPos = new Vector3(winningDeathPos.x, star.transform.position.y, winningDeathPos.z);
+            Vector3 starPos = new Vector3(star.transform.position.x, star.transform.position.y, winningDeathPos.z);
             cloneIndex = gen.cloneIndex;
             star.transform.position = starPos;
             lastElapstTime = gen.elapsed;
-            AvgLastScore = gen.AvgFitnessScore;
-            AvgLastPossibleScore = gen.AvgLastPossibleScore;
-            AvgLastDistance = gen.AvgDistance;
-            AvgLastAliveTime = gen.AvgAliveTime;
+            lastAvgFitnessScore = gen.avgFitnessScore;
+            lastAvgPossibleScore = gen.avgPossibleScore;
+            lastAvgDistance = gen.avgDistance;
+            lastAvgAliveTime = gen.AvgAliveTime;
+            lastSurvivors = gen.survivors;
+            lastPopulationSize = gen.populationSize;
             
             CreateNewPopulation();
             for (var index = 0; index < brains.Count; index++)
@@ -131,6 +220,7 @@ public class PopulationManager : MonoBehaviour
                 brains[index].Init();
             }
             brains[cloneIndex].StarActive(true);
+            SetBest(_generations);
         }
         else
         {
@@ -157,17 +247,18 @@ public class PopulationManager : MonoBehaviour
         gen.populationSize = populationSize;
         gen.trialTime = trialTime;
         gen.dnaGroupsList = dnaValues;
-        gen.furthestDistance = furthestDistance;
-        gen.bestFitnessScore = scorePrint;
-        gen.bestPossibleScore = bestPosibleScore;
+        gen.BestDistance = distance;
+        gen.bestFitnessScore = lastBestFitnessScorePrint;
+        gen.bestPossibleScore = lastBestPosibleScore;
         gen.winningDeathPos = winningDeathPos;
         gen.cloneIndex = cloneIndex;
         gen.elapsed = lastElapstTime;
-        gen.AvgFitnessScore = AvgLastScore;
-        gen.AvgLastPossibleScore = AvgLastPossibleScore;
-        gen.AvgDistance = AvgLastDistance;
-        gen.AvgAliveTime = AvgLastAliveTime;
+        gen.avgFitnessScore = lastAvgFitnessScore;
+        gen.avgPossibleScore = lastAvgPossibleScore;
+        gen.avgDistance = lastAvgDistance;
+        gen.AvgAliveTime = lastAvgAliveTime;
         _generations.Add(gen);
+        CheckForBest(gen);
         // _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_generations));
         
         
@@ -175,8 +266,6 @@ public class PopulationManager : MonoBehaviour
 
     private void CreateNewPopulation()
     {
-        
-        activeEthans = populationSize;
         Vector3 randPos = RandomStartPosition(transform.position);
         for (int i = 0; i < populationSize; i++)
         {
@@ -185,6 +274,7 @@ public class PopulationManager : MonoBehaviour
             population.Add(b);
             // _textFileHandler.AddTextToFile(b.GetComponent<Brain>().GetDNAString());
         }
+        activeEthans = populationSize;
     }
 
     private void OnApplicationQuit()
@@ -229,61 +319,92 @@ public class PopulationManager : MonoBehaviour
         offspringDnaGroups._colourDNA.Combine(parent1.dnaGroups._colourDNA,parent2.dnaGroups._colourDNA);
         if (Random.Range(0f, 1f) < mutationChance)
         {
+            
+            (int index, int oldValue, int newValue) dnaDetails = (0,0,0);
+            DNA dnaMutate = new DNA();
             switch (Random.Range(0, 6))
             {
                 case 0:
-                    offspringDnaGroups._movementDNAForwardBackward.Mutate();
-                    Debug.Log("Mutation in Movement Forward Backwards");
+                    dnaMutate = offspringDnaGroups._movementDNAForwardBackward;
                     break;
                 case 1:
-                    offspringDnaGroups._priorityDNA.Mutate();
-                    Debug.Log("Mutation in priority");
+                    dnaMutate = offspringDnaGroups._priorityDNA;
                     break;
                 case 2:
-                    offspringDnaGroups._heightDNA.Mutate();
-                    Debug.Log("Mutation in height");
+                    dnaMutate = offspringDnaGroups._heightDNA;
                     break;
                 case 3:
-                    offspringDnaGroups._movementDNALeftRight.Mutate();
-                    Debug.Log("Mutation in Movement Left Right");
+                    dnaMutate = offspringDnaGroups._movementDNALeftRight;
                     break;
                 case 4:
-                    offspringDnaGroups._movementDNATurn.Mutate();
-                    Debug.Log("Mutation in Movement Turn");
+                    dnaMutate = offspringDnaGroups._movementDNATurn;
                     break;
                 case 5:
-                    offspringDnaGroups._colourDNA.Mutate();
-                    Debug.Log("Mutation in Colour");
+                    dnaMutate = offspringDnaGroups._colourDNA;
                     break;
             }
+
+            try
+            {
+                dnaDetails = dnaMutate.Mutate();
+            }
+            catch (Exception e)
+            {
+                Debug.Log($"issue during mutation: {e.Message} {e.Source}");
+            }
+            try
+            {
+                string printString = "Mutation ";
+                printString += Brain.DNAInfo(parent1.tagsToLookFor.ToList(),
+                    dnaMutate,
+                    dnaDetails.index, dnaDetails.oldValue);
+                printString += " Has now been changed to ";
+                printString += Brain.DNAInfo(parent1.tagsToLookFor.ToList(),
+                    dnaMutate,
+                    dnaDetails.index, dnaDetails.newValue);
+                Debug.Log(printString);
+            }
+            catch (Exception e)
+            {
+                Debug.Log($"issue during mutation information from DNA: {e.Message} {e.Source}");
+            }
+            
+            
+            
         }
         // _textFileHandler.AddTextToFile(brain.GetComponent<Brain>().GetDNAString());
         return offspringDnaGroups;
     }
 
+    float GetFitnessScore(Brain brain)
+    {
+        float divScore = fitnessMultiplyDistance + fitnessMultiplyTime + fitnessMultiplyBonus;
+        return Mathf.RoundToInt(((((brain.Distance / distance) * fitnessMultiplyDistance) +
+                                  (brain.timeAlive / _elapsed) +
+                                  (brain.GetBonus() / FindObjectsOfType<CheckPoint>().Length)) / divScore) * 100);
+    }
+
     private void BreedNewPopulation()
     {
         generation++;
-        activeEthans = populationSize;
-        // List<Brain> brains = new List<Brain>();
-        // foreach (GameObject brain in population)
-        // {
-        //     brains.Add(brain.GetComponent<Brain>());
-        // }
+        Debug.Log($"Gen {generation}: ");
+        
         List<Brain> sortedList = brains.OrderBy(o => ((o.Distance))).ToList();
         winningDeathPos = sortedList[sortedList.Count - 1].transform.position;
         Vector3 starPos = new Vector3(winningDeathPos.x, star.transform.position.y, winningDeathPos.z);
         star.transform.position = starPos;
-        // Brain.DNAGroups.PrintDNAColour(sortedList[sortedList.Count - 1].dnaGroups);
-        // Brain.DNAGroups.PrintDNAColour(topGeneGroups);
-        Debug.Log(sortedList[sortedList.Count-1].Distance);
-        furthestDistance = sortedList[sortedList.Count - 1].Distance;
-        sortedList = brains.OrderBy(o => ((((o.Distance / furthestDistance) * 5) + (o.timeAlive / _elapsed)) + o.GetBonus()) / 7).ToList();
+        // Debug.Log($"Max Distance {sortedList[sortedList.Count-1].Distance}");
+        this.distance = sortedList[sortedList.Count - 1].Distance;
+        sortedList = brains.OrderBy(o => ((GetFitnessScore(o)))).ToList();
+        // float divScore = fitnessMultiplyDistance + fitnessMultiplyTime + fitnessMultiplyBonus;
+        // sortedList = brains.OrderBy(o =>
+        //     ((((o.Distance / furthestDistance) * fitnessMultiplyDistance) +
+        //       ((o.timeAlive / _elapsed) * fitnessMultiplyTime)) +
+        //      ((o.GetBonus() / FindObjectsOfType<CheckPoint>().Length)) * fitnessMultiplyBonus) / divScore).ToList();
         Brain.DNAGroups topGeneGroups = Brain.DNAGroups.Clone(sortedList[sortedList.Count - 1].dnaGroups);
         Brain brain = sortedList[sortedList.Count - 1];
-        bestPosibleScore = ((brain.Distance / 150) + (brain.timeAlive / trialTime) + brain.GetBonus()) / 3;
-        scorePrint = $"Score: {Mathf.RoundToInt(((((brain.Distance / furthestDistance) * 5) + (brain.timeAlive / _elapsed) + brain.GetBonus())/7) * 100)}%, " +
-                     $"Dis: {Mathf.RoundToInt((brain.Distance / furthestDistance) * 100)}, Time: {Mathf.RoundToInt((brain.timeAlive / _elapsed) * 100)}, Bonus: {brain.GetBonus()}";
+        lastBestPosibleScore = UnbiasPosibleScore(brain);
+        lastBestFitnessScorePrint = GetFitnessScore(brain);
         float scores = 0f;
         float possibleScore = 0f;
         float timeAlive = 0f;
@@ -292,33 +413,31 @@ public class PopulationManager : MonoBehaviour
          {
              distance += b.Distance;
              timeAlive += b.timeAlive;
-             float currentScore =
-                 Mathf.RoundToInt(
-                     ((((b.Distance / furthestDistance) * 5) + (b.timeAlive / _elapsed) + b.GetBonus()) / 7) * 100);
+             float currentScore = GetFitnessScore(b);
              scores += currentScore; 
              possibleScore += ((b.Distance / 150) + (b.timeAlive / trialTime) + b.GetBonus()) / 3;
              if (PrintScore) Debug.Log($"Score {currentScore}%, " +
-                                     $"Dis: {Mathf.RoundToInt((b.Distance / furthestDistance) * 100)}, Time: {Mathf.RoundToInt((b.timeAlive / _elapsed) * 100)}, Bonus: {b.GetBonus()}");
+                                     $"Dis: {Mathf.RoundToInt((b.Distance / this.distance) * 100)}, Time: {Mathf.RoundToInt((b.timeAlive / _elapsed) * 100)}, Bonus: {(b.GetBonus() / FindObjectsOfType<CheckPoint>().Length)}");
         }
 
-        AvgLastPossibleScore = Mathf.RoundToInt(possibleScore / sortedList.Count);
-        AvgLastScore = Mathf.RoundToInt((scores / sortedList.Count));
-        AvgLastDistance = Mathf.RoundToInt(distance / sortedList.Count);
-        AvgLastAliveTime = timeAlive / sortedList.Count;
+        lastAvgPossibleScore = Mathf.RoundToInt(possibleScore / sortedList.Count);
+        lastAvgFitnessScore = Mathf.RoundToInt((scores / sortedList.Count));
+        lastAvgDistance = Mathf.RoundToInt(distance / sortedList.Count);
+        lastAvgAliveTime = timeAlive / sortedList.Count;
         
         AddToGenerations(sortedList);
         // population.Clear();
-        List<Brain.DNAGroups> Offsping = new List<Brain.DNAGroups>();
+        List<Brain.DNAGroups> offspring = new List<Brain.DNAGroups>();
         for (int i = (int) (sortedList.Count / 2.0f) - 1; i < sortedList.Count -1; i++)
         {
-            Offsping.Add(Breed(sortedList[i], sortedList[i + 1]));
-            Offsping.Add(Breed(sortedList[i + 1], sortedList[i]));
+            offspring.Add(Breed(sortedList[i], sortedList[i + 1]));
+            offspring.Add(Breed(sortedList[i + 1], sortedList[i]));
         }
         Vector3 randPos = RandomStartPosition(transform.position);
         
         for (int i = 0; i < sortedList.Count; i++)
         {
-            brains[i].dnaGroups = Offsping[i];
+            brains[i].dnaGroups = offspring[i];
             brains[i].DeathOnOff(true);
             brains[i].transform.position = randPos;
             brains[i].Init();
@@ -330,14 +449,20 @@ public class PopulationManager : MonoBehaviour
         brains[cloneIndex].dnaGroups = topGeneGroups;
         brains[cloneIndex].StarActive(true);
         brains[cloneIndex].Init();
+        activeEthans = populationSize;
         // Brain.DNAGroups.PrintDNAColour(brains[clone].dnaGroups);
     }
-    
+
+    private float UnbiasPosibleScore(Brain brain)
+    {
+        return ((brain.Distance / 150) + (brain.timeAlive / trialTime) + (brain.GetBonus()) / FindObjectsOfType<CheckPoint>().Length);
+    }
+
     private void BestBrain()
     {
         timer = 0f;
         List<Brain> orderedBrains = brains.OrderBy(o => (o.GetProgress())).ToList();
-        bestDistance = orderedBrains[orderedBrains.Count-1].GetProgress();
+        lastBestDistance = orderedBrains[orderedBrains.Count-1].GetProgress();
     }
 
     private void Update()

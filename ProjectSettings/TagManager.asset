@@ -13,6 +13,10 @@ TagManager:
   - StaticObject
   - LightBulb
   - Edge
+  - MovingObjectForwardBackwards
+  - MovingObjectLeftRight
+  - MovingObjectUpDown
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

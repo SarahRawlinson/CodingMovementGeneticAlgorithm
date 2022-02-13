@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2785990389099233878, guid: fbbdbf08eef15fd408e6e54d0818fc99, type: 3}
       propertyPath: m_TagString
-      value: MoveObjectUpDown
+      value: MovingObjectUpDown
       objectReference: {fileID: 0}
     - target: {fileID: 2785990389099233879, guid: fbbdbf08eef15fd408e6e54d0818fc99, type: 3}
       propertyPath: maxX

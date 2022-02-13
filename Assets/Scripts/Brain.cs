@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,6 +14,10 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class Brain : MonoBehaviour, ITestForTarget
 {
+    public enum DNAType { Priority, Height, MoveForwardOrBackward, MoveRightLeftOrRight, TurnLeftOrRight, Colour }
+    public enum Options {  CanSeeLeft, CanSeeRight, CanSeeCentre, CantSeeLeft, CantSeeRight, CantSeeCentre, CantSeeItUnsureWhereabouts, CantSeeAnything } 
+    // cant see anything doesnt need to be multiplied by visible objects
+
     [Serializable]
     public class DNAGroups
     {
@@ -61,7 +67,7 @@ public class Brain : MonoBehaviour, ITestForTarget
     private Vector3 startPos;
     private Vector3 endPos;
     [SerializeField] private GameObject[] turnOffOnDeath;
-    [SerializeField] private string[] tagsToLookFor;
+    [SerializeField] public string[] tagsToLookFor;
     private List<Color> _coloursOfTaggedItems = new List<Color>();
     [SerializeField] private string[] tagsForDie;
     [SerializeField] private GameObject lightBulb;
@@ -69,6 +75,116 @@ public class Brain : MonoBehaviour, ITestForTarget
     [SerializeField] private GameObject star;
     private float bonus;
 
+    public static string DNAInfo(List<string> tags, DNA dna, int dnaIndex, int dnaValue)
+    {
+        string dnaMeaning = $"";
+        switch (dna.dnaType)
+        {
+            case DNAType.Colour:
+                switch (dnaIndex)
+                {
+                    case 0:
+                        dnaMeaning += $"colour R: {(float)dnaValue / 100}";
+                        break;
+                    case 1:
+                        dnaMeaning += $"colour G: {(float)dnaValue / 100}";
+                        break;
+                    case 2:
+                        dnaMeaning += $"colour B: {(float)dnaValue / 100}";
+                        break;
+                }
+                return dnaMeaning;
+            case DNAType.Height:
+                switch (dnaValue)
+                {
+                    case 0:
+                        dnaMeaning += "Height Normal";
+                        break;
+                    case 1:
+                        dnaMeaning += "Height Crouch";
+                        break;
+                    case 2:
+                        dnaMeaning += "Height Jump";
+                        break;
+                }
+                break;
+            case DNAType.Priority:
+                dnaMeaning += $"Priority {dnaValue}";
+                break;
+            case DNAType.MoveForwardOrBackward:
+                switch (dnaValue)
+                {
+                    case 0:
+                        dnaMeaning += "Stop Forward Backward";
+                        break;
+                    case 1:
+                        dnaMeaning += "Move Forward";
+                        break;
+                    case 2:
+                        dnaMeaning += "Move Backward";
+                        break;
+                }
+                break;
+            case DNAType.MoveRightLeftOrRight:
+                switch (dnaValue)
+                {
+                    case 0:
+                        dnaMeaning += "Stop Right Left";
+                        break;
+                    case 1:
+                        dnaMeaning += "Move Right";
+                        break;
+                    case 2:
+                        dnaMeaning += "Move Left";
+                        break;
+                }
+                break;
+            case DNAType.TurnLeftOrRight:
+                switch (dnaValue)
+                {
+                    case 0:
+                        dnaMeaning += "Stop Turn";
+                        break;
+                    case 1:
+                        dnaMeaning += "Turn Right";
+                        break;
+                    case 2:
+                        dnaMeaning += "Turn Left";
+                        break;
+                }
+                break;
+        }
+        
+        int options = (System.Enum.GetValues(typeof(Options)).Length - 1);
+        int numberOfDNAOptions = options * tags.Count;
+        if (dnaIndex > (numberOfDNAOptions)) return $"On Can't see anything: {dnaMeaning}";
+        Options option = Options.CantSeeAnything;
+        string tagString = "tag";
+        try
+        {
+            option = (Options) (dnaIndex % options);
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Issue with getting DNA option: {e.Message} {e.Source}");
+            return "Error in DNA information";
+        }
+        try
+        {
+            tagString = tags[dnaIndex % tags.Count];
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Issue with getting DNA object type tag: {e.Message} {e.Source}");
+            return "Error in DNA information";
+        }
+        return $"on {option} {tagString}: {dnaMeaning}";
+    }
+
+    public bool GetIsAlive()
+    {
+        return _alive;
+    }
     public void AddHitBonus(float val)
     {
         bonus += val;
@@ -139,12 +255,14 @@ public class Brain : MonoBehaviour, ITestForTarget
                 Console.WriteLine(e);
             }
         }
-        dnaGroups._movementDNAForwardBackward = new DNA((tagsToLookFor.Length * 7) + 1, 3, "MovementForwardBackward");
-        dnaGroups._movementDNALeftRight = new DNA((tagsToLookFor.Length * 7) + 1, 3, "MovementLeftRight");
-        dnaGroups._movementDNATurn = new DNA((tagsToLookFor.Length * 7) + 1, 3, "MovementTurn");
-        dnaGroups._heightDNA = new DNA((tagsToLookFor.Length * 7) + 1, 3, "Height");
-        dnaGroups._priorityDNA = new DNA((tagsToLookFor.Length * 7), 100, "Priority");
-        dnaGroups._colourDNA = new DNA((3), 100, "Colour");
+
+        int numberOfDNAOptions = (System.Enum.GetValues(typeof(Options)).Length - 1) * tagsToLookFor.Length;
+        dnaGroups._movementDNAForwardBackward = new DNA((numberOfDNAOptions) + 1, 3, DNAType.MoveForwardOrBackward);
+        dnaGroups._movementDNALeftRight = new DNA((numberOfDNAOptions) + 1, 3, DNAType.MoveRightLeftOrRight);
+        dnaGroups._movementDNATurn = new DNA((numberOfDNAOptions) + 1, 3, DNAType.TurnLeftOrRight);
+        dnaGroups._heightDNA = new DNA((numberOfDNAOptions) + 1, 3, DNAType.Height);
+        dnaGroups._priorityDNA = new DNA((numberOfDNAOptions), 101, DNAType.Priority);
+        dnaGroups._colourDNA = new DNA((3), 101, DNAType.Colour);
     }
 
     public string GetDNAString()
@@ -220,49 +338,49 @@ public class Brain : MonoBehaviour, ITestForTarget
 
         switch (movementForwardBackwardValue)
         {
-            case 0: //  -VAL 1 = STOP
+            case 0: //  -VAL 0 = Stop
                 v = 0;
                 break;
-            case 1: //  -VAL 2 = TURN LEFT
+            case 1: //  -VAL 1 = Move Forward
                 v = 1;
                 break;
-            case 2: //  -VAL 3 = TURN RIGHT
+            case 2: //  -VAL 2 = Move Backward
                 v = -1;
                 break;
         }
         switch (movementLeftRight)
         {
-            case 0: //  -VAL 1 = STOP
+            case 0: //  -VAL 0 = Stop
                 h = 0;
                 break;
-            case 1: //  -VAL 2 = TURN LEFT
+            case 1: //  -VAL 1 = Move Right
                 h = 1;
                 break;
-            case 2: //  -VAL 3 = TURN RIGHT
+            case 2: //  -VAL 2 = Move Left
                 h = -1;
                 break;
         }
         switch (movementTurn)
         {
-            case 0: //  -VAL 1 = STOP
+            case 0: //  -VAL 0 = No Turn
                 r = 0;
                 break;
-            case 1: //  -VAL 2 = TURN LEFT
+            case 1: //  -VAL 1 = Turn Right
                 r = 90;
                 break;
-            case 2: //  -VAL 3 = TURN RIGHT
+            case 2: //  -VAL 2 = Turn Left
                 r = -90;
                 break;
         }
         
         switch (heightValue)
         {
-            case 0: //  -VAL 1 = NORMAL
+            case 0: //  -VAL 0 = NORMAL
                 break;
-            case 1: //  -VAL 2 = CROUCH
+            case 1: //  -VAL 1 = CROUCH
                 crouch = true;
                 break;
-            case 2: //  -VAL 3 = JUMP
+            case 2: //  -VAL 2 = JUMP
                 jump = true;
                 break;
         }
