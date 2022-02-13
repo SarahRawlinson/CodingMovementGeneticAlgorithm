@@ -195,7 +195,7 @@ public class PopulationManager : MonoBehaviour
             trialTime = gen.trialTime;
             mutationChance = gen.mutationChance;
             _distance = gen.bestDistance;
-            populationSize = gen.populationSize;
+            // populationSize = gen.populationSize;
             _lastBestFitnessScorePrint = gen.bestFitnessScore;
             _lastBestPossibleScore = gen.bestPossibleScore;
             _winningDeathPos = gen.winningDeathPos;
@@ -301,9 +301,10 @@ public class PopulationManager : MonoBehaviour
         return startingPosition;
     }
 
-    Brain.DNAGroups Breed(Brain parent1, Brain parent2)
+    (bool, Brain.DNAGroups) Breed(Brain parent1, Brain parent2)
     {
         NewRound?.Invoke();
+        bool mutate = false;
         // var position = transform.position;
         Brain.DNAGroups offspringDnaGroups = parent1.dnaGroups.CopyGeneGroupStructure();
         // var offspring = CreateEthan(position);
@@ -316,7 +317,7 @@ public class PopulationManager : MonoBehaviour
         offspringDnaGroups.colourDna.Combine(parent1.dnaGroups.colourDna,parent2.dnaGroups.colourDna);
         if (Random.Range(0f, 1f) < mutationChance)
         {
-            
+            mutate = true;
             (int index, int oldValue, int newValue) dnaDetails = (0,0,0);
             DNA dnaMutate = new DNA();
             switch (Random.Range(0, 6))
@@ -365,12 +366,10 @@ public class PopulationManager : MonoBehaviour
             {
                 Debug.Log($"issue during mutation information from DNA: {e.Message} {e.Source}");
             }
-            
-            
-            
+
         }
         // _textFileHandler.AddTextToFile(brain.GetComponent<Brain>().GetDNAString());
-        return offspringDnaGroups;
+        return (mutate, offspringDnaGroups);
     }
 
     float GetFitnessScore(Brain brain)
@@ -440,12 +439,15 @@ public class PopulationManager : MonoBehaviour
         int breedingPoolQty = (int) Mathf.Ceil(((float)populationSize / 4));
         int startingRange = populationSize - breedingPoolQty;
         // Debug.Log($"divide by {divideBy} qty of breeders {breedingPoolQty}");
+        List<int> mutators = new List<int>();
         for (int i = populationSize - 1; i > startingRange - 1; i--)
         {
             for (int j = 0; j < divideBy; j++)
             {
                 int rand = Random.Range(startingRange, populationSize);
-                offspring.Add(Breed(sortedList[i], sortedList[rand]));
+                (bool mutation, Brain.DNAGroups dnaGroups) = Breed(sortedList[i], sortedList[rand]);
+                offspring.Add(dnaGroups);
+                if (mutation) mutators.Add(offspring.Count - 1);
             }
         }
         Debug.Log($"bred pop = {offspring.Count}");
@@ -453,6 +455,8 @@ public class PopulationManager : MonoBehaviour
         
         for (int i = 0; i < sortedList.Count; i++)
         {
+            if (mutators.Contains(i)) _brains[i].ActivateMutant();
+            else _brains[i].DeactivateMutant();
             _brains[i].dnaGroups = offspring[i];
             _brains[i].DeathOnOff(true);
             _brains[i].transform.position = randPos;

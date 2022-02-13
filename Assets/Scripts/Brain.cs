@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 [RequireComponent(typeof(ThirdPersonCharacter))]
@@ -70,6 +71,9 @@ public class Brain : MonoBehaviour, ITestForTarget
     [SerializeField] private GameObject star;
     private float _bonus;
     private Vector3 deathLocation;
+    [SerializeField] private ParticleSystem[] explosionFX;
+    [SerializeField] private ParticleSystem[] winFX;
+    [SerializeField] private GameObject dnaGameObject;
 
     public Vector3 GetDeathLocation()
     {
@@ -80,7 +84,14 @@ public class Brain : MonoBehaviour, ITestForTarget
 
         return deathLocation;
     }
-    
+
+    public void Bonus()
+    {
+        foreach (ParticleSystem fx in winFX)
+        {
+            fx.Play();
+        }
+    }
     public static string DNAInfo(List<string> tags, DNA dna, int dnaIndex, int dnaValue)
     {
         string dnaMeaning = $"";
@@ -200,13 +211,24 @@ public class Brain : MonoBehaviour, ITestForTarget
     {
         if (_alive)
         {
+            dnaGameObject.SetActive(false);
             _alive = false;
             Dead?.Invoke();
             deathLocation = transform.position;
             SetEndPosition();
             DeathOnOff(false);
             StarActive(false);
+            foreach (ParticleSystem fx in explosionFX)
+            {
+                fx.Play();
+            }
+
         }
+    }
+
+    public void ActivateMutant()
+    {
+        dnaGameObject.SetActive(true);
     }
 
     public float GetBonus()
@@ -321,6 +343,15 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public void Init()
     {
+        foreach (ParticleSystem fx in explosionFX)
+        {
+            fx.Stop();
+        }
+        foreach (ParticleSystem fx in winFX)
+        {
+            fx.Stop();
+        }
+
         _bonus = 0f;
         var position = transform.position;
         _startPos = position;
@@ -613,5 +644,10 @@ public class Brain : MonoBehaviour, ITestForTarget
             Console.WriteLine(e);
         }
         return (tagsToLookFor.Contains(colliderTarget.tag), colliderTarget.gameObject);
+    }
+
+    public void DeactivateMutant()
+    {
+        dnaGameObject.SetActive(false);
     }
 }
