@@ -4761,6 +4761,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: fileName
+      value: Load 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: trialTime
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: printScore
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: mutationChance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: populationSize
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: deathSphereSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: fitnessMultiplyTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: deathSphereStartTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: fitnessMultiplyBonus
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: fitnessMultiplyDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8443780002976996039, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: m_RootOrder
       value: 3
