@@ -1,58 +1,53 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.ThirdPerson;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class Brain : MonoBehaviour, ITestForTarget
 {
     public enum DNAType { Priority, Height, MoveForwardOrBackward, MoveRightLeftOrRight, TurnLeftOrRight, Colour }
-    public enum Options {  CanSeeLeft, CanSeeRight, CanSeeCentre, CantSeeLeft, CantSeeRight, CantSeeCentre, CantSeeItUnsureWhereabouts, CantSeeAnything } 
+
+    private enum Options {  CanSeeLeft, CanSeeRight, CanSeeCentre, CantSeeLeft, CantSeeRight, CantSeeCentre, CantSeeItUnsureWhereabouts, CantSeeAnything } 
     // cant see anything doesnt need to be multiplied by visible objects
 
     [Serializable]
     public class DNAGroups
     {
-        public DNA _movementDNAForwardBackward;
-        public DNA _heightDNA;
-        public DNA _movementDNALeftRight;
-        public DNA _movementDNATurn;
-        public DNA _colourDNA;
-        public DNA _priorityDNA;
+        public DNA movementDnaForwardBackward;
+        public DNA heightDna;
+        public DNA movementDnaLeftRight;
+        public DNA movementDnaTurn;
+        public DNA colourDna;
+        public DNA priorityDna;
 
         public DNAGroups CopyGeneGroupStructure() => new DNAGroups() {
-            _movementDNAForwardBackward = DNA.CopyType(_movementDNAForwardBackward, false),
-            _heightDNA = DNA.CopyType(_heightDNA, false),
-            _movementDNALeftRight = DNA.CopyType(_movementDNALeftRight, false),
-            _movementDNATurn = DNA.CopyType(_movementDNATurn, false),
-            _priorityDNA = DNA.CopyType(_priorityDNA, false),
-            _colourDNA = DNA.CopyType(_colourDNA, false)
+            movementDnaForwardBackward = DNA.CopyType(movementDnaForwardBackward, false),
+            heightDna = DNA.CopyType(heightDna, false),
+            movementDnaLeftRight = DNA.CopyType(movementDnaLeftRight, false),
+            movementDnaTurn = DNA.CopyType(movementDnaTurn, false),
+            priorityDna = DNA.CopyType(priorityDna, false),
+            colourDna = DNA.CopyType(colourDna, false)
         };
 
         static public DNAGroups Clone(DNAGroups dndGroupOriginal)
         {
             DNAGroups dnaGroupCopy = new DNAGroups();
-            dnaGroupCopy._movementDNAForwardBackward = DNA.CopyType(dndGroupOriginal._movementDNAForwardBackward, true);
-            dnaGroupCopy._heightDNA = DNA.CopyType(dndGroupOriginal._heightDNA, true);
-            dnaGroupCopy._movementDNALeftRight = DNA.CopyType(dndGroupOriginal._movementDNALeftRight, true);
-            dnaGroupCopy._movementDNATurn = DNA.CopyType(dndGroupOriginal._movementDNATurn, true);
-            dnaGroupCopy._priorityDNA = DNA.CopyType(dndGroupOriginal._priorityDNA, true);
-            dnaGroupCopy._colourDNA = DNA.CopyType(dndGroupOriginal._colourDNA, true);
+            dnaGroupCopy.movementDnaForwardBackward = DNA.CopyType(dndGroupOriginal.movementDnaForwardBackward, true);
+            dnaGroupCopy.heightDna = DNA.CopyType(dndGroupOriginal.heightDna, true);
+            dnaGroupCopy.movementDnaLeftRight = DNA.CopyType(dndGroupOriginal.movementDnaLeftRight, true);
+            dnaGroupCopy.movementDnaTurn = DNA.CopyType(dndGroupOriginal.movementDnaTurn, true);
+            dnaGroupCopy.priorityDna = DNA.CopyType(dndGroupOriginal.priorityDna, true);
+            dnaGroupCopy.colourDna = DNA.CopyType(dndGroupOriginal.colourDna, true);
             return dnaGroupCopy;
         }
-        public static void PrintDNAColour(DNAGroups dnaGroups)
+        public static void PrintDnaColour(DNAGroups dnaGroups)
         {
-            float r = dnaGroups._colourDNA.genes[0] / 100f;
-            float g = dnaGroups._colourDNA.genes[1] / 100f;
-            float b = dnaGroups._colourDNA.genes[2] / 100f;
+            float r = dnaGroups.colourDna.genes[0] / 100f;
+            float g = dnaGroups.colourDna.genes[1] / 100f;
+            float b = dnaGroups.colourDna.genes[2] / 100f;
             Color dnaColour = new Color(r, g, b);
             // Debug.Log($"<color=dnaColour>r{r} :  g:{g}  b:{b} </color>");
             Debug.Log (string.Format("<color=#{0:X2}{1:X2}{2:X2}>{3}</color>", (byte)(dnaColour.r * 255f), (byte)(dnaColour.g * 255f), (byte)(dnaColour.b * 255f), $"r{r} :  g:{g}  b:{b}"));
@@ -64,17 +59,28 @@ public class Brain : MonoBehaviour, ITestForTarget
     private Vector3 _move;
     private bool _alive = true;
     public static event Action Dead;
-    private Vector3 startPos;
-    private Vector3 endPos;
+    private Vector3 _startPos;
+    private Vector3 _endPos;
     [SerializeField] private GameObject[] turnOffOnDeath;
     [SerializeField] public string[] tagsToLookFor;
-    private List<Color> _coloursOfTaggedItems = new List<Color>();
+    private readonly List<Color> _coloursOfTaggedItems = new List<Color>();
     [SerializeField] private string[] tagsForDie;
     [SerializeField] private GameObject lightBulb;
     [SerializeField] private RenderColourChanger ethanColour;
     [SerializeField] private GameObject star;
-    private float bonus;
+    private float _bonus;
+    private Vector3 deathLocation;
 
+    public Vector3 GetDeathLocation()
+    {
+        if (_alive)
+        {
+            deathLocation = transform.position;
+        }
+
+        return deathLocation;
+    }
+    
     public static string DNAInfo(List<string> tags, DNA dna, int dnaIndex, int dnaValue)
     {
         string dnaMeaning = $"";
@@ -155,11 +161,11 @@ public class Brain : MonoBehaviour, ITestForTarget
                 break;
         }
         
-        int options = (System.Enum.GetValues(typeof(Options)).Length - 1);
+        int options = (Enum.GetValues(typeof(Options)).Length - 1);
         int numberOfDNAOptions = options * tags.Count;
         if (dnaIndex > (numberOfDNAOptions)) return $"On Can't see anything: {dnaMeaning}";
-        Options option = Options.CantSeeAnything;
-        string tagString = "tag";
+        Options option;
+        string tagString;
         try
         {
             option = (Options) (dnaIndex % options);
@@ -187,7 +193,7 @@ public class Brain : MonoBehaviour, ITestForTarget
     }
     public void AddHitBonus(float val)
     {
-        bonus += val;
+        _bonus += val;
     }
 
     public void SetDeath()
@@ -196,6 +202,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         {
             _alive = false;
             Dead?.Invoke();
+            deathLocation = transform.position;
             SetEndPosition();
             DeathOnOff(false);
             StarActive(false);
@@ -204,7 +211,7 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     public float GetBonus()
     {
-        return bonus;
+        return _bonus;
     }
 
     public void StarActive(bool on)
@@ -219,7 +226,7 @@ public class Brain : MonoBehaviour, ITestForTarget
             // Vector3 vector31 = new Vector3(0, 0, startPos.z);
             // Vector3 vector32 = new Vector3(0, 0, transform.position.z);
             // return Vector3.Distance(vector31, vector32);
-            float distance = transform.position.z - startPos.z;
+            float distance = transform.position.z - _startPos.z;
             if (distance > 500)
             {
                 _alive = false;
@@ -238,16 +245,16 @@ public class Brain : MonoBehaviour, ITestForTarget
     private void Awake()
     {
         _character = GetComponent<ThirdPersonCharacter>();
-        foreach (string tag in tagsToLookFor)
+        foreach (string s in tagsToLookFor)
         {
-            if (tag == "Ethan")
+            if (s == "Ethan")
             {
                 _coloursOfTaggedItems.Add(new Color(0.29f, 0.09f, 0.5f));
                 continue;
             }
             try
             {
-                _coloursOfTaggedItems.Add(GameObject.FindGameObjectWithTag(tag).GetComponent<MeshRenderer>().material.color);
+                _coloursOfTaggedItems.Add(GameObject.FindGameObjectWithTag(s).GetComponent<MeshRenderer>().material.color);
             }
             catch (Exception e)
             {
@@ -255,14 +262,14 @@ public class Brain : MonoBehaviour, ITestForTarget
                 Console.WriteLine(e);
             }
         }
-
-        int numberOfDNAOptions = (System.Enum.GetValues(typeof(Options)).Length - 1) * tagsToLookFor.Length;
-        dnaGroups._movementDNAForwardBackward = new DNA((numberOfDNAOptions) + 1, 3, DNAType.MoveForwardOrBackward);
-        dnaGroups._movementDNALeftRight = new DNA((numberOfDNAOptions) + 1, 3, DNAType.MoveRightLeftOrRight);
-        dnaGroups._movementDNATurn = new DNA((numberOfDNAOptions) + 1, 3, DNAType.TurnLeftOrRight);
-        dnaGroups._heightDNA = new DNA((numberOfDNAOptions) + 1, 3, DNAType.Height);
-        dnaGroups._priorityDNA = new DNA((numberOfDNAOptions), 101, DNAType.Priority);
-        dnaGroups._colourDNA = new DNA((3), 101, DNAType.Colour);
+        
+        int numberOfDNAOptions = (Enum.GetValues(typeof(Options)).Length - 1) * tagsToLookFor.Length;
+        dnaGroups.movementDnaForwardBackward = new DNA((numberOfDNAOptions) + 1, 3, DNAType.MoveForwardOrBackward);
+        dnaGroups.movementDnaLeftRight = new DNA((numberOfDNAOptions) + 1, 3, DNAType.MoveRightLeftOrRight);
+        dnaGroups.movementDnaTurn = new DNA((numberOfDNAOptions) + 1, 3, DNAType.TurnLeftOrRight);
+        dnaGroups.heightDna = new DNA((numberOfDNAOptions) + 1, 3, DNAType.Height);
+        dnaGroups.priorityDna = new DNA((numberOfDNAOptions), 101, DNAType.Priority);
+        dnaGroups.colourDna = new DNA((3), 101, DNAType.Colour);
     }
 
     public string GetDNAString()
@@ -293,13 +300,13 @@ public class Brain : MonoBehaviour, ITestForTarget
 
     private void SetEndPosition()
     {
-        endPos = transform.position;
+        _endPos = transform.position;
     }
 
     public float GetDistanceTraveled()
     {
         if (_alive) SetEndPosition();
-        float distance = endPos.z - startPos.z;
+        float distance = _endPos.z - _startPos.z;
         if (distance > 500)
         {
             return 0f;
@@ -307,28 +314,29 @@ public class Brain : MonoBehaviour, ITestForTarget
         return distance;
     }
 
-    public override string ToString()
-    {
-        return base.ToString();
-    }
+    // public override string ToString()
+    // {
+    //     return base.ToString();
+    // }
 
     public void Init()
     {
-        bonus = 0f;
-        startPos = transform.position;
-        startPos = transform.position;
-        _move = transform.position;
+        _bonus = 0f;
+        var position = transform.position;
+        _startPos = position;
+        _startPos = position;
+        _move = position;
         timeAlive = 0;
         _alive = true;
-        float r = dnaGroups._colourDNA.genes[0] / 100f;
-        float g = dnaGroups._colourDNA.genes[1] / 100f;
-        float b = dnaGroups._colourDNA.genes[2] / 100f;
+        float r = dnaGroups.colourDna.genes[0] / 100f;
+        float g = dnaGroups.colourDna.genes[1] / 100f;
+        float b = dnaGroups.colourDna.genes[2] / 100f;
         
         ethanColour.ChangeColor(new Color(r, g, b));
     }
 
     
-    private void moveFromDNAValue(int movementForwardBackwardValue,int heightValue, int movementLeftRight, int movementTurn)
+    private void MoveFromDNAValue(int movementForwardBackwardValue,int heightValue, int movementLeftRight, int movementTurn)
     {
         float v = 0f;
         float h = 0f;
@@ -398,24 +406,24 @@ public class Brain : MonoBehaviour, ITestForTarget
         if (!_alive) return;
         if (transform.position.y <= -5) SetDeath();
         List<GameObject> seen = new List<GameObject>();
-        List<Vector3> vector3s = new List<Vector3>();
+        List<Vector3> vector3S = new List<Vector3>();
         Vector3 eye = new Vector3();
         foreach (FieldOfView fieldOfView in GetComponents<FieldOfView>())
         {
             eye = fieldOfView.Eye.transform.position;
             (List<GameObject> gameObjects, List<Vector3> objectPositions) = fieldOfView.FindVisibleTargets(this);
             seen.AddRange(gameObjects);
-            vector3s.AddRange(objectPositions);
+            vector3S.AddRange(objectPositions);
         }
-        MakeDecision(seen, eye, vector3s);
+        MakeDecision(seen, eye, vector3S);
         if (_alive) timeAlive += Time.deltaTime;
 
     }
 
-    (bool, GameObject) FindClosestTag(string tag)
+    (bool, GameObject) FindClosestTag(string tagString)
     {
         GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(tag);
+        gos = GameObject.FindGameObjectsWithTag(tagString);
         GameObject closest = null;
         float distance = Mathf.Infinity;
         bool found = false;
@@ -435,16 +443,16 @@ public class Brain : MonoBehaviour, ITestForTarget
     }
     private void MakeDecision(List<GameObject> seen, Vector3 eye, List<Vector3> pos)
     {
-        int moveFB = 0;
+        int moveFb = 0;
         int height = 0;
-        int moveLR = 0;
+        int moveLr = 0;
         int moveT = 0;
         Vector3 lightBulbPosition = lightBulb.transform.position;
         List<string> seenObjects = new List<string>();
         if (seen.Count > 0)
         {
             List<(int index, int value)> dnaPos = new List<(int, int)>();
-            var vals = dnaGroups._priorityDNA.GetGenes();
+            var vals = dnaGroups.priorityDna.GetGenes();
             for (var index = 0; index < vals.Count; index++)
             {
                 int val = vals[index];
@@ -472,10 +480,10 @@ public class Brain : MonoBehaviour, ITestForTarget
             
             
             options.Sort((x, y) => y.value.CompareTo(x.value));
-            moveFB = dnaGroups._movementDNAForwardBackward.GetGene(options[0].index);
-            height = dnaGroups._heightDNA.GetGene(options[0].index);
-            moveLR = dnaGroups._movementDNALeftRight.GetGene(options[0].index);
-            moveT = dnaGroups._movementDNATurn.GetGene(options[0].index);
+            moveFb = dnaGroups.movementDnaForwardBackward.GetGene(options[0].index);
+            height = dnaGroups.heightDna.GetGene(options[0].index);
+            moveLr = dnaGroups.movementDnaLeftRight.GetGene(options[0].index);
+            moveT = dnaGroups.movementDnaTurn.GetGene(options[0].index);
             Color selectedColour = Color.white;
             if (options[0].index >= (tagsToLookFor.Length * 3))
             {
@@ -490,12 +498,12 @@ public class Brain : MonoBehaviour, ITestForTarget
         }
         else
         {
-            moveFB = CantSeeAnything(eye, lightBulbPosition, out height, out moveLR, out moveT);
+            moveFb = CantSeeAnything(eye, lightBulbPosition, out height, out moveLr, out moveT);
         }
 
         try
         {
-            moveFromDNAValue(moveFB, height, moveLR, moveT);
+            MoveFromDNAValue(moveFb, height, moveLr, moveT);
         }
         catch (Exception e)
         {
@@ -505,16 +513,16 @@ public class Brain : MonoBehaviour, ITestForTarget
         
     }
 
-    private int CantSeeAnything(Vector3 eye, Vector3 lightBulbPosition, out int height, out int moveLR, out int moveT)
+    private int CantSeeAnything(Vector3 eye, Vector3 lightBulbPosition, out int height, out int moveLr, out int moveT)
     {
-        int moveFB;
+        int moveFb;
         lightBulb.GetComponent<RenderColourChanger>().ChangeColor(Color.black);
-        moveFB = dnaGroups._movementDNAForwardBackward.GetGene((tagsToLookFor.Length * 7));
-        height = dnaGroups._heightDNA.GetGene((tagsToLookFor.Length * 7));
-        moveLR = dnaGroups._movementDNALeftRight.GetGene((tagsToLookFor.Length * 7));
-        moveT = dnaGroups._movementDNATurn.GetGene((tagsToLookFor.Length * 7));
+        moveFb = dnaGroups.movementDnaForwardBackward.GetGene((tagsToLookFor.Length * 7));
+        height = dnaGroups.heightDna.GetGene((tagsToLookFor.Length * 7));
+        moveLr = dnaGroups.movementDnaLeftRight.GetGene((tagsToLookFor.Length * 7));
+        moveT = dnaGroups.movementDnaTurn.GetGene((tagsToLookFor.Length * 7));
         Debug.DrawLine(eye, lightBulbPosition, Color.red);
-        return moveFB;
+        return moveFb;
     }
 
     private void AddNotSeenOptions(List<string> seenObjects, List<(int index, float value, Vector3 pos)> options, Vector3 lightBulbPosition)
@@ -550,7 +558,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                 }
                 
 
-                options.Add((index, dnaGroups._priorityDNA.GetGene(geneIndex) / distance, lightBulbPosition));
+                options.Add((index, dnaGroups.priorityDna.GetGene(geneIndex) / distance, lightBulbPosition));
             }
         }
     }
@@ -562,8 +570,8 @@ public class Brain : MonoBehaviour, ITestForTarget
             GameObject visibleObject = seen[index];
             for (var i = 0; i < tagsToLookFor.Length; i++)
             {
-                string tag = tagsToLookFor[i];
-                if (visibleObject.CompareTag(tag))
+                string stringTag = tagsToLookFor[i];
+                if (visibleObject.CompareTag(stringTag))
                 {
                     int geneIndex = i;
                     seenObjects.Add(tagsToLookFor[i]);
@@ -583,7 +591,7 @@ public class Brain : MonoBehaviour, ITestForTarget
                     }
 
                     options.Add((geneIndex,
-                        dnaGroups._priorityDNA.GetGene(geneIndex) /
+                        dnaGroups.priorityDna.GetGene(geneIndex) /
                         Vector3.Distance(transform.position, visibleObject.transform.position), pos[index]));
                 }
             }
@@ -591,19 +599,19 @@ public class Brain : MonoBehaviour, ITestForTarget
     }
 
 
-    public (bool, GameObject) TestForTarget(Collider collider, List<GameObject> gameObjects)
+    public (bool, GameObject) TestForTarget(Collider colliderTarget, List<GameObject> gameObjects)
     {
         try
         {
-            if (collider.attachedRigidbody == GetComponent<Rigidbody>())
+            if (colliderTarget.attachedRigidbody == GetComponent<Rigidbody>())
             {
-                return (false, collider.gameObject);
+                return (false, colliderTarget.gameObject);
             }
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
-        return (tagsToLookFor.Contains(collider.tag), collider.gameObject);
+        return (tagsToLookFor.Contains(colliderTarget.tag), colliderTarget.gameObject);
     }
 }

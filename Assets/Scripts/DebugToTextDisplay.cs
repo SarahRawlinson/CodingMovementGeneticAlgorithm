@@ -31,9 +31,9 @@ public class DebugToTextDisplay : MonoBehaviour
         if (!printDebug) return;
         guiStyle.fontSize = 25;
         guiStyle.normal.textColor = Color.white;
-        GUI.BeginGroup(new Rect(10,1000,2000,500));
-        GUI.Box(new Rect(0,0,2000,1500),$"Debug", guiStyle);
-        GUI.Label(new Rect(10,25,2000,30), currentText,guiStyle);
+        GUI.BeginGroup(new Rect(10,1000,2500,500));
+        GUI.Box(new Rect(0,0,2500,1500),$"Debug", guiStyle);
+        GUI.Label(new Rect(10,25,2500,30), currentText,guiStyle);
 
         GUI.EndGroup();
     }

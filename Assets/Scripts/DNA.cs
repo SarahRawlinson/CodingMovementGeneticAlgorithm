@@ -1,14 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [Serializable]
+// ReSharper disable once InconsistentNaming
 public class DNA
 {
     public Brain.DNAType dnaType;
-    public int dnaLegnth = 0;
+    public int dnaLength = 0;
     public int maxValues = 0;
     public List<int> genes = new List<int>();
     
@@ -17,16 +17,15 @@ public class DNA
     {
         return genes;
     }
-    static public DNA CopyType(DNA copy, bool clone)
+    public static DNA CopyType(DNA copy, bool clone)
     {
-        DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
+        DNA dna = new DNA(copy.dnaLength, copy.maxValues, copy.dnaType);
         if (clone) dna.Clone(copy);
         return dna;
     }
     
     public void Clone(DNA copy)
     {
-        // DNA dna = new DNA(copy.dnaLegnth, copy.maxValues, copy.dnaType);
         for (var index = 0; index < copy.genes.Count; index++)
         {
             genes[index] = copy.genes[index];
@@ -41,14 +40,14 @@ public class DNA
     public DNA(int l, int v, Brain.DNAType type)
     {
         dnaType = type;
-        dnaLegnth = l;
+        dnaLength = l;
         maxValues = v;
         SetRandom();
     }
     public DNA(int l, int v, Brain.DNAType type, List<int> values)
     {
         dnaType = type;
-        dnaLegnth = l;
+        dnaLength = l;
         maxValues = v;
         genes = values;
     }
@@ -56,7 +55,7 @@ public class DNA
     private void SetRandom()
     {
         genes.Clear();
-        for (int i = 0; i < dnaLegnth; i++)
+        for (int i = 0; i < dnaLength; i++)
         {
             int val = Random.Range(0, maxValues);
             genes.Add(Mathf.RoundToInt(val));
@@ -72,26 +71,36 @@ public class DNA
 
     public void Combine(DNA dna1, DNA dna2)
     {
-        int c = 0;
-        for (int i = 0; i < dnaLegnth; i++)
+        for (int i = 0; i < dnaLength; i++)
         {
-            if (i<dnaLegnth/2.0f)
+            int g = 0;
+            switch (Random.Range(0,2))
             {
-                c = dna1.genes[i];
+                case 0:
+                    g = dna1.genes[i];
+                    break;
+                case 1:
+                    g = dna2.genes[i];
+                    break;
+                default:
+                    Debug.Log("Error no DNA chosen");
+                    break;
+                    
             }
-            else
-            {
-                c = dna2.genes[i];
-            }
-            genes[i] = c;
+            // int c = i<dnaLength/2.0f ? dna1.genes[i] : dna2.genes[i];
+            genes[i] = g;
         }
     }
 
     public (int index, int oldValue, int newValue) Mutate()
     {
-        int geneIndex = Random.Range(0, dnaLegnth);
+        int geneIndex = Random.Range(0, dnaLength);
         int newValue = Random.Range(0, maxValues);
         int originalValue = genes[geneIndex];
+        while (newValue == originalValue)
+        {
+            newValue = Random.Range(0, maxValues);
+        }
         genes[geneIndex] = newValue;
         // Debug.Log($"DNA Gene Mutate : Old Val: {originalValue}, New Val: {newValue} : Max Val: {maxValues - 1}");
         return (geneIndex, originalValue, newValue);

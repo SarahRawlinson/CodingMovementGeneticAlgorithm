@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RenderColourChanger : MonoBehaviour
 {
 
-    [SerializeField] private Renderer MeshRenderer;
+    [FormerlySerializedAs("MeshRenderer")] [SerializeField] private Renderer meshRenderer;
     // Use this for initialization
     void Awake ()
     {
-        foreach (Material material in MeshRenderer.materials)
+        foreach (Material material in meshRenderer.materials)
         {
             material.color = Color.black;
         }
@@ -17,15 +16,9 @@ public class RenderColourChanger : MonoBehaviour
 
     public void ChangeColor(Color newColour)
     {
-        foreach (Material material in MeshRenderer.materials)
+        foreach (Material material in meshRenderer.materials)
         {
             material.color = newColour;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
