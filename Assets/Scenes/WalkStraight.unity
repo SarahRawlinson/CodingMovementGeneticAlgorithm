@@ -4420,6 +4420,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9910733457cf0e6469b9b49950722afa, type: 3}
+--- !u!114 &2013268669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1570349693634161280, guid: 99abb2437be65fa4c92bd2333d5ebc6a, type: 3}
+  m_PrefabInstance: {fileID: 6759080421598818414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ec54acb4f1f104d93c70eb0354f517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2015819748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5007,7 +5018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: fileName
-      value: Load 5
+      value: Load 1
       objectReference: {fileID: 0}
     - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: trialTime
@@ -5018,12 +5029,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: endCheckPoint
+      value: 
+      objectReference: {fileID: 2013268669}
+    - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: mutationChance
-      value: 0.1
+      value: 0.199
       objectReference: {fileID: 0}
     - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: populationSize
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8443780002976996038, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: deathSphereSpeed
