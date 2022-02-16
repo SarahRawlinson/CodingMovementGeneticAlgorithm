@@ -24,4 +24,5 @@
         public float avgDistance;
         public int checkPointCount;
         public float avgCheckPointCount;
+        public List<int> mutants;
     }

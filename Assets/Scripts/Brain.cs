@@ -30,7 +30,8 @@ public class Brain : MonoBehaviour, ITestForTarget
     [SerializeField] private GameObject lightBulb;
     [SerializeField] private RenderColourChanger ethanColour;
     [SerializeField] private GameObject star;
-    private float _bonus;
+    private float _bonus = 0;
+    private int checkPoints = 0;
     private Vector3 deathLocation;
     [SerializeField] private ParticleSystem[] explosionFX;
     [SerializeField] private ParticleSystem[] winFX;
@@ -46,6 +47,11 @@ public class Brain : MonoBehaviour, ITestForTarget
         }
 
         return deathLocation;
+    }
+
+    public void CheckPointReached()
+    {
+        checkPoints += 1;
     }
 
     public void Bonus()
@@ -301,6 +307,11 @@ public class Brain : MonoBehaviour, ITestForTarget
     //     return base.ToString();
     // }
 
+    public int GetCheckPoints()
+    {
+        return checkPoints;
+    }
+
     public void Init()
     {
         foreach (ParticleSystem fx in explosionFX)
@@ -313,6 +324,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         }
 
         _bonus = 0f;
+        checkPoints = 0;
         var position = transform.position;
         _startPos = position;
         _startPos = position;

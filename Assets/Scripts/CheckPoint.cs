@@ -10,8 +10,8 @@ public class CheckPoint : MonoBehaviour
     private bool bonusReceived;
     private List<Brain> _brains = new List<Brain>();
     private Brain _bonusWinner;
-    [SerializeField] private int bonus = 0;
-    [SerializeField] private int normalHit = 1;
+    [SerializeField] private int bonus = 1;
+    // [SerializeField] private int normalHit = 1;
     public event Action CheckPointReached;
     private void Start()
     {
@@ -31,7 +31,7 @@ public class CheckPoint : MonoBehaviour
 
     public int GetBonus()
     {
-        return bonus + normalHit;
+        return bonus;
     }
 
     public bool BonusClaimed()
@@ -51,12 +51,12 @@ public class CheckPoint : MonoBehaviour
                 if (brain.GetIsAlive())
                 {
                     CheckPointReached?.Invoke();
-                    brain.AddHitBonus(normalHit);
-                    brain.Bonus();
+                    brain.CheckPointReached();
                     GetComponent<MeshRenderer>().enabled = false;
                     _brains.Add(brain);
                     if (bonusReceived) return;
                     brain.AddHitBonus(bonus);
+                    brain.Bonus();
                     _bonusWinner = brain;
                     bonusReceived = true;
                     // Debug.Log("Check Point Reached");

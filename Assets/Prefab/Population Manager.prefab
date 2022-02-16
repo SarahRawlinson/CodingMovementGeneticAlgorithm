@@ -145,20 +145,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   populationSize: 100
   gameSpeed: 1
-  deathSphereSpeed: 1.25
-  deathSphereStartTime: 2
+  deathSphereSpeed: 1
+  deathSphereStartTime: 1
   deathSphereStartSize: 0.5
-  trialTime: 300
+  trialTime: 120
   mutationChance: 0.01
-  PrintScore: 0
-  fitnessMultiplyBonus: 5
-  fitnessMultiplyDistance: 10
-  fitnessMultiplyTime: 1
-  ShowStats: 1
+  printScore: 0
+  fitnessMultiplyBonus: 1
+  fitnessMultiplyDistance: 1
+  fitnessMultiplyTime: 2
+  fitnessMultiplyCheckPoint: 10
+  showStats: 1
+  maxDistance: 150
+  numberOfClones: 5
   botPrefab: {fileID: 1565522241125702, guid: 7d36b5f5cbe294f368cce70409a75a03, type: 3}
   fileName: Load 1
   sphere: {fileID: 1590449534}
   star: {fileID: 8786308456579766793}
+  endCheckPoint: {fileID: 0}
 --- !u!114 &665132684
 MonoBehaviour:
   m_ObjectHideFlags: 0

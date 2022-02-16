@@ -25,11 +25,13 @@ public class PopulationManager : MonoBehaviour
     [SerializeField] private float fitnessMultiplyBonus = 1;
     [SerializeField] private float fitnessMultiplyDistance = 1;
     [SerializeField] private float fitnessMultiplyTime = 1;
+    [SerializeField] private float fitnessMultiplyCheckPoint = 1;
     [SerializeField] private bool showStats = true;
     [SerializeField] private float maxDistance = 150;
     [SerializeField] private int numberOfClones = 1;
 
     private List<int> clones = new List<int>();
+    private List<int> mutants = new List<int>();
 
     // Event
     public static event Action NewRound;
@@ -116,6 +118,24 @@ public class PopulationManager : MonoBehaviour
 
     private void LoadGeneration(int genIndex)
     {
+        if (genIndex > 0)
+        {
+            Generation lastGen = _generations[genIndex - 1];
+            generationStats._lastBestFitnessScore = lastGen.bestFitnessScore;
+            generationStats._lastBestPossibleScore = lastGen.bestPossibleScore;
+            generationStats._winningDeathPos = lastGen.winningDeathPos;
+            Vector3 starPos = new Vector3(star.transform.position.x, star.transform.position.y, generationStats._winningDeathPos.z);
+            star.transform.position = starPos;
+            generationStats._lastTimeAlive = lastGen.elapsed;
+            generationStats._lastAvgFitnessScore = lastGen.avgFitnessScore;
+            generationStats._lastAvgPossibleScore = lastGen.avgPossibleScore;
+            generationStats._lastAvgDistance = lastGen.avgDistance;
+            generationStats._lastAvgAliveTime = lastGen.avgAliveTime;
+            generationStats._lastSurvivors = lastGen.survivors;
+            generationStats._lastPopulationSize = lastGen.populationSize;
+            generationStats._lastCheckPointCount = lastGen.checkPointCount;
+        }
+        
         Generation gen = _generations[genIndex];
         var dnaValues = gen.dnaGroupsList;
         generationStats._generation = gen.generation;
@@ -123,20 +143,8 @@ public class PopulationManager : MonoBehaviour
         mutationChance = gen.mutationChance;
         generationStats._distance = gen.bestDistance;
         populationSize = gen.populationSize;
-        generationStats._lastBestFitnessScore = gen.bestFitnessScore;
-        generationStats._lastBestPossibleScore = gen.bestPossibleScore;
-        generationStats._winningDeathPos = gen.winningDeathPos;
-        Vector3 starPos = new Vector3(star.transform.position.x, star.transform.position.y, generationStats._winningDeathPos.z);
         clones = gen.cloneIndex;
-        star.transform.position = starPos;
-        generationStats._lastTimeAlive = gen.elapsed;
-        generationStats._lastAvgFitnessScore = gen.avgFitnessScore;
-        generationStats._lastAvgPossibleScore = gen.avgPossibleScore;
-        generationStats._lastAvgDistance = gen.avgDistance;
-        generationStats._lastAvgAliveTime = gen.avgAliveTime;
-        generationStats._lastSurvivors = gen.survivors;
-        generationStats._lastPopulationSize = gen.populationSize;
-        generationStats._lastCheckPointCount = gen.checkPointCount;
+        mutants = gen.mutants;
 
         Vector3 randPos = RandomStartPosition(transform.position);
         for (var index = 0; index < _brains.Count; index++)
@@ -148,7 +156,10 @@ public class PopulationManager : MonoBehaviour
             _brains[index].DeathOnOff(true);
             _brains[index].transform.position = randPos;
         }
-
+        foreach (int i in mutants)
+        {
+            _brains[i].MutateActive(true);
+        }
         foreach (int i in clones)
         {
             _brains[i].StarActive(true);
@@ -164,13 +175,14 @@ public class PopulationManager : MonoBehaviour
 
     void AddToGenerations(List<Brain> orderedPopulation)
     {
-        var gen = UpdateGeneration(orderedPopulation);
+        var gen = new Generation();
+        gen = UpdateGeneration(orderedPopulation, gen);
         _generations.Add(gen);
         CheckForBest(gen);
         // _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_generations));
     }
 
-    private Generation UpdateGeneration(List<Brain> orderedPopulation)
+    private Generation UpdateGeneration(List<Brain> orderedPopulation, Generation gen)
     {
         _generationData = true;
         List<string> dnaValues = new List<string>();
@@ -180,8 +192,7 @@ public class PopulationManager : MonoBehaviour
             // Debug.Log(s);
             dnaValues.Add(s);
         }
-
-        Generation gen = new Generation();
+        
         gen.elapsed = generationStats._elapsed;
         gen.generation = generationStats._generation;
         gen.survivors = generationStats._activeBots;
@@ -201,6 +212,7 @@ public class PopulationManager : MonoBehaviour
         gen.avgAliveTime = generationStats._lastAvgAliveTime;
         gen.avgCheckPointCount = ((float) generationStats._lastCheckPointCount / generationStats._lastPopulationSize) * 100;
         gen.checkPointCount = generationStats._lastCheckPointCount;
+        gen.mutants = mutants;
         return gen;
     }
 
@@ -214,7 +226,6 @@ public class PopulationManager : MonoBehaviour
             _population.Add(b);
             // _textFileHandler.AddTextToFile(b.GetComponent<Brain>().GetDNAString());
         }
-
         generationStats._activeBots = populationSize;
     }
 
@@ -318,27 +329,54 @@ public class PopulationManager : MonoBehaviour
 
     float GetFitnessScore(Brain brain)
     {
-        int bonus = 0;
+        float bonus = 0;
+        float checkPoints = 0;
         foreach (CheckPoint check in FindObjectsOfType<CheckPoint>())
         {
-            if (check.BonusClaimed()) bonus += check.GetBonus();
+            if (check.BonusClaimed())
+            {
+                checkPoints += 1;
+                bonus += check.GetBonus();
+            }
         }
-        float divScore = fitnessMultiplyDistance + fitnessMultiplyTime + fitnessMultiplyBonus;
-        return ((((brain.Distance / generationStats._distance) * fitnessMultiplyDistance) +
+        if (bonus == 0) bonus = 1;
+        if (checkPoints == 0) checkPoints = 1;
+        float divScore = TotalFitnessModifiers();
+        if (printScore) Debug.Log($"Fitness = " +
+                                $"Distance: ({brain.Distance} / {generationStats._distance}) * {fitnessMultiplyDistance}, " +
+                                $"Time: ({brain.timeAlive} / {generationStats._elapsed}) * {fitnessMultiplyTime}, " +
+                                $"Bonus: ({brain.GetBonus()} / {bonus}) * {fitnessMultiplyBonus}, " +
+                                $"CheckPoints ({brain.GetCheckPoints()} / {checkPoints}) * {fitnessMultiplyCheckPoint}");
+        return (((((brain.Distance / generationStats._distance) * fitnessMultiplyDistance) +
                                   ((brain.timeAlive / generationStats._elapsed) * fitnessMultiplyTime) +
-                                  ((brain.GetBonus() / bonus) * fitnessMultiplyBonus) ) / divScore) * 100;
+                                  ((brain.GetBonus() / bonus) * fitnessMultiplyBonus))  +
+                                  ((brain.GetCheckPoints() / checkPoints) * fitnessMultiplyCheckPoint)) / divScore) * 100;
     }
-    
+
+    private float TotalFitnessModifiers()
+    {
+        return fitnessMultiplyDistance + fitnessMultiplyTime + fitnessMultiplyBonus + fitnessMultiplyCheckPoint;
+    }
+
     float GetPossibleScore(Brain brain)
     {
-        int bonus = 0;
+        float bonus = 0;
+        float checkPoints = 0;
         foreach (CheckPoint check in FindObjectsOfType<CheckPoint>())
         {
+            checkPoints += 1;
             bonus += check.GetBonus();
         }
-        return (((brain.Distance / maxDistance)  +
-                                  (brain.timeAlive / trialTime) +
-                                  (brain.GetBonus() / bonus))  / 3) * 100;
+        float divScore = TotalFitnessModifiers();
+        if (printScore) Debug.Log($"Possible Fitness = " + 
+                                    $"Distance: ({brain.Distance} / {maxDistance}) * {fitnessMultiplyDistance}, " +
+                                    $"Time: ({brain.timeAlive} / {trialTime}) * {fitnessMultiplyTime}, " +
+                                    $"Bonus: ({brain.GetBonus()} / {bonus}) * {fitnessMultiplyBonus}, " +
+                                    $"CheckPoints ({brain.GetCheckPoints()} / {checkPoints}) * {fitnessMultiplyCheckPoint}");
+        return (((((brain.Distance / maxDistance) * fitnessMultiplyDistance) +
+                                  ((brain.timeAlive / trialTime) * fitnessMultiplyTime) +
+                                  ((brain.GetBonus() / bonus)) * fitnessMultiplyBonus)  +
+                                  ((brain.GetCheckPoints() / checkPoints) * fitnessMultiplyCheckPoint)) / divScore) * 100;
     }
 
     private void CheckPopulationsFitness()
@@ -348,53 +386,100 @@ public class PopulationManager : MonoBehaviour
         generationStats._winningDeathPos = sortedList[sortedList.Count - 1].GetDeathLocation();
         Vector3 starPos = new Vector3(star.transform.position.x, star.transform.position.y, generationStats._winningDeathPos.z);
         generationStats._distance = sortedList[sortedList.Count - 1].Distance;
-        sortedList = _brains.OrderBy(o => ((GetPossibleScore(o)))).ToList();
-        Brain brain = sortedList[sortedList.Count - 1];
-        float fitnessTestResult = GetPossibleScore(brain);
-        if (Mathf.RoundToInt(fitnessTestResult) >= Mathf.RoundToInt(generationStats._lastBestPossibleScore))
+        // sortedList = _brains.OrderBy(o => ((GetPossibleScore(o)))).ToList();
+        // Brain brain = sortedList[sortedList.Count - 1];
+        float topFitness = 0f;
+        float avgFitness = 0f;
+        foreach (Brain brain in _brains)
         {
-            Debug.Log($"Generation Improved! Fitness: {Mathf.RoundToInt(fitnessTestResult)}, Last Fitness: {Mathf.RoundToInt(generationStats._lastBestPossibleScore)}");
-            generationStats._lastBestPossibleScore = GetPossibleScore(brain);
+            float fitnessTestResult = GetPossibleScore(brain);
+            avgFitness += fitnessTestResult;
+            if (fitnessTestResult > topFitness) topFitness = fitnessTestResult;
+        }
+
+        avgFitness = avgFitness / _brains.Count;
+        if (Mathf.RoundToInt(topFitness) >= Mathf.RoundToInt(generationStats._lastBestPossibleScore) || Mathf.RoundToInt(avgFitness) >= Mathf.RoundToInt(generationStats._lastAvgPossibleScore))
+        {
+            Debug.Log($"Generation Improved! Fitness: {Mathf.RoundToInt(topFitness)}," +
+                      $" Last Fitness: {Mathf.RoundToInt(generationStats._lastBestPossibleScore)}," +
+                      $" Avg: {Mathf.RoundToInt(avgFitness)}," +
+                      $" Last Avg: {Mathf.RoundToInt(generationStats._lastAvgPossibleScore)}");
+            generationStats._lastBestPossibleScore = topFitness;
             sortedList = _brains.OrderBy(o => ((GetFitnessScore(o)))).ToList();
-            brain = sortedList[sortedList.Count - 1];
+            Brain brain = sortedList[sortedList.Count - 1];
+            generationStats._lastBestFitnessScore = GetFitnessScore(brain);
             star.transform.position = starPos;
-
-
             generationStats._lastCheckPointCount = generationStats._checkPointCount;
             generationStats._lastTimeAlive = generationStats._elapsed;
             DNAGroup topGeneGroup = DNAGroup.Clone(sortedList[sortedList.Count - 1].dnaGroup);
-            BreedNewPopulation(brain, sortedList, topGeneGroup);
+            BreedNewPopulation(sortedList, topGeneGroup);
         }
         else
         {
-            ReloadLastGeneration(fitnessTestResult, sortedList);
-            
-            // Debug.Log(
-            //     $"Generation did not make improvements, reload last best. Fitness: {Mathf.RoundToInt(fitnessTestResult)}, Last Fitness: {Mathf.RoundToInt(_lastBestPossibleScore)}");
-            // LoadGeneration(_generations.Count - 1);
+            BreedLastGeneration(topFitness, avgFitness);
+            // ReloadLastGeneration(topFitness, avgFitness, sortedList);
         }
 
         generationStats._activeBots = populationSize;
         // Brain.DNAGroups.PrintDNAColour(brains[clone].dnaGroups);
     }
 
-    void BreedLastGeneration(int genIndex)
+    void BreedLastGeneration(float fitnessTestResult, float avgFitness)
     {
-        Generation gen = _generations[genIndex];
-        var dnaValues = gen.dnaGroupsList;
-        List<DNAGroup> dnaGroups = new List<DNAGroup>();
+        Debug.Log($"Generation did not make improvements, breed last best again. Fitness: {Mathf.RoundToInt(fitnessTestResult)}," +
+                  $" Last Fitness: {Mathf.RoundToInt(generationStats._lastBestPossibleScore)}," +
+                  $" Avg: {Mathf.RoundToInt(avgFitness)}," +
+                  $" Last Avg: {Mathf.RoundToInt(generationStats._lastAvgPossibleScore)}");
         
-        for (var index = 0; index < dnaValues.Count; index++)
+        List<string> dnaValues = new List<string>();
+        List<DNAGroup> dnaGroups = new List<DNAGroup>();
+        try
         {
-            dnaGroups.Add(JsonConvert.DeserializeObject<DNAGroup>(dnaValues[index]));
+            Generation gen = _generations[generationStats._generation - 2];
+            try
+            {
+                dnaValues = gen.dnaGroupsList;
+                try
+                {
+                    for (var index = 0; index < dnaValues.Count; index++)
+                    {
+                        dnaGroups.Add(JsonConvert.DeserializeObject<DNAGroup>(dnaValues[index]));
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.Log($"Couldn't DeserializeObject DNA Values: {e}");
+                }
+
+                try
+                {
+                    BreedBest(dnaGroups, dnaGroups[gen.cloneIndex[0]]);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log($"Couldn't run Breed Best: {e}");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log($"DNA Values not found: {e}");
+            }
+
         }
+        catch (Exception e)
+        {
+            Debug.Log($"Generation not found: {e}");
+        }
+
     }
 
-    private void ReloadLastGeneration(float fitnessTestResult, List<Brain> sortedList)
+    private void ReloadLastGeneration(float fitnessTestResult, float avgFitness, List<Brain> sortedList)
     {
         // _generation--;
-        Debug.Log(
-            $"Generation did not make improvements, retry test. Fitness: {fitnessTestResult}, Last Fitness: {generationStats._lastBestPossibleScore}");
+        Debug.Log($"Generation did not make improvements, retry test. Fitness: {Mathf.RoundToInt(fitnessTestResult)}," +
+                  $" Last Fitness: {Mathf.RoundToInt(generationStats._lastBestPossibleScore)}," +
+                  $" Avg: {Mathf.RoundToInt(avgFitness)}," +
+                  $" Last Avg: {Mathf.RoundToInt(generationStats._lastAvgPossibleScore)}");
         Vector3 randPos = RandomStartPosition(transform.position);
         for (int i = 0; i < sortedList.Count; i++)
         {
@@ -405,9 +490,9 @@ public class PopulationManager : MonoBehaviour
         
     }
 
-    private void BreedNewPopulation(Brain brain, List<Brain> sortedList, DNAGroup topGeneGroup)
+    private void BreedNewPopulation(List<Brain> sortedList, DNAGroup topGeneGroup)
     {
-        generationStats._lastBestFitnessScore = GetFitnessScore(brain);
+        
         float scores = 0f;
         float possibleScore = 0f;
         float timeAlive = 0f;
@@ -418,22 +503,22 @@ public class PopulationManager : MonoBehaviour
             timeAlive += b.timeAlive;
             float currentScore = GetFitnessScore(b);
             scores += currentScore;
-            possibleScore = GetPossibleScore(b);
-            if (printScore)
-                Debug.Log($"Score {currentScore}%, " +
+            possibleScore += GetPossibleScore(b);
+            
+             if (printScore) Debug.Log($"Score {currentScore}%, " +
                           $"Dis: {Mathf.RoundToInt((b.Distance / generationStats._distance) * 100)}, " +
                           $"Time: {Mathf.RoundToInt((b.timeAlive / generationStats._elapsed) * 100)}, " +
                           $"Bonus: {(b.GetBonus() / FindObjectsOfType<CheckPoint>().Length)}");
         }
-
+        
         generationStats._lastAvgPossibleScore = Mathf.RoundToInt(possibleScore / sortedList.Count);
         generationStats._lastAvgFitnessScore = Mathf.RoundToInt((scores / sortedList.Count));
         generationStats._lastAvgDistance = Mathf.RoundToInt(brainDistance / sortedList.Count);
         generationStats._lastAvgAliveTime = timeAlive / sortedList.Count;
-
+        
         if (generationStats._generation == _generations.Count)
         {
-            UpdateGeneration(_brains);
+            UpdateGeneration(_brains, _generations[generationStats._generation - 1]);
         }
         else
         {
@@ -442,25 +527,29 @@ public class PopulationManager : MonoBehaviour
 
         generationStats._generation++;
         Debug.Log($"Gen {generationStats._generation}: ");
-        BreedBest(sortedList, topGeneGroup);
+        List<DNAGroup> dnaGroups = new List<DNAGroup>();
+        sortedList.ForEach(b => dnaGroups.Add(b.dnaGroup));
+        BreedBest(dnaGroups, topGeneGroup);
     }
 
-    private void BreedBest(List<Brain> sortedList, DNAGroup topGeneGroup)
+    // TODO change this to be a list of DNAGroup rather than Brain
+    private void BreedBest(List<DNAGroup> sortedList, DNAGroup topGeneGroup)
     {
         List<DNAGroup> offspring = new List<DNAGroup>();
+        Debug.Log("Breeding started");
 
         int divideBy = 4;
         int breedingPoolQty = (int) Mathf.Ceil(((float) populationSize / 4));
         int startingRange = populationSize - breedingPoolQty;
-        List<int> mutators = new List<int>();
+        mutants.Clear();
         for (int i = populationSize - 1; i > startingRange - 1; i--)
         {
             for (int j = 0; j < divideBy; j++)
             {
                 int rand = Random.Range(startingRange, populationSize);
-                (bool mutation, DNAGroup dnaGroups) = Breed(sortedList[i].dnaGroup, sortedList[rand].dnaGroup, sortedList[0].tagsToLookFor.ToList());
+                (bool mutation, DNAGroup dnaGroups) = Breed(sortedList[i], sortedList[rand], botPrefab.GetComponent<Brain>().tagsToLookFor.ToList());
                 offspring.Add(dnaGroups);
-                if (mutation) mutators.Add(offspring.Count - 1);
+                if (mutation) mutants.Add(offspring.Count - 1);
             }
         }
 
@@ -469,7 +558,7 @@ public class PopulationManager : MonoBehaviour
 
         for (int i = 0; i < sortedList.Count; i++)
         {
-            if (mutators.Contains(i)) _brains[i].MutateActive(true);
+            if (mutants.Contains(i)) _brains[i].MutateActive(true);
             else
             {
                 _brains[i].MutateActive(false);
@@ -480,10 +569,10 @@ public class PopulationManager : MonoBehaviour
             _brains[i].transform.position = randPos;
             _brains[i].Init();
             _brains[i].StarActive(false);
-            // Destroy(sortedList[i]);
         }
 
         clones.Clear();
+        
         for (int i = 0; i < numberOfClones; i++)
         {
             int _cloneIndex = Random.Range(0, _brains.Count);
@@ -498,11 +587,6 @@ public class PopulationManager : MonoBehaviour
             _brains[_cloneIndex].Init();
         }
     }
-
-    // private float UnbiasedPossibleScore(Brain brain)
-    // {
-    //     return ((brain.Distance / 150) + (brain.timeAlive / trialTime) + (brain.GetBonus()) / FindObjectsOfType<CheckPoint>().Length);
-    // }
 
     private void BestBrain()
     {
@@ -545,10 +629,7 @@ public class PopulationManager : MonoBehaviour
                         brain.SetDeath();
                     }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+                catch { }
                 
             }
         }
