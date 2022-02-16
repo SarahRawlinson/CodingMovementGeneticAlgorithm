@@ -262,10 +262,7 @@ public class Brain : MonoBehaviour, ITestForTarget
         dnaGroup.colourDna = new DNA((3), 101, DNAType.Colour);
     }
 
-    public string GetDNAString()
-    {
-        return JsonConvert.SerializeObject(dnaGroup);
-    }
+    
 
     private void OnCollisionEnter(Collision other)
     {

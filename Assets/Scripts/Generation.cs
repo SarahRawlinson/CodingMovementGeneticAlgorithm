@@ -8,6 +8,7 @@
     {
         public int generation;
         public List<string> dnaGroupsList;
+        public string bestDNA;
         public float trialTime = 10;
         public int populationSize = 50;
         public float elapsed;

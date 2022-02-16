@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [Serializable]
@@ -39,5 +40,9 @@ using UnityEngine;
             Color dnaColour = new Color(r, g, b);
             // Debug.Log($"<color=dnaColour>r{r} :  g:{g}  b:{b} </color>");
             Debug.Log (string.Format("<color=#{0:X2}{1:X2}{2:X2}>{3}</color>", (byte)(dnaColour.r * 255f), (byte)(dnaColour.g * 255f), (byte)(dnaColour.b * 255f), $"r{r} :  g:{g}  b:{b}"));
+        }
+        public string GetDNAString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }

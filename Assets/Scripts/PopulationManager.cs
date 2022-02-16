@@ -32,6 +32,7 @@ public class PopulationManager : MonoBehaviour
 
     private List<int> clones = new List<int>();
     private List<int> mutants = new List<int>();
+    private DNAGroup bestDNA;
 
     // Event
     public static event Action NewRound;
@@ -138,6 +139,7 @@ public class PopulationManager : MonoBehaviour
         
         Generation gen = _generations[genIndex];
         var dnaValues = gen.dnaGroupsList;
+        bestDNA = JsonConvert.DeserializeObject<DNAGroup>(gen.bestDNA);
         generationStats._generation = gen.generation;
         trialTime = gen.trialTime;
         mutationChance = gen.mutationChance;
@@ -188,10 +190,12 @@ public class PopulationManager : MonoBehaviour
         List<string> dnaValues = new List<string>();
         foreach (Brain pop in orderedPopulation)
         {
-            string s = pop.GetDNAString();
+            string s = pop.dnaGroup.GetDNAString();
             // Debug.Log(s);
             dnaValues.Add(s);
         }
+
+        string bestDNAValue = bestDNA.GetDNAString();
         
         gen.elapsed = generationStats._elapsed;
         gen.generation = generationStats._generation;
@@ -213,6 +217,7 @@ public class PopulationManager : MonoBehaviour
         gen.avgCheckPointCount = ((float) generationStats._lastCheckPointCount / generationStats._lastPopulationSize) * 100;
         gen.checkPointCount = generationStats._lastCheckPointCount;
         gen.mutants = mutants;
+        gen.bestDNA = bestDNAValue;
         return gen;
     }
 
@@ -416,7 +421,7 @@ public class PopulationManager : MonoBehaviour
         }
         else
         {
-            BreedLastGeneration(topFitness, avgFitness);
+            BreedGeneration(topFitness, avgFitness, generationStats._generation - 2);
             // ReloadLastGeneration(topFitness, avgFitness, sortedList);
         }
 
@@ -424,7 +429,7 @@ public class PopulationManager : MonoBehaviour
         // Brain.DNAGroups.PrintDNAColour(brains[clone].dnaGroups);
     }
 
-    void BreedLastGeneration(float fitnessTestResult, float avgFitness)
+    void BreedGeneration(float fitnessTestResult, float avgFitness, int genIndex)
     {
         Debug.Log($"Generation did not make improvements, breed last best again. Fitness: {Mathf.RoundToInt(fitnessTestResult)}," +
                   $" Last Fitness: {Mathf.RoundToInt(generationStats._lastBestPossibleScore)}," +
@@ -435,7 +440,7 @@ public class PopulationManager : MonoBehaviour
         List<DNAGroup> dnaGroups = new List<DNAGroup>();
         try
         {
-            Generation gen = _generations[generationStats._generation - 2];
+            Generation gen = _generations[genIndex];
             try
             {
                 dnaValues = gen.dnaGroupsList;
@@ -453,7 +458,7 @@ public class PopulationManager : MonoBehaviour
 
                 try
                 {
-                    BreedBest(dnaGroups, dnaGroups[gen.cloneIndex[0]]);
+                    BreedBest(dnaGroups, JsonConvert.DeserializeObject<DNAGroup>(gen.bestDNA));
                 }
                 catch (Exception e)
                 {
@@ -492,7 +497,7 @@ public class PopulationManager : MonoBehaviour
 
     private void BreedNewPopulation(List<Brain> sortedList, DNAGroup topGeneGroup)
     {
-        
+        bestDNA = topGeneGroup;
         float scores = 0f;
         float possibleScore = 0f;
         float timeAlive = 0f;
