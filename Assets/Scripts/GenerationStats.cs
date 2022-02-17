@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GenerationStats : MonoBehaviour
 {
 
-    [SerializeField] private bool showStats = true;
+    [SerializeField] private Toggle showStats;
     public int populationSize = 1;
     public int _generation = 1;
     public float _distance = 0;
@@ -42,12 +43,14 @@ public class GenerationStats : MonoBehaviour
     
     
     private readonly GUIStyle _guiStyle = new GUIStyle();
+    public float currentAvgPossibleScore;
+    public float currentPossibleScore;
     public float mutationChance { get; set; }
     public float trialTime { get; set; }
 
     void OnGUI()
     {
-        if (!showStats) return;
+        if (!showStats.isOn) return;
         // guiStyle = new GUIStyle(GUI.skin.box);
         _guiStyle.fontSize = 25;
         _guiStyle.normal.textColor = Color.white;
