@@ -81,7 +81,9 @@ public class PopulationSettings : MonoBehaviour
     void UpdateTrialMode()
     {
         trialType = (TrialType)_trialType.value;
+        // Debug.Log($"{trialType.ToString()} {_trialType.value}  {_trialType.options[_trialType.value]}");
         failureType = (FailureType) _trialFailureType.value;
+        // Debug.Log($"{failureType.ToString()} {_trialFailureType.value} {_trialFailureType.options[_trialFailureType.value]}");
     }
 
     public bool TestFailed(GenerationStats stats)
@@ -154,18 +156,33 @@ public class PopulationSettings : MonoBehaviour
         switch (failureType)
         {
             case FailureType.IfGenerationFailsToMatchLastAvg:
+                Debug.Log($"Test for Match Avg {stats.currentAvgPossibleScore} vs Last Avg {stats._lastAvgPossibleScore}");
                 return stats.currentAvgPossibleScore < stats._lastAvgPossibleScore;
+            
             case FailureType.IfGenerationFailsToMatchLastBest:
+                Debug.Log($"Test for Match Best {stats.currentPossibleScore} vs Last Best {stats._lastBestPossibleScore}");
                 return stats.currentPossibleScore < stats._lastBestPossibleScore;
+            
             case FailureType.IfGenerationFailsToMatchLastAvgAndLastBest:
-                return (stats.currentAvgPossibleScore < stats._lastAvgPossibleScore) || (stats.currentPossibleScore < stats._lastBestPossibleScore);
+                Debug.Log($"Test for Match Avg {stats.currentAvgPossibleScore} vs Last Avg {stats._lastAvgPossibleScore} " +
+                          $"And Match Best {stats.currentPossibleScore} vs Last Best {stats._lastBestPossibleScore}");
+                return (stats.currentAvgPossibleScore < stats._lastAvgPossibleScore) && (stats.currentPossibleScore < stats._lastBestPossibleScore);
+            
             case FailureType.IfGenerationFailsToMatchTopAvg:
+                Debug.Log($"Test for Match Avg {stats.currentAvgPossibleScore} vs Top Avg {stats._topAvgPossibleScore}");
                 return stats.currentAvgPossibleScore < stats._topAvgPossibleScore;
+            
             case FailureType.IfGenerationFailsToMatchTopBest:
+                Debug.Log($"Test for Match Top {stats.currentPossibleScore} vs Top Best {stats._topPossibleScore}");
                 return stats.currentPossibleScore < stats._topPossibleScore;
+            
             case FailureType.IfGenerationFailsToMatchTopAvgAndTopBest:
-                return (stats.currentAvgPossibleScore < stats._topAvgPossibleScore) || (stats.currentPossibleScore < stats._topPossibleScore);
+                Debug.Log($"Test for Match Avg {stats.currentAvgPossibleScore} vs Top Avg {stats._topAvgPossibleScore} " +
+                          $"And Match Top {stats.currentPossibleScore} vs Top Best {stats._topPossibleScore}");
+                return (stats.currentAvgPossibleScore < stats._topAvgPossibleScore) && (stats.currentPossibleScore < stats._topPossibleScore);
+            
             case FailureType.NoFailure:
+                Debug.Log("No Failure Type, No Test");
                 return false;
         }
         return false;
@@ -252,6 +269,7 @@ public class PopulationSettings : MonoBehaviour
             UpdateDeathSphereSpeed();
             UpdateDeathSphereStartTime();
             UpdateGameSpeedFromSlider();
+            UpdateTrialMode();
             // UpdatePopulationFromSlider();
         }
         else

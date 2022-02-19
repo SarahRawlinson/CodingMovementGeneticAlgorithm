@@ -38,6 +38,10 @@ public class Brain : MonoBehaviour, ITestForTarget
     [SerializeField] private GameObject dnaGameObject;
     private bool starActive = false;
     private bool dnaActive = false;
+    
+    private Rigidbody rb;
+    private Animator _animator;
+    
 
     public Vector3 GetDeathLocation()
     {
@@ -187,6 +191,7 @@ public class Brain : MonoBehaviour, ITestForTarget
             SetEndPosition();
             DeathOnOff(false);
             StarActive(false);
+            
             foreach (ParticleSystem fx in explosionFX)
             {
                 fx.Play();
@@ -235,6 +240,8 @@ public class Brain : MonoBehaviour, ITestForTarget
     private void Awake()
     {
         _character = GetComponent<ThirdPersonCharacter>();
+        rb = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
         foreach (string s in tagsToLookFor)
         {
             if (s == "Ethan")
@@ -280,6 +287,9 @@ public class Brain : MonoBehaviour, ITestForTarget
             if (starActive) star.SetActive(on);
             if (dnaActive) dnaGameObject.SetActive(on);
             gObject.SetActive(on);
+            _character.enabled = on;
+            _animator.enabled = on;
+            rb.isKinematic = !on;
         }
     }
 
