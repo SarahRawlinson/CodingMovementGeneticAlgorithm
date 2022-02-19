@@ -21,6 +21,7 @@ public class Brain : MonoBehaviour, ITestForTarget
     private Vector3 _move;
     private bool _alive = true;
     public static event Action Dead;
+    public event Action OnDead;
     private Vector3 _startPos;
     private Vector3 _endPos;
     [SerializeField] private GameObject[] turnOffOnDeath;
@@ -187,6 +188,7 @@ public class Brain : MonoBehaviour, ITestForTarget
             dnaGameObject.SetActive(false);
             _alive = false;
             Dead?.Invoke();
+            OnDead?.Invoke();
             deathLocation = transform.position;
             SetEndPosition();
             DeathOnOff(false);
