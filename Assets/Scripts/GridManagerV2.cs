@@ -8,12 +8,18 @@ namespace DefaultNamespace
 {
     public class GridManagerV2 : MonoBehaviour
     {
-        public float x_Space =1, y_Space =1;
+        private float x_Space =1, y_Space =1;
         public int columns, rows;
         public GameObject prefab;
 
+        [SerializeField] public List<GameObject> weaponList;
+
+        [SerializeField] private bool showSelection = true;
+        
         public List<FloorSquareData> levelTiles = new List<FloorSquareData>();
         public Plane _groundPlane = new Plane(Vector3.up, Vector3.zero);
+
+        private int selectedWeapon = 0;
         
         private void Start()
         {
@@ -25,9 +31,7 @@ namespace DefaultNamespace
                 levelTiles.Last().id = i;
                 levelTiles.Last().setXPos(i % columns);
                 levelTiles.Last().setYPos(i / columns);
-                
             }
-            
         }
 
         void Update()
@@ -37,6 +41,24 @@ namespace DefaultNamespace
             {
                 ChangeSelectionColour(GetPositionFromXZ(pos.x,pos.z));
             }
+
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                selectedWeapon = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.F2))
+            {
+                selectedWeapon = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                selectedWeapon = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                selectedWeapon = 3;
+            }
+            
         }
 
         private (int x, int z) GetXZ()
@@ -51,6 +73,10 @@ namespace DefaultNamespace
                 x = Mathf.RoundToInt(worldPosition.x);
                 z = Mathf.RoundToInt(worldPosition.z);
 
+                if (showSelection)
+                {
+                    
+                }
                 Debug.DrawLine(Camera.main.transform.position, worldPosition);
                 Debug.LogFormat("Clicked positions: {0} | {1}", x, z);
                               
@@ -67,6 +93,9 @@ namespace DefaultNamespace
         public void ChangeSelectionColour(int element)
         {
             levelTiles[element].renderer.material.color = Color.blue;
+            Vector3  selectedTransform = levelTiles[element].transform.position;
+            Instantiate(weaponList[selectedWeapon],
+                new Vector3(selectedTransform.x, selectedTransform.y + 1, selectedTransform.z), Quaternion.identity);
         }
         
         
