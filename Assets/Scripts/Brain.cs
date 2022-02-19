@@ -303,11 +303,11 @@ public class Brain : MonoBehaviour, ITestForTarget
     public float GetDistanceTraveled()
     {
         if (_alive) SetEndPosition();
-        float distance = _endPos.z - _startPos.z;
-        if (distance > 500)
-        {
-            return 0f;
-        }
+        float distance = _endPos.x - _startPos.x;
+        // if (distance > 500)
+        // {
+        //     return 0f;
+        // }
         return distance;
     }
 

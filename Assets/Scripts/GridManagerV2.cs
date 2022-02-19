@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -13,17 +14,22 @@ namespace DefaultNamespace
         public GameObject prefab;
 
         public Vector3 gridSize;
+        private List<GameObject> _spawnablePrefabs = new List<GameObject>();
+        private TextFileHandler _textFileHandler;
+        [SerializeField] private string sceneFileName = "Scene1";
         
         [SerializeField] public List<GameObject> weaponList;
         [SerializeField] private bool showSelection = true;
         
         public List<FloorSquareData> levelTiles = new List<FloorSquareData>();
         public Plane _groundPlane = new Plane(Vector3.up, Vector3.zero);
+        private List<LevelData> _levelData = new List<LevelData>();
 
         private int selectedWeapon = 0;
         
         private void Start()
         {
+            _spawnablePrefabs.AddRange(weaponList);
             for (int i = 0; i < columns * rows; i++)
             {
                 GameObject go = Instantiate(prefab, new Vector3(x_Space * (i % columns),0,y_Space * (i / columns)), Quaternion.identity);
@@ -37,6 +43,26 @@ namespace DefaultNamespace
 
             gridSize = prefab.transform.localScale;
             
+            _textFileHandler = new TextFileHandler(sceneFileName);
+            
+            (bool exists, string fileText) = _textFileHandler.GetFileText();
+            if (exists)
+            {
+                List<LevelData> levelData = JsonConvert.DeserializeObject<List<LevelData>>(fileText);
+                foreach (LevelData data in levelData)
+                {
+                    selectedWeapon = data.objectIndex;
+                    SpawnObject(data.gridListPos);
+                    // Instantiate(_spawnablePrefabs[], data.pos, Quaternion.identity);
+                }
+
+            }
+            
+        }
+
+        private void OnApplicationQuit()
+        {
+            _textFileHandler.AddTextToFile(JsonConvert.SerializeObject(_levelData));
         }
 
         void Update()
@@ -47,14 +73,8 @@ namespace DefaultNamespace
                 if (selectedWeapon == 4)
                 {
                     //checkpoint
-
-                    Vector3 tmpVector = levelTiles[GetPositionFromXZ(GetXZ().x, 0)].transform.position;
-                    
-                    GameObject chkPoint =
-                    Instantiate(weaponList[selectedWeapon],new Vector3(tmpVector.x,tmpVector.y + 1, tmpVector.z + (rows / 2) - 1), Quaternion.identity);
-
-                    chkPoint.transform.localScale = new Vector3(gridSize.x, gridSize.y, gridSize.z * rows );
-
+                    int objIndex = GetPositionFromXZ(GetXZ().x, 0);
+                    SpawnCheckPoint(objIndex);
                 }else
                 {
                     SpawnFloorWeapon(GetPositionFromXZ(pos.x, pos.z));
@@ -105,6 +125,25 @@ namespace DefaultNamespace
             
         }
 
+        private void SpawnCheckPoint(int objIndex)
+        {
+            
+            Vector3 tmpVector = levelTiles[objIndex].transform.position;
+
+            GameObject chkPoint =
+                Instantiate(weaponList[selectedWeapon], new Vector3(tmpVector.x, tmpVector.y + 1, tmpVector.z + (rows / 2) - 1),
+                    Quaternion.identity);
+            Debug.Log($"Spawn Check Point {gridSize.ToString()}");
+
+            chkPoint.transform.localScale = new Vector3(gridSize.x, gridSize.y, gridSize.z * rows);
+            
+            LevelData levelData = new LevelData();
+            levelData.pos = tmpVector;
+            levelData.objectIndex = selectedWeapon;
+            levelData.gridListPos = objIndex;
+            _levelData.Add(levelData);
+        }
+
         private (int x, int z) GetXZ()
         {
             int x = 0;
@@ -138,19 +177,36 @@ namespace DefaultNamespace
                 return 0;
             }
         }
+
+        void SpawnObject(int index)
+        {
+            if (selectedWeapon == 4)
+            {
+                SpawnCheckPoint(index);
+            }
+            else
+            {
+                SpawnFloorWeapon(index);
+            }
+        }
         
         public void SpawnFloorWeapon(int element)
         {
-           Vector3  selectedTransform = levelTiles[element].transform.position;
+            Vector3  selectedTransform = levelTiles[element].transform.position;
+            float f = weaponList[selectedWeapon].transform.localPosition.y;
+            selectedTransform = new Vector3(selectedTransform.x, selectedTransform.y + f, selectedTransform.z);
+            if (levelTiles[element].weapon == null)
+            {
 
-           if (levelTiles[element].weapon == null)
-           {
-
-               levelTiles[element].weapon = Instantiate(weaponList[selectedWeapon],
-                   new Vector3(selectedTransform.x, selectedTransform.y + 1, selectedTransform.z), Quaternion.identity);
+               levelTiles[element].weapon = Instantiate(weaponList[selectedWeapon],selectedTransform, Quaternion.identity);
                
                levelTiles[element].renderer.material.color = Color.magenta;
-           }
+            }
+            LevelData levelData = new LevelData();
+            levelData.pos = selectedTransform;
+            levelData.objectIndex = selectedWeapon;
+            levelData.gridListPos = element;
+            _levelData.Add(levelData);
         }
         
         

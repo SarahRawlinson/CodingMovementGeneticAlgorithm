@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 781454290}
   - component: {fileID: 781454288}
   m_Layer: 5
-  m_Name: FailureModeDropdown
+  m_Name: TrialModeDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3475,7 +3475,7 @@ GameObject:
   - component: {fileID: 1885775648}
   - component: {fileID: 1885775650}
   m_Layer: 5
-  m_Name: TrialModeDropdown
+  m_Name: FailureModeDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11356,6 +11356,7 @@ GameObject:
   - component: {fileID: 665132684}
   - component: {fileID: 347619076990760882}
   - component: {fileID: 748782730804375999}
+  - component: {fileID: 802267618}
   m_Layer: 0
   m_Name: Population Manager
   m_TagString: Untagged
@@ -11396,7 +11397,6 @@ MonoBehaviour:
   maxDistance: 150
   sphere: {fileID: 1590449534}
   star: {fileID: 8786308456579766793}
-  endCheckPoint: {fileID: 0}
 --- !u!114 &665132684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11507,10 +11507,23 @@ MonoBehaviour:
   _gameSpeedSlider: {fileID: 977740799}
   settings: {fileID: 7389055125007517988}
   settingsObject: {fileID: 1718313559562537975}
-  _trialType: {fileID: 1885775650}
-  _trialFailureType: {fileID: 781454288}
+  _trialType: {fileID: 781454288}
+  _trialFailureType: {fileID: 1885775650}
   trialType: 0
   failureType: 0
+--- !u!114 &802267618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443780002976996040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d154d441a15b47f4dbe0b6d35237c9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsPlayingAtOnce: 10
 --- !u!1 &8447905156660233670
 GameObject:
   m_ObjectHideFlags: 0
@@ -11955,13 +11968,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 137966508fed4214699d1caa5637cb2d, type: 3}
---- !u!1 &8786308456579766793 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 137966508fed4214699d1caa5637cb2d, type: 3}
-  m_PrefabInstance: {fileID: 8443780001744004952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8260987452693594291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 137966508fed4214699d1caa5637cb2d, type: 3}
+  m_PrefabInstance: {fileID: 8443780001744004952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8786308456579766793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 137966508fed4214699d1caa5637cb2d, type: 3}
   m_PrefabInstance: {fileID: 8443780001744004952}
   m_PrefabAsset: {fileID: 0}

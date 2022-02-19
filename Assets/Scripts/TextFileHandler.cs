@@ -11,6 +11,7 @@ public class TextFileHandler
     {
         SetPath(fileName);
     }
+    
 
     void SetPath(string fileName)
     {

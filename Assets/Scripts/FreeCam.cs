@@ -67,7 +67,7 @@ public class FreeCam : MonoBehaviour
     {
         if(!resetCameraOnNewRound) return;
         
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, startPosition.z);
+        Vector3 newPos = new Vector3(startPosition.x, transform.position.y, transform.position.z);
         transform.position = newPos;
     }
 
@@ -159,7 +159,7 @@ public class FreeCam : MonoBehaviour
         Vector3 pos = orderedBrains[orderedBrains.Count-1].transform.position;
         // bestBotPos = new Vector3(pos.x + 10, pos.y + 10, pos.z);
         var position = transform.position;
-        bestBotPos = new Vector3(position.x, position.y, pos.z);
+        bestBotPos = new Vector3(pos.x, position.y, position.z);
     }
 
     void OnDisable()
