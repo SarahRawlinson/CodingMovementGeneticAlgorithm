@@ -7,7 +7,7 @@ namespace DefaultNamespace
     {
         public int id;
         public int KillCount;
-        public FloorWeapon weapon;
+        public GameObject  weapon;
         public int xPos, yPos;
         public Renderer renderer;
 

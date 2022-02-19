@@ -54,6 +54,7 @@ public class FreeCam : MonoBehaviour
     [SerializeField] private bool followBestBrain = true;
     private Vector3 bestBotPos;
     private Vector3 startPosition;
+    [SerializeField] private bool resetCameraOnNewRound = false;
 
     private void Start()
     {
@@ -64,6 +65,8 @@ public class FreeCam : MonoBehaviour
 
     void NewRound()
     {
+        if(!resetCameraOnNewRound) return;
+        
         Vector3 newPos = new Vector3(transform.position.x, transform.position.y, startPosition.z);
         transform.position = newPos;
     }

@@ -12,8 +12,9 @@ namespace DefaultNamespace
         public int columns, rows;
         public GameObject prefab;
 
+        public Vector3 gridSize;
+        
         [SerializeField] public List<GameObject> weaponList;
-
         [SerializeField] private bool showSelection = true;
         
         public List<FloorSquareData> levelTiles = new List<FloorSquareData>();
@@ -31,16 +32,53 @@ namespace DefaultNamespace
                 levelTiles.Last().id = i;
                 levelTiles.Last().setXPos(i % columns);
                 levelTiles.Last().setYPos(i / columns);
+                 
             }
+
+            gridSize = prefab.transform.localScale;
+            
         }
 
         void Update()
         {
             var pos = GetXZ();
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && pos.x >= 0 && pos.z >= 0)
             {
-                ChangeSelectionColour(GetPositionFromXZ(pos.x,pos.z));
+                if (selectedWeapon == 4)
+                {
+                    //checkpoint
+
+                    Vector3 tmpVector = levelTiles[GetPositionFromXZ(GetXZ().x, 0)].transform.position;
+                    
+                    GameObject chkPoint =
+                    Instantiate(weaponList[selectedWeapon],new Vector3(tmpVector.x,tmpVector.y + 1, tmpVector.z + (rows / 2) - 1), Quaternion.identity);
+
+                    chkPoint.transform.localScale = new Vector3(gridSize.x, gridSize.y, gridSize.z * rows );
+
+                }else
+                {
+                    SpawnFloorWeapon(GetPositionFromXZ(pos.x, pos.z));
+                }
             }
+
+            if (pos.x >= 0 && pos.x <= columns)
+            {
+                foreach (var tile in levelTiles)
+                {
+                    if (tile.weapon == null)
+                    {
+                        if (GetPositionFromXZ(pos.x, pos.z) == tile.id)
+                        {
+                            tile.renderer.material.color = Color.green;
+                        }
+                        else
+                        {
+                            tile.renderer.material.color = Color.gray;
+                        }
+                    }
+                }
+                
+               }
 
             if (Input.GetKeyDown(KeyCode.F1))
             {
@@ -59,6 +97,12 @@ namespace DefaultNamespace
                 selectedWeapon = 3;
             }
             
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                selectedWeapon = 4;
+            }
+
+            
         }
 
         private (int x, int z) GetXZ()
@@ -75,27 +119,38 @@ namespace DefaultNamespace
 
                 if (showSelection)
                 {
-                    
+                   Debug.DrawLine(Camera.main.transform.position, worldPosition); 
+                  // Debug.Log("XPos: " + x + " / " + "ZPos:" + z);
                 }
-                Debug.DrawLine(Camera.main.transform.position, worldPosition);
-                Debug.LogFormat("Clicked positions: {0} | {1}", x, z);
-                              
                
             }
-            return (x,z);
+            if( x >= 0 && z >= 0 && x < columns && z < rows )
+                return (x,z);
+            return (-1,-1);
         } 
         
         private int GetPositionFromXZ(int x, int z)
         {
-            return (z * columns) + (x);
+            if(x >= 0 && z >= 0)
+                return (z * columns) + (x);
+            else
+            {
+                return 0;
+            }
         }
         
-        public void ChangeSelectionColour(int element)
+        public void SpawnFloorWeapon(int element)
         {
-            levelTiles[element].renderer.material.color = Color.blue;
-            Vector3  selectedTransform = levelTiles[element].transform.position;
-            Instantiate(weaponList[selectedWeapon],
-                new Vector3(selectedTransform.x, selectedTransform.y + 1, selectedTransform.z), Quaternion.identity);
+           Vector3  selectedTransform = levelTiles[element].transform.position;
+
+           if (levelTiles[element].weapon == null)
+           {
+
+               levelTiles[element].weapon = Instantiate(weaponList[selectedWeapon],
+                   new Vector3(selectedTransform.x, selectedTransform.y + 1, selectedTransform.z), Quaternion.identity);
+               
+               levelTiles[element].renderer.material.color = Color.magenta;
+           }
         }
         
         

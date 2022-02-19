@@ -12,7 +12,7 @@ public class CheckPoint : MonoBehaviour
     private Brain _bonusWinner;
     [SerializeField] private int bonus = 1;
     // [SerializeField] private int normalHit = 1;
-    public event Action CheckPointReached;
+    public static event Action CheckPointReached;
     private void Start()
     {
         PopulationManager.NewRound += Reset;

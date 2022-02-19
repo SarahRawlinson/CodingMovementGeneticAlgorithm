@@ -27,7 +27,7 @@ public class PopulationManager : MonoBehaviour
     [SerializeField] public float maxDistance = 150;
     [SerializeField] private DeathSphere sphere;
     [SerializeField] private GameObject star;
-    [SerializeField] private CheckPoint endCheckPoint;
+    //[SerializeField] private CheckPoint endCheckPoint;
     private readonly List<GameObject> _population = new List<GameObject>();
     
     private List<Generation> _generations = new List<Generation>();
@@ -86,7 +86,9 @@ public class PopulationManager : MonoBehaviour
         sphere.DrawSphere(_populationSettings.deathSphereStartSize);
         _textFileHandler = new TextFileHandler(_populationSettings.fileName);
         Brain.Dead += CountDead;
-        endCheckPoint.CheckPointReached += AddToCheckpointTally;
+        
+        CheckPoint.CheckPointReached += AddToCheckpointTally;
+        
         (bool exists, string fileText) = _textFileHandler.GetFileText();
         if (exists)
         {
