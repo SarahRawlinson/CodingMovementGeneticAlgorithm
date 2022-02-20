@@ -75,4 +75,9 @@ public class CheckPoint : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = true;
         // _collider.enabled = true;
     }
+
+    private void OnDestroy()
+    {
+        PopulationManager.NewRound -= Reset;
+    }
 }

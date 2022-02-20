@@ -1848,14 +1848,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathClips:
-  - {fileID: 8300000, guid: 77187ed0d0f9066479251c2ed1b761c8, type: 3}
-  - {fileID: 8300000, guid: 04861e396b1073745b9102d3e2ced1c8, type: 3}
-  - {fileID: 8300000, guid: fdf38006f796fa04b8788707f6fdfe23, type: 3}
-  - {fileID: 8300000, guid: 46630e9c23e719c4a8133c086bc11909, type: 3}
-  - {fileID: 8300000, guid: f7f4fa25542fbbf41b0b5842ba354562, type: 3}
-  - {fileID: 8300000, guid: 85b62e2af81ccba4ab414240453950c0, type: 3}
-  - {fileID: 8300000, guid: 745dccefbc8647d4b9e40dbe8ebd8d23, type: 3}
-  - {fileID: 8300000, guid: 87691dd4cca06624d86d25d5b3e86236, type: 3}
+  - {fileID: 8300000, guid: 63f4a8a8a7d9a4a4db77454baab10f54, type: 3}
+  - {fileID: 8300000, guid: 793acc3c68d6b1d4c8df29f211a062b8, type: 3}
+  - {fileID: 8300000, guid: b1190804f95c02b469f1ae4fa6b898be, type: 3}
+  - {fileID: 8300000, guid: 0bcd6760178209f419d2bb768828334b, type: 3}
+  - {fileID: 8300000, guid: 7d64ff29ae2ab914da6a0731f4737026, type: 3}
+  - {fileID: 8300000, guid: 1006572f04f0caa49ac9db219b2c2435, type: 3}
+  - {fileID: 8300000, guid: 89b4294d0b6ed204a9ce481a4a263fab, type: 3}
+  - {fileID: 8300000, guid: e93827322523323459f5a1a7df8c2008, type: 3}
+  - {fileID: 8300000, guid: 0cb8f2f61a1f7f54a8eedaaa6e2a7e16, type: 3}
+  - {fileID: 8300000, guid: 04021976f7ebbc2439173b842817b216, type: 3}
+  - {fileID: 8300000, guid: 0124d635eec8006449c838e0ca753048, type: 3}
+  - {fileID: 8300000, guid: d12bd4d64a36e56429316efd274af5df, type: 3}
+  - {fileID: 8300000, guid: 3ef14feb46332584eab182055acf38fe, type: 3}
+  - {fileID: 8300000, guid: 6d9a0a6dc4ec0e04b804c1c61feb7a3a, type: 3}
+  - {fileID: 8300000, guid: 3ba7edb6afef5114191c76c4cbc57d10, type: 3}
+  - {fileID: 8300000, guid: b9929d6bf941f5d498b9d6c6b1d220a8, type: 3}
+  - {fileID: 8300000, guid: 36c5dc443e26c63428d9d7c446fbe6d7, type: 3}
+  - {fileID: 8300000, guid: d71ba98075b30c44480f85842acaca27, type: 3}
+  - {fileID: 8300000, guid: 6b10edeb07d4bb743937b4bd166243da, type: 3}
+  - {fileID: 8300000, guid: da0e1c79800c0864393e99a84a975a66, type: 3}
+  - {fileID: 8300000, guid: ded870678c7c57240b700865ca72836a, type: 3}
+  - {fileID: 8300000, guid: 39dd5fc97a82fcc42b83c6c295621545, type: 3}
+  - {fileID: 8300000, guid: 5a46bc8857e7c7445a7c66fa71780640, type: 3}
+  - {fileID: 8300000, guid: 98b781fc4a41e35488cfe3b049be4daf, type: 3}
+  - {fileID: 8300000, guid: e00fcc6c6eb099a48ba5aad9989cc64e, type: 3}
   source: {fileID: 3550199257199755503}
 --- !u!82 &3550199257199755503
 AudioSource:
@@ -1869,7 +1886,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

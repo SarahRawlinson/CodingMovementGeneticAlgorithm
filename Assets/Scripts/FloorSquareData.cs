@@ -7,10 +7,35 @@ namespace DefaultNamespace
     {
         public int id;
         public int KillCount;
-        public GameObject  weapon;
+        private GameObject  weapon;
         public int xPos, yPos;
         public Renderer renderer;
+        private GameObject checkPoint;
 
+
+        public void SetCheckPoint(GameObject check)
+        {
+            Debug.Log($"Check Point Set To {check.name}");
+            checkPoint = check;
+        }
+
+        public bool CheckForWeapon()
+        {
+            return weapon != null;
+        }
+        
+        public bool CheckForCheckPoint()
+        {
+            return checkPoint != null;
+        }
+        
+        public void SetWeapon(GameObject weaponObject)
+        {
+            weapon = weaponObject;
+            Debug.Log($"Weapon Set To {weaponObject.name}");
+            renderer.material.color = Color.grey;
+        }
+        
         public void setXPos(int xPos)
         {
             this.xPos = xPos;
@@ -24,6 +49,24 @@ namespace DefaultNamespace
         public void Awake()
         {
             renderer = GetComponent<MeshRenderer>();
+        }
+
+        public void DeleteObjectData()
+        {
+            if (CheckForWeapon())
+            {
+                Debug.Log($"Destroying Weapon");
+                Destroy(weapon);
+                weapon = null;
+            }
+
+            if (CheckForCheckPoint())
+            {
+                Debug.Log($"Destroying Check Point");
+                Destroy(checkPoint);
+                checkPoint = null;
+            }
+            renderer.material.color = Color.magenta;
         }
     }
 }

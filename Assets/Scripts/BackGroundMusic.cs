@@ -38,7 +38,7 @@ public class BackGroundMusic : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-            PlayNextClip();
+            PlayRandomClip();
         }
     }
 
@@ -49,6 +49,12 @@ public class BackGroundMusic : MonoBehaviour
         {
             _currentClip = 0;
         }
+        audioSource.clip = audioClips[_currentClip];
+        audioSource.Play();
+    }
+    private void PlayRandomClip()
+    {
+        _currentClip = Random.Range(0, audioClips.Length);
         audioSource.clip = audioClips[_currentClip];
         audioSource.Play();
     }

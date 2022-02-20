@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DefaultNamespace
 {
@@ -14,22 +15,22 @@ namespace DefaultNamespace
         public GameObject prefab;
 
         public Vector3 gridSize;
-        private List<GameObject> _spawnablePrefabs = new List<GameObject>();
+        // private List<GameObject> _spawnablePrefabs = new List<GameObject>();
         private TextFileHandler _textFileHandler;
         [SerializeField] private string sceneFileName = "Scene1";
         
-        [SerializeField] public List<GameObject> weaponList;
+        [FormerlySerializedAs("weaponList")] [SerializeField] public List<GameObject> spawnableList;
         [SerializeField] private bool showSelection = true;
         
         public List<FloorSquareData> levelTiles = new List<FloorSquareData>();
         public Plane _groundPlane = new Plane(Vector3.up, Vector3.zero);
         private List<LevelData> _levelData = new List<LevelData>();
 
-        private int selectedWeapon = 0;
+        private int selectedOption = 0;
         
         private void Start()
         {
-            _spawnablePrefabs.AddRange(weaponList);
+            // _spawnablePrefabs.AddRange(spawnableList);
             for (int i = 0; i < columns * rows; i++)
             {
                 GameObject go = Instantiate(prefab, new Vector3(x_Space * (i % columns),0,y_Space * (i / columns)), Quaternion.identity);
@@ -51,7 +52,7 @@ namespace DefaultNamespace
                 List<LevelData> levelData = JsonConvert.DeserializeObject<List<LevelData>>(fileText);
                 foreach (LevelData data in levelData)
                 {
-                    selectedWeapon = data.objectIndex;
+                    selectedOption = data.objectIndex;
                     SpawnObject(data.gridListPos);
                     // Instantiate(_spawnablePrefabs[], data.pos, Quaternion.identity);
                 }
@@ -70,12 +71,20 @@ namespace DefaultNamespace
             var pos = GetXZ();
             if (Input.GetMouseButtonDown(0) && pos.x >= 0 && pos.z >= 0)
             {
-                if (selectedWeapon == 4)
+                
+                if (selectedOption == -1)
                 {
-                    //checkpoint
+                    // Delete
+                    int objIndex = GetPositionFromXZ(pos.x, pos.z);
+                    DeleteFloorData(objIndex);
+                }
+                else if (selectedOption == 4)
+                {
+                    // Checkpoint
                     int objIndex = GetPositionFromXZ(GetXZ().x, 0);
                     SpawnCheckPoint(objIndex);
-                }else
+                }
+                else
                 {
                     SpawnFloorWeapon(GetPositionFromXZ(pos.x, pos.z));
                 }
@@ -85,61 +94,89 @@ namespace DefaultNamespace
             {
                 foreach (var tile in levelTiles)
                 {
-                    if (tile.weapon == null)
+                    if (!tile.CheckForWeapon())
                     {
                         if (GetPositionFromXZ(pos.x, pos.z) == tile.id)
                         {
+                            
                             tile.renderer.material.color = Color.green;
                         }
                         else
                         {
-                            tile.renderer.material.color = Color.gray;
+                            tile.renderer.material.color = Color.magenta;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedOption == -1 && GetPositionFromXZ(pos.x, pos.z) == tile.id) tile.renderer.material.color = Color.red;
+                        else
+                        {
+                            tile.renderer.material.color = Color.grey;
                         }
                     }
                 }
                 
-               }
-
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                selectedWeapon = 0;
-            }
-            if (Input.GetKeyDown(KeyCode.F2))
-            {
-                selectedWeapon = 1;
-            }
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                selectedWeapon = 2;
-            }
-            if (Input.GetKeyDown(KeyCode.F4))
-            {
-                selectedWeapon = 3;
             }
             
-            if (Input.GetKeyDown(KeyCode.F5))
+            if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
             {
-                selectedWeapon = 4;
+                selectedOption = -1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                selectedOption = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                selectedOption = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                selectedOption = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                selectedOption = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))
+            {
+                selectedOption = 4;
             }
 
-            
+        }
+
+        private void DeleteFloorData(int objIndex)
+        {
+            Debug.Log($"Delete Data");
+            levelTiles[objIndex].DeleteObjectData();
+            for (int i = 0; i < _levelData.Count; i++)
+            {
+                if (_levelData[i].gridListPos == objIndex)
+                {
+                    Debug.Log("Delete Level Data");
+                    _levelData.Remove(_levelData[i]);
+                }
+            }
         }
 
         private void SpawnCheckPoint(int objIndex)
         {
-            
+            if (levelTiles[objIndex].CheckForCheckPoint()) return;
             Vector3 tmpVector = levelTiles[objIndex].transform.position;
-
             GameObject chkPoint =
-                Instantiate(weaponList[selectedWeapon], new Vector3(tmpVector.x, tmpVector.y + 1, tmpVector.z + (rows / 2) - 1),
+                Instantiate(spawnableList[selectedOption], new Vector3(tmpVector.x, tmpVector.y + 1, tmpVector.z + (rows / 2) - 1),
                     Quaternion.identity);
+            levelTiles[objIndex].SetCheckPoint(chkPoint);
             Debug.Log($"Spawn Check Point {gridSize.ToString()}");
-
             chkPoint.transform.localScale = new Vector3(gridSize.x, gridSize.y, gridSize.z * rows);
-            
+            AddToLevelData(objIndex, tmpVector);
+        }
+
+        private void AddToLevelData(int objIndex, Vector3 tmpVector)
+        {
             LevelData levelData = new LevelData();
             levelData.pos = tmpVector;
-            levelData.objectIndex = selectedWeapon;
+            levelData.objectIndex = selectedOption;
             levelData.gridListPos = objIndex;
             _levelData.Add(levelData);
         }
@@ -180,7 +217,7 @@ namespace DefaultNamespace
 
         void SpawnObject(int index)
         {
-            if (selectedWeapon == 4)
+            if (selectedOption == 4)
             {
                 SpawnCheckPoint(index);
             }
@@ -193,20 +230,15 @@ namespace DefaultNamespace
         public void SpawnFloorWeapon(int element)
         {
             Vector3  selectedTransform = levelTiles[element].transform.position;
-            float f = weaponList[selectedWeapon].transform.localPosition.y;
+            float f = spawnableList[selectedOption].transform.localPosition.y;
             selectedTransform = new Vector3(selectedTransform.x, selectedTransform.y + f, selectedTransform.z);
-            if (levelTiles[element].weapon == null)
+            if (!levelTiles[element].CheckForWeapon())
             {
 
-               levelTiles[element].weapon = Instantiate(weaponList[selectedWeapon],selectedTransform, Quaternion.identity);
-               
-               levelTiles[element].renderer.material.color = Color.magenta;
+               levelTiles[element].SetWeapon(Instantiate(spawnableList[selectedOption],selectedTransform, Quaternion.identity));
+
             }
-            LevelData levelData = new LevelData();
-            levelData.pos = selectedTransform;
-            levelData.objectIndex = selectedWeapon;
-            levelData.gridListPos = element;
-            _levelData.Add(levelData);
+            AddToLevelData(element, selectedTransform);
         }
         
         

@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 802267618, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
+      propertyPath: soundsPlayingAtOnce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 993130589, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -492,7 +496,7 @@ MonoBehaviour:
   prefab: {fileID: 6126083503703808676, guid: be5d55897d1a0a445a261a4d07a5a458, type: 3}
   gridSize: {x: 0, y: 0, z: 0}
   sceneFileName: Scene1
-  weaponList:
+  spawnableList:
   - {fileID: 1453686428764962617, guid: 5c8bcddd43458384f9707e475c3d5b9a, type: 3}
   - {fileID: 2785990389099233878, guid: fbbdbf08eef15fd408e6e54d0818fc99, type: 3}
   - {fileID: 8201832168974162224, guid: 9910733457cf0e6469b9b49950722afa, type: 3}

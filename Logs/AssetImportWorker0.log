@@ -15,11 +15,11 @@ C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58366
+52326
 Successfully changed project path to: C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm
 C:/Users/Sarah Rawlinson/Documents/GitHub/CodingMovementGeneticAlogorithm
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 20.51 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 18.76 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.3f1 (8ff31bc5bf5b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Resources/UnitySubsystems
@@ -35,25 +35,25 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56292
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56176
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001812 seconds.
+Registered in 0.001656 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 21.02 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 18.28 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.895 seconds
+- Completed reload, in  0.862 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001902 seconds.
+Registered in 0.001969 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 FieldOfViewEditor Working
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -70,81 +70,63 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.662 seconds
+- Completed reload, in  0.533 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1185 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 132.4 MB.
+Unloading 1186 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.5 MB.
 System memory in use after: 132.5 MB.
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1631.
-Total: 1.910800 ms (FindLiveObjects: 0.203000 ms CreateObjectMapping: 0.061700 ms MarkObjects: 1.571500 ms  DeleteObjects: 0.073800 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1632.
+Total: 1.425400 ms (FindLiveObjects: 0.102400 ms CreateObjectMapping: 0.030300 ms MarkObjects: 1.222000 ms  DeleteObjects: 0.069900 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scripts/SoundPlayer.cs
-  artifactKey: Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/SoundPlayer.cs using Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8baedc84fc8d212516c411ad241a583') in 0.039589 seconds
-  Import took 0.041613 seconds .
+  path: Assets/Sound FX/V
+  artifactKey: Guid(70780c8a194fdb9489bcbb501445599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/V using Guid(70780c8a194fdb9489bcbb501445599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11c587ac7d013ac1f98da98da0042e22') in 0.003914 seconds
+  Import took 0.005201 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 546.964566 seconds.
-  path: Assets/Scripts/SoundPlayer.cs
-  artifactKey: Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/SoundPlayer.cs using Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '798be40a5e5a0ea7b1b4e8d7426cbf75') in 0.001691 seconds
-  Import took 0.003693 seconds .
+  Time since last request: 483.720928 seconds.
+  path: Assets/Sound FX/Epic_Vocal_Atmospheres
+  artifactKey: Guid(b4423f4170321af428ae1bdd732b422a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Epic_Vocal_Atmospheres using Guid(b4423f4170321af428ae1bdd732b422a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb603de1a00480160d535ac84fc471f1') in 0.002004 seconds
+  Import took 0.003680 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.098128 seconds.
+  path: Assets/Sound FX/Epic_Vocal_Atmospheres/LSCT_Vocal_Atmosphere_25_100BPM_D.wav
+  artifactKey: Guid(63f4a8a8a7d9a4a4db77454baab10f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Epic_Vocal_Atmospheres/LSCT_Vocal_Atmosphere_25_100BPM_D.wav using Guid(63f4a8a8a7d9a4a4db77454baab10f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe840225c503d7d6aa2b0fde1c3f1f9') in 0.077489 seconds
+  Import took 0.079434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.283658 seconds.
+  path: Assets/Sound FX/Epic_Vocal_Atmospheres/LSCT_Vocal_Atmosphere_20_100BPM_E.wav
+  artifactKey: Guid(ded870678c7c57240b700865ca72836a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Epic_Vocal_Atmospheres/LSCT_Vocal_Atmosphere_20_100BPM_E.wav using Guid(ded870678c7c57240b700865ca72836a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6705679003a0a5186f0ea6d5860750cb') in 0.006729 seconds
+  Import took 0.008324 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000935 seconds.
+  path: Assets/Sound FX/Epic_Vocal_Atmospheres/LSCT_Vocal_Atmosphere_20_100BPM_E.wav
+  artifactKey: Guid(ded870678c7c57240b700865ca72836a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Epic_Vocal_Atmospheres/LSCT_Vocal_Atmosphere_20_100BPM_E.wav using Guid(ded870678c7c57240b700865ca72836a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6705679003a0a5186f0ea6d5860750cb') in 0.006165 seconds
+  Import took 0.007453 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002328 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-FieldOfViewEditor Working
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.537 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.3 MB.
-System memory in use after: 131.4 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1633.
-Total: 1.499900 ms (FindLiveObjects: 0.186200 ms CreateObjectMapping: 0.030000 ms MarkObjects: 1.234400 ms  DeleteObjects: 0.048600 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 172.884716 seconds.
-  path: Assets/Scripts/SoundPlayer.cs
-  artifactKey: Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/SoundPlayer.cs using Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a552a37b5c287df68d5560d296d3b273') in 0.003869 seconds
-  Import took 0.006481 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001655 seconds.
+Registered in 0.001625 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
@@ -164,21 +146,293 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.504 seconds
+- Completed reload, in  0.513 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.4 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.6 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1635.
-Total: 1.744000 ms (FindLiveObjects: 0.144500 ms CreateObjectMapping: 0.033100 ms MarkObjects: 1.521400 ms  DeleteObjects: 0.044200 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1643.
+Total: 1.381800 ms (FindLiveObjects: 0.130300 ms CreateObjectMapping: 0.026500 ms MarkObjects: 1.185300 ms  DeleteObjects: 0.038600 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002502 seconds.
+Registered in 0.001524 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.517 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1645.
+Total: 1.478400 ms (FindLiveObjects: 0.111700 ms CreateObjectMapping: 0.028600 ms MarkObjects: 1.296300 ms  DeleteObjects: 0.041100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001560 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.507 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1647.
+Total: 1.371700 ms (FindLiveObjects: 0.136400 ms CreateObjectMapping: 0.028400 ms MarkObjects: 1.164900 ms  DeleteObjects: 0.041000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001574 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.499 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1649.
+Total: 1.371200 ms (FindLiveObjects: 0.123600 ms CreateObjectMapping: 0.027500 ms MarkObjects: 1.175500 ms  DeleteObjects: 0.043800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001686 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.509 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1651.
+Total: 1.462600 ms (FindLiveObjects: 0.125400 ms CreateObjectMapping: 0.026500 ms MarkObjects: 1.268100 ms  DeleteObjects: 0.041900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001710 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.518 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1653.
+Total: 1.496100 ms (FindLiveObjects: 0.139500 ms CreateObjectMapping: 0.027900 ms MarkObjects: 1.277100 ms  DeleteObjects: 0.050700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001600 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.508 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1655.
+Total: 1.479300 ms (FindLiveObjects: 0.131500 ms CreateObjectMapping: 0.026600 ms MarkObjects: 1.279900 ms  DeleteObjects: 0.040600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001512 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.528 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1657.
+Total: 1.614200 ms (FindLiveObjects: 0.186300 ms CreateObjectMapping: 0.051700 ms MarkObjects: 1.318600 ms  DeleteObjects: 0.056700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001573 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.520 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1659.
+Total: 1.600700 ms (FindLiveObjects: 0.280400 ms CreateObjectMapping: 0.045300 ms MarkObjects: 1.217900 ms  DeleteObjects: 0.055600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001687 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
@@ -200,30 +454,22 @@ RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
 - Completed reload, in  0.522 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.6 MB.
+System memory in use after: 134.7 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1637.
-Total: 1.382100 ms (FindLiveObjects: 0.165700 ms CreateObjectMapping: 0.024100 ms MarkObjects: 1.146000 ms  DeleteObjects: 0.045500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 139.861810 seconds.
-  path: Assets/Scripts/SoundPlayer.cs
-  artifactKey: Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/SoundPlayer.cs using Guid(56e7c1a09bfbeae4c969fd664eba7ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79dcb00860ddfff2612bee70b76ca900') in 0.003621 seconds
-  Import took 0.005820 seconds .
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1661.
+Total: 1.541800 ms (FindLiveObjects: 0.226500 ms CreateObjectMapping: 0.031200 ms MarkObjects: 1.232000 ms  DeleteObjects: 0.050900 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001703 seconds.
+Registered in 0.001551 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 FieldOfViewEditor Working
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -240,92 +486,24 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.500 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1639.
-Total: 1.339400 ms (FindLiveObjects: 0.116400 ms CreateObjectMapping: 0.029400 ms MarkObjects: 1.148800 ms  DeleteObjects: 0.043900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001555 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-FieldOfViewEditor Working
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.512 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1641.
-Total: 1.567900 ms (FindLiveObjects: 0.187400 ms CreateObjectMapping: 0.024300 ms MarkObjects: 1.305400 ms  DeleteObjects: 0.049900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001607 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-FieldOfViewEditor Working
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.515 seconds
+- Completed reload, in  0.521 seconds
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.7 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1643.
-Total: 1.559500 ms (FindLiveObjects: 0.159100 ms CreateObjectMapping: 0.038000 ms MarkObjects: 1.314500 ms  DeleteObjects: 0.046900 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1663.
+Total: 1.583600 ms (FindLiveObjects: 0.176900 ms CreateObjectMapping: 0.036800 ms MarkObjects: 1.322300 ms  DeleteObjects: 0.046100 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001586 seconds.
+Registered in 0.001718 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 FieldOfViewEditor Working
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -342,29 +520,21 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.503 seconds
+- Completed reload, in  0.526 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.7 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1645.
-Total: 1.439300 ms (FindLiveObjects: 0.130400 ms CreateObjectMapping: 0.034800 ms MarkObjects: 1.226300 ms  DeleteObjects: 0.046900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 2026.098345 seconds.
-  path: Assets/Sound FX
-  artifactKey: Guid(ff544a01d50595b468b586d837f7bb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound FX using Guid(ff544a01d50595b468b586d837f7bb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c44954085e15326163ff6c429bb2652') in 0.003956 seconds
-  Import took 0.006204 seconds .
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1665.
+Total: 2.519600 ms (FindLiveObjects: 0.161000 ms CreateObjectMapping: 0.047800 ms MarkObjects: 2.238900 ms  DeleteObjects: 0.070700 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001603 seconds.
+Registered in 0.001580 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
@@ -384,89 +554,21 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.499 seconds
+- Completed reload, in  0.497 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1647.
-Total: 1.483100 ms (FindLiveObjects: 0.141800 ms CreateObjectMapping: 0.033600 ms MarkObjects: 1.266100 ms  DeleteObjects: 0.040900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001615 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-FieldOfViewEditor Working
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.7 MB.
 
-(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.499 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1649.
-Total: 1.567600 ms (FindLiveObjects: 0.196300 ms CreateObjectMapping: 0.049500 ms MarkObjects: 1.276900 ms  DeleteObjects: 0.044200 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1667.
+Total: 1.361000 ms (FindLiveObjects: 0.114100 ms CreateObjectMapping: 0.027700 ms MarkObjects: 1.179500 ms  DeleteObjects: 0.038900 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001814 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-FieldOfViewEditor Working
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.505 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1651.
-Total: 1.568000 ms (FindLiveObjects: 0.164400 ms CreateObjectMapping: 0.046300 ms MarkObjects: 1.308000 ms  DeleteObjects: 0.048300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001574 seconds.
+Registered in 0.001816 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
@@ -490,54 +592,20 @@ Mono: successfully reloaded assembly
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.7 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1653.
-Total: 1.525300 ms (FindLiveObjects: 0.162100 ms CreateObjectMapping: 0.027700 ms MarkObjects: 1.290400 ms  DeleteObjects: 0.044100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001602 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-FieldOfViewEditor Working
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
-
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.503 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1655.
-Total: 1.414700 ms (FindLiveObjects: 0.120700 ms CreateObjectMapping: 0.023700 ms MarkObjects: 1.228000 ms  DeleteObjects: 0.041200 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1669.
+Total: 1.456700 ms (FindLiveObjects: 0.128200 ms CreateObjectMapping: 0.028600 ms MarkObjects: 1.255300 ms  DeleteObjects: 0.043800 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001594 seconds.
+Registered in 0.001625 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 FieldOfViewEditor Working
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -558,17 +626,703 @@ Mono: successfully reloaded assembly
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1657.
-Total: 1.564300 ms (FindLiveObjects: 0.148600 ms CreateObjectMapping: 0.038600 ms MarkObjects: 1.322800 ms  DeleteObjects: 0.053000 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1671.
+Total: 1.411100 ms (FindLiveObjects: 0.111900 ms CreateObjectMapping: 0.030100 ms MarkObjects: 1.226500 ms  DeleteObjects: 0.041500 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001618 seconds.
+Registered in 0.001811 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.543 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1673.
+Total: 1.417500 ms (FindLiveObjects: 0.164800 ms CreateObjectMapping: 0.027200 ms MarkObjects: 1.181400 ms  DeleteObjects: 0.043100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001617 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.533 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1675.
+Total: 1.544000 ms (FindLiveObjects: 0.162800 ms CreateObjectMapping: 0.032100 ms MarkObjects: 1.290800 ms  DeleteObjects: 0.057200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001543 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.515 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1677.
+Total: 1.535500 ms (FindLiveObjects: 0.152900 ms CreateObjectMapping: 0.042100 ms MarkObjects: 1.286500 ms  DeleteObjects: 0.053300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001551 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.515 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1679.
+Total: 1.329800 ms (FindLiveObjects: 0.111900 ms CreateObjectMapping: 0.028400 ms MarkObjects: 1.150000 ms  DeleteObjects: 0.038400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001710 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.521 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1681.
+Total: 1.472300 ms (FindLiveObjects: 0.142400 ms CreateObjectMapping: 0.028400 ms MarkObjects: 1.254500 ms  DeleteObjects: 0.046000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001677 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.499 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1683.
+Total: 1.487300 ms (FindLiveObjects: 0.144500 ms CreateObjectMapping: 0.030000 ms MarkObjects: 1.267900 ms  DeleteObjects: 0.043800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001667 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.497 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1685.
+Total: 1.413000 ms (FindLiveObjects: 0.134900 ms CreateObjectMapping: 0.027200 ms MarkObjects: 1.209100 ms  DeleteObjects: 0.040900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001878 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.505 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1687.
+Total: 1.482400 ms (FindLiveObjects: 0.147400 ms CreateObjectMapping: 0.025600 ms MarkObjects: 1.260200 ms  DeleteObjects: 0.048600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002042 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.533 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1689.
+Total: 1.726000 ms (FindLiveObjects: 0.134100 ms CreateObjectMapping: 0.036100 ms MarkObjects: 1.506600 ms  DeleteObjects: 0.047700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001543 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.519 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1691.
+Total: 1.464600 ms (FindLiveObjects: 0.156500 ms CreateObjectMapping: 0.027400 ms MarkObjects: 1.224700 ms  DeleteObjects: 0.055100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002011 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.548 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1693.
+Total: 1.461600 ms (FindLiveObjects: 0.127500 ms CreateObjectMapping: 0.034400 ms MarkObjects: 1.255200 ms  DeleteObjects: 0.043500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001696 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.510 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1695.
+Total: 1.692600 ms (FindLiveObjects: 0.155700 ms CreateObjectMapping: 0.023800 ms MarkObjects: 1.457600 ms  DeleteObjects: 0.054300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001602 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.510 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1697.
+Total: 1.410500 ms (FindLiveObjects: 0.157100 ms CreateObjectMapping: 0.027800 ms MarkObjects: 1.176200 ms  DeleteObjects: 0.048400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001680 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.526 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1699.
+Total: 1.431100 ms (FindLiveObjects: 0.163200 ms CreateObjectMapping: 0.027700 ms MarkObjects: 1.186000 ms  DeleteObjects: 0.053100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001677 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.517 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.7 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1701.
+Total: 1.384500 ms (FindLiveObjects: 0.136700 ms CreateObjectMapping: 0.024700 ms MarkObjects: 1.178100 ms  DeleteObjects: 0.044100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 5875.919217 seconds.
+  path: Assets/Scenes/WalkStraight.unity
+  artifactKey: Guid(d8f9960e8e62a4f9abf0285be00571c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/WalkStraight.unity using Guid(d8f9960e8e62a4f9abf0285be00571c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0410a0ac0072c1e77b92e5eff33a057a') in 0.009449 seconds
+  Import took 0.011772 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001602 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.505 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.8 MB.
+System memory in use after: 134.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1703.
+Total: 1.497800 ms (FindLiveObjects: 0.140600 ms CreateObjectMapping: 0.027300 ms MarkObjects: 1.287600 ms  DeleteObjects: 0.041600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.076574 seconds.
+  path: Assets/Prefab/Music.prefab
+  artifactKey: Guid(c87b8dcbd8d4daa43ba4c771ee5cbffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Music.prefab using Guid(c87b8dcbd8d4daa43ba4c771ee5cbffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '060d9537fb789e5930d62562b2694ed4') in 0.024577 seconds
+  Import took 0.026853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004167 seconds.
+  path: Assets/Prefab/Music.prefab
+  artifactKey: Guid(c87b8dcbd8d4daa43ba4c771ee5cbffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Music.prefab using Guid(c87b8dcbd8d4daa43ba4c771ee5cbffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '060d9537fb789e5930d62562b2694ed4') in 0.004196 seconds
+  Import took 0.006069 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.150232 seconds.
+  path: Assets/Scenes/LevelEditorTest.unity
+  artifactKey: Guid(11768555b45d36041bf95ecdbc9f7cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/LevelEditorTest.unity using Guid(11768555b45d36041bf95ecdbc9f7cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9642b94325c63b75bb3c12f9a48e5d4a') in 0.002088 seconds
+  Import took 0.003573 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000639 seconds.
+  path: Assets/Scenes/LevelEditorTest.unity
+  artifactKey: Guid(11768555b45d36041bf95ecdbc9f7cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/LevelEditorTest.unity using Guid(11768555b45d36041bf95ecdbc9f7cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9642b94325c63b75bb3c12f9a48e5d4a') in 0.001499 seconds
+  Import took 0.002492 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001726 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.500 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.8 MB.
+System memory in use after: 134.9 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1705.
+Total: 1.492300 ms (FindLiveObjects: 0.133700 ms CreateObjectMapping: 0.035800 ms MarkObjects: 1.281300 ms  DeleteObjects: 0.040900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001673 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.518 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.8 MB.
+System memory in use after: 134.9 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1707.
+Total: 1.678000 ms (FindLiveObjects: 0.133900 ms CreateObjectMapping: 0.035300 ms MarkObjects: 1.461700 ms  DeleteObjects: 0.045900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001601 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.526 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.8 MB.
+System memory in use after: 134.9 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1709.
+Total: 1.772800 ms (FindLiveObjects: 0.244200 ms CreateObjectMapping: 0.035100 ms MarkObjects: 1.427400 ms  DeleteObjects: 0.065200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001540 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
@@ -588,24 +1342,56 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.514 seconds
+- Completed reload, in  0.527 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.4 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.8 MB.
+System memory in use after: 134.9 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1659.
-Total: 1.474300 ms (FindLiveObjects: 0.148100 ms CreateObjectMapping: 0.040200 ms MarkObjects: 1.235800 ms  DeleteObjects: 0.049300 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1711.
+Total: 1.668900 ms (FindLiveObjects: 0.300500 ms CreateObjectMapping: 0.044400 ms MarkObjects: 1.278500 ms  DeleteObjects: 0.044600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2765.009546 seconds.
+  path: Assets/Sound FX/Experimental_Drum_Loops
+  artifactKey: Guid(4efa566374558954eb03bd0ddaf83010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Experimental_Drum_Loops using Guid(4efa566374558954eb03bd0ddaf83010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '834bf966d6f0d10aaed73ed328601737') in 0.003816 seconds
+  Import took 0.005758 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001455 seconds.
+  path: Assets/Sound FX/Experimental_Drum_Loops
+  artifactKey: Guid(4efa566374558954eb03bd0ddaf83010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Experimental_Drum_Loops using Guid(4efa566374558954eb03bd0ddaf83010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '834bf966d6f0d10aaed73ed328601737') in 0.001514 seconds
+  Import took 0.002608 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.635903 seconds.
+  path: Assets/Sound FX/Experimental_Drum_Loops/LSCT_Gardarika_Drum_Loop_100BPM.wav
+  artifactKey: Guid(a084d0e450ed27d46a5fa2fecac65d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Experimental_Drum_Loops/LSCT_Gardarika_Drum_Loop_100BPM.wav using Guid(a084d0e450ed27d46a5fa2fecac65d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '234d096e3ab3592ce7efcdf717146392') in 0.035671 seconds
+  Import took 0.037955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.506492 seconds.
+  path: Assets/Sound FX/Experimental_Drum_Loops/LSCT_Aether_Drum_Loop_01_100BPM.wav
+  artifactKey: Guid(08241d9a4199bb641a868be0e9c0e59c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Experimental_Drum_Loops/LSCT_Aether_Drum_Loop_01_100BPM.wav using Guid(08241d9a4199bb641a868be0e9c0e59c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08f2e00cd56125e20444d1d385e2260d') in 0.006192 seconds
+  Import took 0.008052 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001690 seconds.
+Registered in 0.002084 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 FieldOfViewEditor Working
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -622,14 +1408,196 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.502 seconds
+- Completed reload, in  0.557 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1167 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 131.5 MB.
-System memory in use after: 131.5 MB.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 134.9 MB.
+System memory in use after: 134.9 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1661.
-Total: 1.542800 ms (FindLiveObjects: 0.155300 ms CreateObjectMapping: 0.026800 ms MarkObjects: 1.307000 ms  DeleteObjects: 0.053000 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1714.
+Total: 1.526200 ms (FindLiveObjects: 0.144800 ms CreateObjectMapping: 0.023900 ms MarkObjects: 1.311600 ms  DeleteObjects: 0.045200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 151.248093 seconds.
+  path: Assets/Prefab/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '163804c95b8ea1c894566e04be8380ca') in 0.123265 seconds
+  Import took 0.128238 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001560 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.506 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 145.9 MB.
+System memory in use after: 146.0 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1719.
+Total: 1.467900 ms (FindLiveObjects: 0.159900 ms CreateObjectMapping: 0.028300 ms MarkObjects: 1.227800 ms  DeleteObjects: 0.051100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 382.673305 seconds.
+  path: Assets/Prefab/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b2016c3a2677a5bc003e242ce4fcf35') in 0.101622 seconds
+  Import took 0.106819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 72.154119 seconds.
+  path: Assets/Sound FX/Haunting_Music_Loops
+  artifactKey: Guid(eb06a4a750fe5044a9c24b5e2939efa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Haunting_Music_Loops using Guid(eb06a4a750fe5044a9c24b5e2939efa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6c35e19a0b49aa1d962dba22c5abd0c') in 0.001972 seconds
+  Import took 0.003876 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.032339 seconds.
+  path: Assets/Sound FX/Haunting_Music_Loops/LSCT_Paranoia_Music_Loop_05_100BPM_F#.wav
+  artifactKey: Guid(5c3e7f76b273ebf459cc8fd0da37239e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Haunting_Music_Loops/LSCT_Paranoia_Music_Loop_05_100BPM_F#.wav using Guid(5c3e7f76b273ebf459cc8fd0da37239e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1392c0fc49cf25b1d9e514f8b8d010ba') in 0.012490 seconds
+  Import took 0.014403 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002210 seconds.
+  path: Assets/Sound FX/Haunting_Music_Loops/LSCT_Paranoia_Music_Loop_05_100BPM_F#.wav
+  artifactKey: Guid(5c3e7f76b273ebf459cc8fd0da37239e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Haunting_Music_Loops/LSCT_Paranoia_Music_Loop_05_100BPM_F#.wav using Guid(5c3e7f76b273ebf459cc8fd0da37239e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1392c0fc49cf25b1d9e514f8b8d010ba') in 0.010796 seconds
+  Import took 0.012411 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.155698 seconds.
+  path: Assets/Sound FX/Haunting_Music_Loops/LSCT_Fury_Music_Loop_01_100BPM_F#.wav
+  artifactKey: Guid(84d0ddb78d8ac1a4fa82fb051cfd936a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Haunting_Music_Loops/LSCT_Fury_Music_Loop_01_100BPM_F#.wav using Guid(84d0ddb78d8ac1a4fa82fb051cfd936a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7828c0ff4e8264205496686ea3c3630') in 0.008788 seconds
+  Import took 0.010460 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 49.644598 seconds.
+  path: Assets/Prefab/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d98225ee1853d4df725ecb359f10adb') in 0.056587 seconds
+  Import took 0.061823 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008509 seconds.
+  path: Assets/Prefab/Bot.prefab
+  artifactKey: Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Bot.prefab using Guid(7d36b5f5cbe294f368cce70409a75a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d98225ee1853d4df725ecb359f10adb') in 0.055896 seconds
+  Import took 0.060522 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001608 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.493 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 146.0 MB.
+System memory in use after: 146.1 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1722.
+Total: 1.440200 ms (FindLiveObjects: 0.157900 ms CreateObjectMapping: 0.028000 ms MarkObjects: 1.209700 ms  DeleteObjects: 0.043900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001547 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+FieldOfViewEditor Working
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+FieldOfViewEditor:.cctor () (at Assets/Scripts/FieldOfViewEditor.cs:12)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/Scripts/FieldOfViewEditor.cs Line: 12)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.519 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 146.0 MB.
+System memory in use after: 146.1 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1724.
+Total: 1.422500 ms (FindLiveObjects: 0.134700 ms CreateObjectMapping: 0.029200 ms MarkObjects: 1.214100 ms  DeleteObjects: 0.043900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 812.466674 seconds.
+  path: Assets/Sound FX/Female Death 2.wav
+  artifactKey: Guid(85b62e2af81ccba4ab414240453950c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Female Death 2.wav using Guid(85b62e2af81ccba4ab414240453950c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02ef650b8fc72fb175ff7edfee4e8257') in 0.032364 seconds
+  Import took 0.034456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.892319 seconds.
+  path: Assets/Sound FX/Male Death 2.wav
+  artifactKey: Guid(77187ed0d0f9066479251c2ed1b761c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound FX/Male Death 2.wav using Guid(77187ed0d0f9066479251c2ed1b761c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32586302eba7b11b8f9e2fab582d420f') in 0.006169 seconds
+  Import took 0.008212 seconds .
 
