@@ -11,8 +11,9 @@ namespace DefaultNamespace
     public class GridManagerV2 : MonoBehaviour
     {
         private float x_Space =1, y_Space =1;
-        public int columns, rows;
-        public GameObject prefab;
+        [SerializeField] public int columns, rows;
+        [SerializeField] public GameObject prefab;
+        [SerializeField] public GameObject edge;
 
         public Vector3 gridSize;
         // private List<GameObject> _spawnablePrefabs = new List<GameObject>();
@@ -30,7 +31,18 @@ namespace DefaultNamespace
         
         private void Start()
         {
+            // TODO add edge around floor
             // _spawnablePrefabs.AddRange(spawnableList);
+            for (int c = 0; c < columns; c++)
+            {
+                Instantiate(edge, new Vector3(x_Space * (c % columns),0,y_Space * (c / columns)), Quaternion.identity);
+                
+            }
+            for (int r = 0; r < rows; r++)
+            {
+                Instantiate(edge, new Vector3(x_Space * (r / rows),0,y_Space * r), Quaternion.identity); 
+            }
+            
             for (int i = 0; i < columns * rows; i++)
             {
                 GameObject go = Instantiate(prefab, new Vector3(x_Space * (i % columns),0,y_Space * (i / columns)), Quaternion.identity);
