@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
+    
     public class FloorSquareData : MonoBehaviour
     {
         public int zoneId;
