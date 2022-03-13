@@ -125,7 +125,7 @@ public class PopulationManager : MonoBehaviour
             generationStats._lastBestFitnessScore = lastGen.bestFitnessScore;
             generationStats._lastBestPossibleScore = lastGen.bestPossibleScore;
             generationStats._winningDeathPos = lastGen.winningDeathPos;
-            Vector3 starPos = new Vector3(star.transform.position.x, star.transform.position.y, generationStats._winningDeathPos.z);
+            Vector3 starPos = new Vector3(generationStats._winningDeathPos.x, star.transform.position.y, generationStats._winningDeathPos.z);
             star.transform.position = starPos;
             generationStats._lastTimeAlive = lastGen.elapsed;
             generationStats._lastAvgFitnessScore = lastGen.avgFitnessScore;
@@ -389,7 +389,7 @@ public class PopulationManager : MonoBehaviour
         
         List<Brain> sortedList = _brains.OrderBy(o => ((o.Distance))).ToList();
         generationStats._winningDeathPos = sortedList[sortedList.Count - 1].GetDeathLocation();
-        Vector3 starPos = new Vector3(star.transform.position.x, star.transform.position.y, generationStats._winningDeathPos.z);
+        Vector3 starPos = new Vector3(generationStats._winningDeathPos.x, star.transform.position.y, generationStats._winningDeathPos.z);
         generationStats._distance = sortedList[sortedList.Count - 1].Distance;
         // sortedList = _brains.OrderBy(o => ((GetPossibleScore(o)))).ToList();
         // Brain brain = sortedList[sortedList.Count - 1];

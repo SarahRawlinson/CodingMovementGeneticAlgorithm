@@ -17,6 +17,8 @@ TagManager:
   - MovingObjectLeftRight
   - MovingObjectUpDown
   - CheckPoint
+  - Projectile
+  - FirePoint
   layers:
   - Default
   - TransparentFX
@@ -28,8 +30,8 @@ TagManager:
   - Edge
   - CheckPoint
   - Floor
-  - 
-  - 
+  - Weapon
+  - Projectile
   - 
   - 
   - 

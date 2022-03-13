@@ -1708,11 +1708,14 @@ MonoBehaviour:
   - MovingObjectForwardBackwards
   - StaticObject
   - Edge
+  - FirePoint
+  - Projectile
   tagsForDie:
   - MovingObjectUpDown
   - MovingObjectLeftRight
   - MovingObjectForwardBackwards
   - dead
+  - Projectile
   lightBulb: {fileID: 943653958356568316}
   ethanColour: {fileID: 928956270603485909}
   star: {fileID: 3860881314758961019}
@@ -1739,7 +1742,7 @@ MonoBehaviour:
   viewRadius: 4.4
   _layerMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 3767
   viewAngle: 110
   eye: {fileID: 5652480552693861740}
 --- !u!114 &3660552541808096730
@@ -1759,7 +1762,7 @@ MonoBehaviour:
   viewRadius: 3.13
   _layerMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 3767
   viewAngle: 130
   eye: {fileID: 1340671575272264852}
 --- !u!114 &5200664472582696195
@@ -1779,7 +1782,7 @@ MonoBehaviour:
   viewRadius: 2.8
   _layerMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 3767
   viewAngle: 130
   eye: {fileID: 433314930750371852}
 --- !u!114 &4277138847388239846
@@ -1799,7 +1802,7 @@ MonoBehaviour:
   viewRadius: 3.97
   _layerMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 3767
   viewAngle: 138
   eye: {fileID: 767377167768671664}
 --- !u!114 &928956270603485909
@@ -1832,7 +1835,7 @@ MonoBehaviour:
   viewRadius: 4.4
   _layerMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 3255
   viewAngle: 110
   eye: {fileID: 1548095261768584427}
 --- !u!114 &7752153435704701532

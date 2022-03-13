@@ -154,6 +154,11 @@ namespace DefaultNamespace
             {
                 selectedOption = 4;
             }
+            if (Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))
+            {
+                selectedOption = 5;
+            }
+            //TODO add rotation in
 
         }
 

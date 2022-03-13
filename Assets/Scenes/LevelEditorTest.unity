@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Drums
       objectReference: {fileID: 0}
+    - target: {fileID: 4297347186583192032, guid: c87b8dcbd8d4daa43ba4c771ee5cbffc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4297347186583192033, guid: c87b8dcbd8d4daa43ba4c771ee5cbffc, type: 3}
       propertyPath: audioClips.Array.size
       value: 10
@@ -334,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802267618, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: soundsPlayingAtOnce
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 993130589, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -378,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 748782730804375999, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: fileName
-      value: Temp3
+      value: Temp
       objectReference: {fileID: 0}
     - target: {fileID: 748782730804375999, guid: 058daedb39f4fc9469db8c59c130c10e, type: 3}
       propertyPath: populationSize
@@ -536,6 +540,10 @@ PrefabInstance:
     - target: {fileID: 4297347186583192032, guid: c87b8dcbd8d4daa43ba4c771ee5cbffc, type: 3}
       propertyPath: m_Name
       value: Music Loops
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297347186583192032, guid: c87b8dcbd8d4daa43ba4c771ee5cbffc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4297347186583192033, guid: c87b8dcbd8d4daa43ba4c771ee5cbffc, type: 3}
       propertyPath: audioClips.Array.size
@@ -820,6 +828,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6022743561311660018, guid: ec002d29577614243abbbe38551da8be, type: 3}
+      propertyPath: spawnableList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022743561311660018, guid: ec002d29577614243abbbe38551da8be, type: 3}
+      propertyPath: spawnableList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8185111388403671527, guid: 7e4f26a1f2566aa47bffd6620be75bb6, type: 3}
     - target: {fileID: 6022743561311660019, guid: ec002d29577614243abbbe38551da8be, type: 3}
       propertyPath: m_Name
       value: GridTest
