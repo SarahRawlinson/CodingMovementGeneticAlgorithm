@@ -32,6 +32,17 @@ namespace DefaultNamespace
         }
         
         
+        [System.Serializable]
+        public class WallSettings
+        {
+             
+            public Boolean enabled = true;
+            public Boolean drawBackWall = true;
+            public Boolean drawSideWalls = true;
+            public int wallHeight = 5;
+            public int offset =1;
+
+        }
         
         // private List<GameObject> _spawnablePrefabs = new List<GameObject>();
         private TextFileHandler _textFileHandler;
@@ -47,7 +58,7 @@ namespace DefaultNamespace
         private int selectedOption = 0;
 
         [SerializeField] private GridInfo gInfo;
-        
+        [SerializeField] private WallSettings wallSettings;
         private void Start()
         {
 
@@ -59,11 +70,50 @@ namespace DefaultNamespace
             gInfo.singleGridWidth = prefab.transform.localScale.x;
             
             
-            // TODO add edge around floor
+            //add edge around floor
             // _spawnablePrefabs.AddRange(spawnableList);
-            for (int c = 0; c < columns; c++)
+            if (wallSettings.enabled)
             {
-                Instantiate(edge, new Vector3((gridPositionOffset.x) + (c * prefab.transform.localScale.x) ,1,y_Space * (c / columns)), Quaternion.identity);
+                if(wallSettings.drawBackWall){
+                    for (int c = 0; c < columns; c++)
+                    {
+
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3((gridPositionOffset.x) + (c * prefab.transform.localScale.x),
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    y_Space * (c / columns) + gInfo.totalGridLength), Quaternion.identity);
+                        }
+                    }
+
+                }
+
+                if (wallSettings.drawSideWalls)
+                {
+                    for (int c = 0; c < rows; c++)
+                    {
+
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3(
+                                    (gridPositionOffset.x) + gInfo.totalGridWidth,
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    (c / rows) + c), 
+                                    Quaternion.identity);
+                        }
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3(
+                                    (gridPositionOffset.x) - prefab.transform.localScale.x,
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    (c / rows) + c), 
+                                Quaternion.identity);
+                        }
+                    }
+                }
                 
             }
             /*for (int r = 0; r < rows; r++)
