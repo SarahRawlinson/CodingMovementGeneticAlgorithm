@@ -8,6 +8,9 @@ using UnityEngine.Serialization;
 
 namespace DefaultNamespace
 {
+    //Todo: Split out things the manager shouldnt handle. i.e the WallSetting 
+    //Todo: Add multiple area support
+    
     public class GridManagerV2 : MonoBehaviour
     {
         private float x_Space =1, y_Space =1;
@@ -38,6 +41,7 @@ namespace DefaultNamespace
              
             public Boolean enabled = true;
             public Boolean drawBackWall = true;
+            public Boolean drawFrontWall = true;
             public Boolean drawSideWalls = true;
             public int wallHeight = 5;
             public int offset =1;
@@ -72,54 +76,8 @@ namespace DefaultNamespace
             
             //add edge around floor
             // _spawnablePrefabs.AddRange(spawnableList);
-            if (wallSettings.enabled)
-            {
-                if(wallSettings.drawBackWall){
-                    for (int c = 0; c < columns; c++)
-                    {
-
-                        for (int count = 0; count < wallSettings.wallHeight; count++)
-                        {
-                            Instantiate(edge,
-                                new Vector3((gridPositionOffset.x) + (c * prefab.transform.localScale.x),
-                                    wallSettings.offset + (prefab.transform.localScale.y * count),
-                                    y_Space * (c / columns) + gInfo.totalGridLength), Quaternion.identity);
-                        }
-                    }
-
-                }
-
-                if (wallSettings.drawSideWalls)
-                {
-                    for (int c = 0; c < rows; c++)
-                    {
-
-                        for (int count = 0; count < wallSettings.wallHeight; count++)
-                        {
-                            Instantiate(edge,
-                                new Vector3(
-                                    (gridPositionOffset.x) + gInfo.totalGridWidth,
-                                    wallSettings.offset + (prefab.transform.localScale.y * count),
-                                    (c / rows) + c), 
-                                    Quaternion.identity);
-                        }
-                        for (int count = 0; count < wallSettings.wallHeight; count++)
-                        {
-                            Instantiate(edge,
-                                new Vector3(
-                                    (gridPositionOffset.x) - prefab.transform.localScale.x,
-                                    wallSettings.offset + (prefab.transform.localScale.y * count),
-                                    (c / rows) + c), 
-                                Quaternion.identity);
-                        }
-                    }
-                }
-                
-            }
-            /*for (int r = 0; r < rows; r++)
-            {
-                Instantiate(edge, new Vector3(x_Space * (r / rows),0,y_Space * r), Quaternion.identity); 
-            }*/
+            RenderWalls();
+ 
             
             for (int i = 0; i < columns * rows; i++)
             {
@@ -144,11 +102,72 @@ namespace DefaultNamespace
                 {
                     selectedOption = data.objectIndex;
                     SpawnObject(data.gridListPos);
-                    // Instantiate(_spawnablePrefabs[], data.pos, Quaternion.identity);
+                  
                 }
 
             }
             
+        }
+
+        private void RenderWalls()
+        {
+
+            if (wallSettings.enabled)
+            {
+                if (wallSettings.drawBackWall)
+                {
+                    for (int c = 0; c < columns; c++)
+                    {
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3((gridPositionOffset.x) + (c * prefab.transform.localScale.x),
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    gridPositionOffset.z + y_Space * (c / columns) + gInfo.totalGridLength), Quaternion.identity);
+                        }
+                    }
+                }
+
+                if (wallSettings.drawFrontWall)
+                {
+                    for (int c = 0; c < columns; c++)
+                    {
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3((gridPositionOffset.x) + (c * prefab.transform.localScale.x),
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    gridPositionOffset.z + y_Space * (c / columns) - prefab.transform.localScale.z), Quaternion.identity);
+                        }
+                    }
+                }
+
+                if (wallSettings.drawSideWalls)
+                {
+                    for (int c = 0; c < rows; c++)
+                    {
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3(
+                                    (gridPositionOffset.x) + gInfo.totalGridWidth,
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    gridPositionOffset.z + (c / rows) + c),
+                                Quaternion.identity);
+                        }
+
+                        for (int count = 0; count < wallSettings.wallHeight; count++)
+                        {
+                            Instantiate(edge,
+                                new Vector3(
+                                    (gridPositionOffset.x) - prefab.transform.localScale.x,
+                                    wallSettings.offset + (prefab.transform.localScale.y * count),
+                                    gridPositionOffset.z + (c / rows) + c),
+                                Quaternion.identity);
+                        }
+                    }
+                }
+            }
         }
 
         private void OnApplicationQuit()
@@ -209,38 +228,54 @@ namespace DefaultNamespace
                 
             }
             
-            //Todo: Move this into a keyhandle function
-            
+            HandleOptionSelection();
+        }
+
+        public void OnDrawGizmos()
+        {
+
+        }
+
+        private void HandleOptionSelection()
+        {
+
             if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
             {
                 selectedOption = -1;
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
             {
                 selectedOption = 0;
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
             {
                 selectedOption = 1;
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
             {
                 selectedOption = 2;
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
             {
                 selectedOption = 3;
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))
             {
                 selectedOption = 4;
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))
             {
                 selectedOption = 5;
             }
             //TODO add rotation in
-
+            
+            
         }
 
         private void DeleteFloorData(int objIndex)

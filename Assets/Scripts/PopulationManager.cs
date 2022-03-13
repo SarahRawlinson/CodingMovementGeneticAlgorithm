@@ -639,6 +639,7 @@ public class PopulationManager : MonoBehaviour
 
     private void Update()
     {
+        //todo: Pause breading
         generationStats.populationSize = _populationSettings.populationSize;
         generationStats.mutationChance = _populationSettings.mutationChance;
         generationStats.trialTime = _populationSettings.trialTime;

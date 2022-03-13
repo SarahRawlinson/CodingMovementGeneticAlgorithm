@@ -5,6 +5,7 @@ namespace DefaultNamespace
 {
     public class FloorSquareData : MonoBehaviour
     {
+        public int zoneId;
         public int id;
         public int KillCount;
         private GameObject  weapon;
@@ -44,6 +45,11 @@ namespace DefaultNamespace
         public void setYPos(int yPos)
         {
             this.yPos = yPos;
+        }
+        
+        public void setZoneId(int id)
+        {
+            this.zoneId = id;
         }
 
         public void Awake()
