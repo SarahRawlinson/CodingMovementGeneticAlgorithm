@@ -16,6 +16,23 @@ namespace DefaultNamespace
         [SerializeField] public GameObject edge;
 
         public Vector3 gridSize;
+        private Vector3 gridPositionOffset;
+
+        [System.Serializable]
+        public class GridInfo
+        {
+                    [SerializeField] 
+                    public float totalGridWidth;
+                    [SerializeField] 
+                    public float totalGridLength;
+                    [SerializeField] 
+                    public float singleGridWidth;
+                    [SerializeField] 
+                    public float singleGridLength;
+        }
+        
+        
+        
         // private List<GameObject> _spawnablePrefabs = new List<GameObject>();
         private TextFileHandler _textFileHandler;
         [SerializeField] private string sceneFileName = "Scene1";
@@ -28,24 +45,35 @@ namespace DefaultNamespace
         private List<LevelData> _levelData = new List<LevelData>();
 
         private int selectedOption = 0;
+
+        [SerializeField] private GridInfo gInfo;
         
         private void Start()
         {
+
+            gridPositionOffset = transform.position;
+
+            gInfo.totalGridWidth = prefab.transform.localScale.x * columns;
+            gInfo.totalGridLength = prefab.transform.localScale.z * rows;
+            gInfo.singleGridLength = prefab.transform.localScale.z;
+            gInfo.singleGridWidth = prefab.transform.localScale.x;
+            
+            
             // TODO add edge around floor
             // _spawnablePrefabs.AddRange(spawnableList);
             for (int c = 0; c < columns; c++)
             {
-                Instantiate(edge, new Vector3(x_Space * (c % columns),0,y_Space * (c / columns)), Quaternion.identity);
+                Instantiate(edge, new Vector3((gridPositionOffset.x) + (c * prefab.transform.localScale.x) ,1,y_Space * (c / columns)), Quaternion.identity);
                 
             }
-            for (int r = 0; r < rows; r++)
+            /*for (int r = 0; r < rows; r++)
             {
                 Instantiate(edge, new Vector3(x_Space * (r / rows),0,y_Space * r), Quaternion.identity); 
-            }
+            }*/
             
             for (int i = 0; i < columns * rows; i++)
             {
-                GameObject go = Instantiate(prefab, new Vector3(x_Space * (i % columns),0,y_Space * (i / columns)), Quaternion.identity);
+                GameObject go = Instantiate(prefab, new Vector3(x_Space * (i % columns) + gridPositionOffset.x,0 + gridPositionOffset.y,y_Space * (i / columns) + gridPositionOffset.z), Quaternion.identity);
                 go.AddComponent<FloorSquareData>();
                 levelTiles.Add(go.GetComponent<FloorSquareData>());
                 levelTiles.Last().id = i;
@@ -83,22 +111,23 @@ namespace DefaultNamespace
             var pos = GetXZ();
             if (Input.GetMouseButtonDown(0) && pos.x >= 0 && pos.z >= 0)
             {
+                if (pos.x < 0 || pos.z < 0) return;
                 
                 if (selectedOption == -1)
                 {
                     // Delete
-                    int objIndex = GetPositionFromXZ(pos.x, pos.z);
+                    int objIndex = GetIndexFromXZ(pos.x, pos.z);
                     DeleteFloorData(objIndex);
                 }
                 else if (selectedOption == 4)
                 {
                     // Checkpoint
-                    int objIndex = GetPositionFromXZ(GetXZ().x, 0);
+                    int objIndex = GetIndexFromXZ(pos.x, 0);
                     SpawnCheckPoint(objIndex);
                 }
                 else
                 {
-                    SpawnFloorWeapon(GetPositionFromXZ(pos.x, pos.z));
+                    SpawnFloorWeapon(GetIndexFromXZ(pos.x, pos.z));
                 }
             }
 
@@ -108,7 +137,7 @@ namespace DefaultNamespace
                 {
                     if (!tile.CheckForWeapon())
                     {
-                        if (GetPositionFromXZ(pos.x, pos.z) == tile.id)
+                        if (GetIndexFromXZ(pos.x, pos.z) == tile.id)
                         {
                             
                             tile.renderer.material.color = Color.green;
@@ -120,7 +149,7 @@ namespace DefaultNamespace
                     }
                     else
                     {
-                        if (selectedOption == -1 && GetPositionFromXZ(pos.x, pos.z) == tile.id) tile.renderer.material.color = Color.red;
+                        if (selectedOption == -1 && GetIndexFromXZ(pos.x, pos.z) == tile.id) tile.renderer.material.color = Color.red;
                         else
                         {
                             tile.renderer.material.color = Color.grey;
@@ -129,6 +158,8 @@ namespace DefaultNamespace
                 }
                 
             }
+            
+            //Todo: Move this into a keyhandle function
             
             if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
             {
@@ -202,27 +233,46 @@ namespace DefaultNamespace
         {
             int x = 0;
             int z = 0;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            float distance;
-            if (_groundPlane.Raycast(ray, out distance))
-            {
-                Vector3 worldPosition = ray.GetPoint(distance);
-                x = Mathf.RoundToInt(worldPosition.x);
-                z = Mathf.RoundToInt(worldPosition.z);
+            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            // float distance;
+            // if (_groundPlane.Raycast(ray, out distance))
+            // {
+            //     Vector3 worldPosition = ray.GetPoint(distance);
+            //     x = Mathf.RoundToInt(worldPosition.x);
+            //     z = Mathf.RoundToInt(worldPosition.z);
+            //
+            //     if (showSelection)
+            //     {
+            //        Debug.DrawLine(Camera.main.transform.position, worldPosition); 
+            //       // Debug.Log("XPos: " + x + " / " + "ZPos:" + z);
+            //     }
+            //    
+            // }
 
-                if (showSelection)
-                {
-                   Debug.DrawLine(Camera.main.transform.position, worldPosition); 
-                  // Debug.Log("XPos: " + x + " / " + "ZPos:" + z);
+            RaycastHit hit;
+
+            if (Camera.main is { })
+            {
+                Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+                if (Physics.Raycast (ray, out hit, 100)) {
+
+                    if (hit.transform.TryGetComponent(out FloorSquareData data))
+                    {
+                        x = data.xPos;
+                        z = data.yPos;
+                    }
+                
+
                 }
-               
             }
+
+
             if( x >= 0 && z >= 0 && x < columns && z < rows )
                 return (x,z);
             return (-1,-1);
         } 
         
-        private int GetPositionFromXZ(int x, int z)
+        private int GetIndexFromXZ(int x, int z)
         {
             if(x >= 0 && z >= 0)
                 return (z * columns) + (x);
