@@ -55,14 +55,7 @@ namespace DefaultNamespace
                         SpawnObject(data.gridListPos, zone.zoneIndexId, false);
                   
                     } 
-                }
-       
-                
-                
-                
-                
-
-
+                } 
             }
             else
             {
@@ -82,9 +75,6 @@ namespace DefaultNamespace
             
                 zone.RenderWalls(this);
             }
-
-  
-            
         }
 
 
