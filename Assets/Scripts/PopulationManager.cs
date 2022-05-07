@@ -40,6 +40,7 @@ public class PopulationManager : MonoBehaviour
 
 
     private PopulationSettings _populationSettings;
+    [SerializeField] public Boolean showDebugInfo = false;
 
 
     void SetBest(List<Generation> generations)
@@ -312,15 +313,18 @@ public class PopulationManager : MonoBehaviour
             }
             try
             {
-                string printString = "Mutation ";
-                printString += Brain.DNAInfo(tags,
-                    dnaMutate,
-                    dnaDetails.index, dnaDetails.oldValue);
-                printString += " Has now been changed to ";
-                printString += Brain.DNAInfo(tags,
-                    dnaMutate,
-                    dnaDetails.index, dnaDetails.newValue);
-                Debug.Log(printString); 
+                if (showDebugInfo)
+                {
+                    string printString = "Mutation ";
+                    printString += Brain.DNAInfo(tags,
+                        dnaMutate,
+                        dnaDetails.index, dnaDetails.oldValue);
+                    printString += " Has now been changed to ";
+                    printString += Brain.DNAInfo(tags,
+                        dnaMutate,
+                        dnaDetails.index, dnaDetails.newValue);
+                    Debug.Log(printString);
+                }
             }
             catch (Exception e)
             {

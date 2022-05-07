@@ -9,6 +9,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 [RequireComponent(typeof(ThirdPersonCharacter))]
 public class Brain : MonoBehaviour, ITestForTarget
 {
+    #region Variables
+
     public enum DNAType { Priority, Height, MoveForwardOrBackward, MoveRightLeftOrRight, TurnLeftOrRight, Colour }
 
     private enum Options {  CanSeeLeft, CanSeeRight, CanSeeCentre, CantSeeLeft, CantSeeRight, CantSeeCentre, CantSeeItUnsureWhereabouts, CantSeeAnything } 
@@ -42,6 +44,9 @@ public class Brain : MonoBehaviour, ITestForTarget
     
     private Rigidbody rb;
     private Animator _animator;
+
+    #endregion
+   
     
 
     public Vector3 GetDeathLocation()
